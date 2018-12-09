@@ -50,11 +50,11 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>web动画之transition - 灏絯喔</title>
+<title>swift与oc混编你需要知道的事情1 - 灏絯喔</title>
 
-<meta name="keywords" content="IT，技术博客，笔记">
+<meta name="keywords" content="iOS, swift">
 
-<meta name="description " content="好记性不如烂笔头">
+<meta name="description " content="来自2016.5.5的笔记：Swift与OC混编你需要知道的事情，第一篇">
 
 </head>
 <body>
@@ -186,34 +186,26 @@
     <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
             <div class="post-author clearfix">
-                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                <a class="avatar fleft" href="https://www.tangkunyin.com" target="_blank">
                     <img width="48" src="/images/favicon.png" alt="avatar">
                 </a>
                 <p><span class="label">作者</span>
-                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
-                    <span title="最后编辑于2018-12-08">2018-12-08</span>
+                    <a href="https://about.tangkunyin.com" target="_blank">唐先森</a>
+                    <span title="最后编辑于2018-06-03">2018-06-03</span>
                 </p>
-                <p>写写代码，记记笔记</p>
+                <p>一个写代码的「伪文人」</p>
             </div>
-            <h2 class="post-title">Web动画之transition</h2>
+            <h2 class="post-title">Swift与OC混编你需要知道的事情1</h2>
             <div class="post-meta">
-                本文总共506个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共399个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>目前Web动画的两大实现途径：</p>
-<ul>
-<li>CSS3动画。这类动画是当前页面动画的主力军，主要通过 transition 和 animation 两种方式来实现。<ul>
-<li>transition 是为页面元素设置某个需要产生动画效果的属性，如 width、height、opacity、3D旋转等。</li>
-<li>animation 是关键帧动画，可以预先为动画设置多个节点，在每个节点中含有不同的状态属性，通过使用 animation 我们可以得到更为复杂的动画效果</li>
-</ul>
-</li>
-<li>JavaScript动画。这类动画是通过JavaScript来动态的控制并刷新元素的各个属性值，以形成动画效果。</li>
-</ul>
-<blockquote>
-<p>除以上两者外，我们也可以使用SVG 或 canvas等来制作动画。</p>
-</blockquote>
-<p>一般来说，大部分简单的动画都可以使用 transition 实现。JavaScript动画则往往用于更加复杂，或是需要结合各类用户交互操作的动画效果。在运行效率方面，像jQuery这种JavaScript类库的动画效果要低于CSS3动画。而在兼容性方面，CSS3动画的兼容性要差于jQuery等类库动画，前者并不支持IE9之前的浏览器。今天就先了解一下 transition 动画。</p>
+            <h3 id="在Swift中调用OC代码"><a href="#在Swift中调用OC代码" class="headerlink" title="在Swift中调用OC代码"></a>在Swift中调用OC代码</h3><p>如果是纯OC项目，当你创建第一个Swift文件时，Xcode会提示你建立一个$(PROJECT_NAME)-Bridging-Header.h文件，这个文件就是OC与Swift间相互交流的桥梁文件，即：所有需要在Swift中调用的OC代码，OC头文件必须在这个文件里引入，相反如果是纯Swift项目，当你建立第一个OC语法的文件时，他也会提示，照做就可以了，酱紫就完成了Swift中调用OC。</p>
+<p><img src="/img/2018/15280190471314.jpg" alt=""></p>
+<p>如果发现建立了桥接文件而项目无法正常编译时，请检查如上配置</p>
+<h3 id="在OC中调用Swift代码"><a href="#在OC中调用Swift代码" class="headerlink" title="在OC中调用Swift代码"></a>在OC中调用Swift代码</h3><p>由于Swift中没有头文件的概念，所有在OC中，直接引入Swift文件，编译器会不高兴的，结果就是编译无法通过！！！所以你需要在调用Swift的OC代码中，引入一个名叫：$(PROJECT_NAME)-Swift.h，这个文件中定义了该项目中所有Swift的类及其方法，不过他是不可见的</p>
+<p><img src="/img/2018/15280190820933.jpg" alt=""></p>
 
         </div>
         <div class="post-tool">
@@ -223,6 +215,10 @@
         </div>
         
         <div class="post-tags">标签：
+            
+            <a href="/tags/iOS/">iOS</a>
+            
+            <a href="/tags/swift/">swift</a>
             
         </div>
         
@@ -238,8 +234,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/tech-notes/-undefined.html';
-        this.page.identifier = 'tech-notes/-undefined.html';
+        this.page.url = 'https://haohaio.github.io/tech-notes/swift-oc-coding/1528018777.html';
+        this.page.identifier = 'tech-notes/swift-oc-coding/1528018777.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'shuoit', s = d.createElement('script');

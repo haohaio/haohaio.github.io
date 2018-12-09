@@ -50,11 +50,11 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>分类 - 前端 - 灏絯喔</title>
+<title>将hexo博客url优化进行到底 - 灏絯喔</title>
 
 <meta name="keywords" content="IT，技术博客，笔记">
 
-<meta name="description " content="好记性不如烂笔头">
+<meta name="description " content="半个月前，患有强迫症晚期的我又拾起了hexo。这次通过阅读源码，加上了一直想要的时间戳变量。希望你们喜欢！">
 
 </head>
 <body>
@@ -124,25 +124,25 @@
 </div>
             <div class="page-title">
     <ul>
-        <li class="">
-            <a href="/" data-name="最近文章">最近</a>
-        </li>
+        <li><a href="/">最新</a></li>
         
-        <li class="active">
-            <a href="/categories/front-end" data-name="前端">前端</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/tech-notes" data-name="技术">技术</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/humanities" data-name="人文">人文</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/others" data-name="其他">其他</a>
-        </li>
+            
+                <li class="">
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/humanities" data-name="人文">人文</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -183,38 +183,80 @@
     </ul>
 </div>
 <div class="main-inner">
-    
-    
-    
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://haohaio.github.io" target="_self">
-                <strong>haohaio</strong>
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://www.tangkunyin.com" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://about.tangkunyin.com" target="_blank">唐先森</a>
+                    <span title="最后编辑于2018-06-03">2018-06-03</span>
+                </p>
+                <p>一个写代码的「伪文人」</p>
+            </div>
+            <h2 class="post-title">将Hexo博客url优化进行到底</h2>
+            <div class="post-meta">
+                本文总共558个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h2 id="事件源自2017年元旦时的一篇博文"><a href="#事件源自2017年元旦时的一篇博文" class="headerlink" title="事件源自2017年元旦时的一篇博文"></a>事件源自2017年元旦时的一篇博文</h2><p><a href="https://shuoit.net/front-end/hexo-links/1483800845.html">在hexo博客中打造相对完美的URL</a></p>
+<p>那篇文章，我向大家介绍了如何在hexo博客中打造一个相对好看、好用的URL链接。然而遗憾的是，<strong>时间戳</strong>在permalink中没法直接使用。当时说了一个笨办法，就是模板中手动去加时间戳，然后文章生成是再取出来。不知道使用过的朋友有没有喷我…</p>
+<p>时隔一年多，我又准备玩hexo了，理由是被类似<strong>为知笔记</strong>这种东西伤透了心。</p>
+<p>然而也是一年多过去了，官方并没有做这样的支持，那我就不高兴了。在强迫症的驱使下，我读了他的源码，发现加这个时间戳相当简单，所以我义不容辞的提了这个<a href="https://github.com/hexojs/hexo/pull/3162">PR</a>。这是半个月前发生的事情，在我写这篇文章的时候，官方还没有Merge。所以你如果想在<strong>permalink</strong>中使用时间戳。办法就是人肉把<strong>node_module</strong>文件夹下指定的文件做修改。怎么改？改哪个文件？改成啥样？请直接看那个PR。</p>
+<p>如果一切顺利，你现在就能愉快的玩耍了。比如：</p>
+<blockquote>
+<p><a href="https://shuoit.net/front-end/permalink-optimize-hexo/1528003174.html">https://shuoit.net/front-end/permalink-optimize-hexo/1528003174.html</a></p>
+</blockquote>
+<p>当然别忘了配置站点<strong>_config.yml</strong></p>
+<blockquote>
+<p>permalink: :category/:entitle/:timestamp.html</p>
+</blockquote>
+<p>最后，祝读者们儿童节快乐！</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
             </a>
-            <em>·</em>2018-12-08
         </div>
-        <a class="post-title" href="/front-end/-undefined.html" target="_self" title="Web动画之transition">Web动画之transition</a>
-        <div class="post-meta">
-            <a href="/tags" target="_self"><i class="fa fa-tags"></i></a>
+        
+        <div class="post-tags">标签：
             
-                <em>·</em>
-                <a href="https://haohaio.github.io/tags/css/" target="_self">css</a>
+            <a href="/tags/hexo/">hexo</a>
+            
+            <a href="/tags/website/">网站</a>
             
         </div>
-    </div>
-    <div class="post-desc">
-        Web动画之transition
-    </div>
-</article>
-
-
-
+        
+    </article>
     
-</div>
-<!-- 分页开始 -->
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/tech-notes/permalink-optimize-hexo/1528003174.html';
+        this.page.identifier = 'tech-notes/permalink-optimize-hexo/1528003174.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'shuoit', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
 
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
 
         </div><!-- end #main-->
     </div><!-- end #body -->

@@ -201,8 +201,8 @@
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h2 id="整理自："><a href="#整理自：" class="headerlink" title="整理自："></a>整理自：</h2><p>资料：<a href="https://segmentfault.com/a/1190000006742449">https://segmentfault.com/a/1190000006742449</a></p>
-<p><a href="https://www.zhihu.com/question/41312576/answer/90782136">https://www.zhihu.com/question/41312576/answer/90782136</a></p>
+            <h2 id="整理自："><a href="#整理自：" class="headerlink" title="整理自："></a>整理自：</h2><p>资料：<a href="https://segmentfault.com/a/1190000006742449" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006742449</a></p>
+<p><a href="https://www.zhihu.com/question/41312576/answer/90782136" target="_blank" rel="noopener">https://www.zhihu.com/question/41312576/answer/90782136</a></p>
 <h3 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h3><p>Redux is a predictable state container for JavaScript apps.，其中predictable和state container体现了它的作用。那么如何来理解可预测化的呢？这里会有一些函数式编程方面的思想，在Redux中reducer函数是一个纯函数，相同输入一定会是一致的输出，所以确定输入的state那么reducer函数输出的state一定是可以被预测的，因为它只会进行单纯的计算，保证正确的输出。状态容器又是什么？说明Redux有一个专门管理state的地方，就是Store，并且一般情况下是唯一的，应用中所有state形成的一颗状态树就是Store。Redux由Flux演变而来，但受 Elm 的启发，避开了 Flux 的复杂性，我们看看其数据流向：</p>
 <p><img src="/img/2018/15280237110062.jpg" alt=""></p>
 <p>不同于Flux架构，Redux中没有dispatcher这个概念，并且Redux设想你永远不会变动你的数据，你应该在reducer中返回新的对象来作为应用的新状态。但是它们都可以用(state, action) =&gt; newState来表述其核心思想，所以Redux可以被看成是Flux思想的一种实现，但是在细节上会有一些差异。</p>

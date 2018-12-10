@@ -202,7 +202,7 @@
         </div>
         <div class="post-content markdown-body">
             <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>项目中使用到了从字符串创建选择器，编译时发现警告：”performSelector may cause a leak because its selector is unknown”（因为performSelector的选择器未知可能会引起泄漏），为什么在ARC模式下会出现这个警告？</p>
-<p>经过搜索后，在Stackoverflow上发现了一个令人满意的答案。见<a href="http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown。">http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown。</a></p>
+<p>经过搜索后，在Stackoverflow上发现了一个令人满意的答案。见<a href="http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown。" target="_blank" rel="noopener">http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown。</a></p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>在ARC模式下，运行时需要知道如何处理你正在调用的方法的返回值。这个返回值可以是任意值，如void,int,char,NSString,id等等。ARC通过头文件的函数定义来得到这些信息。所以平时我们用到的静态选择器就不会出现这个警告。因为在编译期间，这些信息都已经确定。</p>
 <p>如：</p>
 <figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">[someController <span class="string">performSelector:</span><span class="meta">@selector</span>(someMethod)];</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)someMethod</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//bla bla...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

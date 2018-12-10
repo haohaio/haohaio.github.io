@@ -201,11 +201,11 @@
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h2 id="Flutter篇"><a href="#Flutter篇" class="headerlink" title="Flutter篇"></a>Flutter篇</h2><h3 id="环境安装（macOS）"><a href="#环境安装（macOS）" class="headerlink" title="环境安装（macOS）"></a>环境安装（macOS）</h3><h4 id="参考Flutter中文网的教程：https-flutterchina-club-setup-macos"><a href="#参考Flutter中文网的教程：https-flutterchina-club-setup-macos" class="headerlink" title="参考Flutter中文网的教程：https://flutterchina.club/setup-macos/"></a>参考<code>Flutter</code>中文网的教程：<a href="https://flutterchina.club/setup-macos/">https://flutterchina.club/setup-macos/</a></h4><p>以上流程基本上是一把梭的就装好了，唯一需要注意的是<strong>PUB_HOSTED_URL</strong>和<strong>FLUTTER_STORAGE_BASE_URL</strong>这俩得写进环境变量配置里，如下：</p>
+            <h2 id="Flutter篇"><a href="#Flutter篇" class="headerlink" title="Flutter篇"></a>Flutter篇</h2><h3 id="环境安装（macOS）"><a href="#环境安装（macOS）" class="headerlink" title="环境安装（macOS）"></a>环境安装（macOS）</h3><h4 id="参考Flutter中文网的教程：https-flutterchina-club-setup-macos"><a href="#参考Flutter中文网的教程：https-flutterchina-club-setup-macos" class="headerlink" title="参考Flutter中文网的教程：https://flutterchina.club/setup-macos/"></a>参考<code>Flutter</code>中文网的教程：<a href="https://flutterchina.club/setup-macos/" target="_blank" rel="noopener">https://flutterchina.club/setup-macos/</a></h4><p>以上流程基本上是一把梭的就装好了，唯一需要注意的是<strong>PUB_HOSTED_URL</strong>和<strong>FLUTTER_STORAGE_BASE_URL</strong>这俩得写进环境变量配置里，如下：</p>
 <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1，我直接加到了系统环境变量中，需要加到自己家目录下同理</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2，复制以下配置</span></span><br><span class="line"><span class="comment"># Flutter SDK https://flutterchina.club/setup-macos/</span></span><br><span class="line"><span class="attribute">PUB_HOSTED_URL</span>=https://pub.flutter-io.cn</span><br><span class="line"><span class="attribute">FLUTTER_STORAGE_BASE_URL</span>=https://storage.flutter-io.cn</span><br><span class="line"><span class="attribute">PATH</span>=~/dev-lib/flutter/bin:$PATH</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span> PATH PUB_HOSTED_URL FLUTTER_STORAGE_BASE_URL</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3，使环境变量生效</span></span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 <h4 id="校验其他依赖"><a href="#校验其他依赖" class="headerlink" title="校验其他依赖"></a>校验其他依赖</h4><p>执行：<code>flutter doctor</code>，该命令检查您的环境并在终端窗口中显示报告，所以缺什么，直接复制命名继续安装即可，直到我这样就行了：</p>
 <p><img src="/img/2018/15311311861503.jpg" alt=""></p>
-<h3 id="开始撸代码，首先配置IDE（此处以VS-Code为例）"><a href="#开始撸代码，首先配置IDE（此处以VS-Code为例）" class="headerlink" title="开始撸代码，首先配置IDE（此处以VS Code为例）"></a>开始撸代码，首先配置IDE（此处以VS Code为例）</h3><h4 id="配置方式如下"><a href="#配置方式如下" class="headerlink" title="配置方式如下"></a>配置方式如下</h4><p><a href="https://flutterchina.club/get-started/editor/#vscode">Visual Studio Code (VS Code) Dart安装</a></p>
+<h3 id="开始撸代码，首先配置IDE（此处以VS-Code为例）"><a href="#开始撸代码，首先配置IDE（此处以VS-Code为例）" class="headerlink" title="开始撸代码，首先配置IDE（此处以VS Code为例）"></a>开始撸代码，首先配置IDE（此处以VS Code为例）</h3><h4 id="配置方式如下"><a href="#配置方式如下" class="headerlink" title="配置方式如下"></a>配置方式如下</h4><p><a href="https://flutterchina.club/get-started/editor/#vscode" target="_blank" rel="noopener">Visual Studio Code (VS Code) Dart安装</a></p>
 <h4 id="启动模拟器"><a href="#启动模拟器" class="headerlink" title="启动模拟器"></a>启动模拟器</h4><p><img src="/img/2018/15311314047697.jpg" alt=""></p>
 <p>这里用iOS模拟器演示，执行：<code>flutter emulators --launch apple_ios_simulator</code>。然后模拟器就被正常启动</p>
 <h4 id="打开VS-Code并创建Demo工程，按F5后"><a href="#打开VS-Code并创建Demo工程，按F5后" class="headerlink" title="打开VS Code并创建Demo工程，按F5后"></a>打开VS Code并创建Demo工程，按F5后</h4><p><img src="/img/2018/Simulator%20Screen%20Shot%20-%20iPhone%208%20Plus%20-%202018-07-09%20at%2018.20.54.png" alt="Simulator Screen Shot - iPhone 8 Plus - 2018-07-09 at 18.20.54"></p>
@@ -215,8 +215,8 @@
 <p>前者是一个容器（运行时环境），后者是一个跨容器的渲染引擎。即：Rax可以跑在Weex里，但Weex不能跑在Rax中。<br>两者是相互独立的。Weex可以简单理解为：<code>Vue-Native</code>。拿知乎段友的话概括就是：“看了一下好像是淘宝写 react-web 那几个人弄的，我猜他们是要用 weex 但是又喜欢 react 那套思想，所以整了个类 react 的东西，可以直接在 weex 里面渲染，也就是说可以用类似 react-native 的方式来写 weex 了”</p>
 </blockquote>
 </blockquote>
-<p>具体也可以看看这里：<a href="http://taobaofed.org/blog/2018/02/06/rax-native-guide/">Rax 系列教程（native 扫盲）</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="https://alibaba.github.io/rax/guide/getting-started">Rax快速开始</a></p>
+<p>具体也可以看看这里：<a href="http://taobaofed.org/blog/2018/02/06/rax-native-guide/" target="_blank" rel="noopener">Rax 系列教程（native 扫盲）</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="https://alibaba.github.io/rax/guide/getting-started" target="_blank" rel="noopener">Rax快速开始</a></p>
 <figure class="highlight vala"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 1. 安装命令行</span></span><br><span class="line">npm install -g rax-cli</span><br><span class="line"></span><br><span class="line"><span class="meta"># 2. 初始化项目</span></span><br><span class="line">rax init hello-rax</span><br><span class="line"></span><br><span class="line"><span class="meta"># 3. 启动 </span></span><br><span class="line">npm run start</span><br></pre></td></tr></table></figure>
 <h3 id="跑起来"><a href="#跑起来" class="headerlink" title="跑起来"></a>跑起来</h3><h4 id="Web端"><a href="#Web端" class="headerlink" title="Web端"></a>Web端</h4><p>通过控制台生成的二维码，直接访问</p>
 <h4 id="Native端"><a href="#Native端" class="headerlink" title="Native端"></a>Native端</h4><ol>
@@ -240,7 +240,7 @@
 <li>大腿方：Flutter抱Google，Rax抱Alibaba;</li>
 <li>易用性：Flutter完爆Rax。Rax创建后只有编码环境，运行环境还得再装Weex，而Weex又是一个神奇的东西，对Native不熟的，可能会比较捉急；</li>
 <li>通用性：Flutter目前主要用来做移动端，Web端不行。Rax则通吃，包括Web；</li>
-<li>Weex和RN对比：<a href="https://zhuanlan.zhihu.com/p/21677103">Weex和RN对比</a></li>
+<li>Weex和RN对比：<a href="https://zhuanlan.zhihu.com/p/21677103" target="_blank" rel="noopener">Weex和RN对比</a></li>
 </ol>
 
         </div>

@@ -32,6 +32,7 @@
 //                  别人笑我忒疯癫，我笑自己命太贱；
 //                  不见满街漂亮妹，哪个归得程序员？
 -->
+
 <head><meta name="generator" content="Hexo 3.8.0">
     <!--[if lte IE 9]>
 <meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
@@ -57,8 +58,9 @@
 <meta name="description " content="来自2018.1.19的笔记：npm安装完后的回调处理（scripts的postinstall）">
 
 </head>
+
 <body>
-<div id="nav">
+    <div id="nav">
     <nav class="nav-menu">
         <a class="site-name current" href="/" title="嗨">嗨</a>
         <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
@@ -75,16 +77,15 @@
     </nav>
 </div>
 
-<div class="nav-user">
+    <div class="nav-user">
     <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
     <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
-    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
 </div>
-
-<div id="wrapper" class="clearfix">
-    <div id="body">
-        <div class="main" id="main">
-            <div id="cover">
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
     <div class="cover-img"></div>
     <div class="cover-info">
         
@@ -95,34 +96,10 @@
         <p class="cover-siteDesc">写写代码，记记笔记</p>
         <div class="cover-sns">
             
-            <div class="btn btn-telegram">
-                <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
-                    <i class="fa fa-telegram"></i>
-                </a>
-            </div>
-            
-            <div class="btn btn-instagram">
-                <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
-                    <i class="fa fa-instagram"></i>
-                </a>
-            </div>
-            
-            <div class="btn btn-twitter">
-                <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
-                    <i class="fa fa-twitter"></i>
-                </a>
-            </div>
-            
-            <div class="btn btn-github">
-                <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
-                    <i class="fa fa-github"></i>
-                </a>
-            </div>
-            
         </div>
     </div>
 </div>
-            <div class="page-title">
+                <div class="page-title">
     <ul>
         <li><a href="/">最新</a></li>
         
@@ -251,9 +228,9 @@
 </div>
 <script src="/js/busuanzi.pure.mini.js"></script>
 
-        </div><!-- end #main-->
-    </div><!-- end #body -->
-    <footer class="footer">
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
     <div class="footer-inner">
         <p>
             <a href="/about" title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
@@ -279,19 +256,20 @@
 <script src="/js/InsightSearch.js"></script>
 <script src="/js/SimpleCore.js"></script>
 
-</div>
-<div class="fixed-btn">
-    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
-</div>
-<script>
-    $(function () {
-        SimpleCore.init({
-            buildingTime: '01/20/2018',
-            current: $('.post-tags').length > 0 ? 'post' : 'archive',
-            snsQRCode: '/images/sns-qrcode.png',
-            donateImg: '/images/donate-qr.png',
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '01/20/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
         });
-    });
-</script>
+    </script>
 </body>
+
 </html>

@@ -32,6 +32,7 @@
 //                  别人笑我忒疯癫，我笑自己命太贱；
 //                  不见满街漂亮妹，哪个归得程序员？
 -->
+
 <head><meta name="generator" content="Hexo 3.8.0">
     <!--[if lte IE 9]>
 <meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
@@ -57,8 +58,9 @@
 <meta name="description " content="Web动画之transition简介">
 
 </head>
+
 <body>
-<div id="nav">
+    <div id="nav">
     <nav class="nav-menu">
         <a class="site-name current" href="/" title="嗨">嗨</a>
         <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
@@ -75,16 +77,15 @@
     </nav>
 </div>
 
-<div class="nav-user">
+    <div class="nav-user">
     <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
     <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
-    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
 </div>
-
-<div id="wrapper" class="clearfix">
-    <div id="body">
-        <div class="main" id="main">
-            <div id="cover">
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
     <div class="cover-img"></div>
     <div class="cover-info">
         
@@ -95,34 +96,10 @@
         <p class="cover-siteDesc">写写代码，记记笔记</p>
         <div class="cover-sns">
             
-            <div class="btn btn-telegram">
-                <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
-                    <i class="fa fa-telegram"></i>
-                </a>
-            </div>
-            
-            <div class="btn btn-instagram">
-                <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
-                    <i class="fa fa-instagram"></i>
-                </a>
-            </div>
-            
-            <div class="btn btn-twitter">
-                <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
-                    <i class="fa fa-twitter"></i>
-                </a>
-            </div>
-            
-            <div class="btn btn-github">
-                <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
-                    <i class="fa fa-github"></i>
-                </a>
-            </div>
-            
         </div>
     </div>
 </div>
-            <div class="page-title">
+                <div class="page-title">
     <ul>
         <li><a href="/">最新</a></li>
         
@@ -256,7 +233,7 @@
 <p>附上一个综合版的Demo <a href="https://codepen.io/haohaio/pen/madEJw" target="_blank" rel="noopener">transition demo</a></p>
 <h2 id="让动画更流畅"><a href="#让动画更流畅" class="headerlink" title="让动画更流畅"></a>让动画更流畅</h2><p>以动画形式改变多个属性会增加Web浏览器的负担。一次有太多动画可能导致浏览器假死，甚至是崩溃。尤其是移动设备和平板电脑，因为这些设备的CPU比桌面电脑和笔记本电脑慢很多。</p>
 <p>不过，有4种变化导致浏览器使用太多CPU：opacity，以及transform属性的translate、scale和rotate函数。这四个属性处理起来比其它CSS属性省事，所以它们的动画效果更流畅。</p>
-<p>此外，还可以强制让电脑的GPU (Graphic Processing Unit, 图形处理器) 渲染动画。GPU的运算速度特别快，与电脑的CPU相比，执行特定类型的计算速度快得多。我们可以在样式中添加3D变形属性，以此”骗过“浏览器，让它使用GPU处理样式变化。但是因为GPU的处理能力有限，如果把太多视觉效果交给它处理，可能会拖慢浏览器，导致假死。</p>
+<p>此外，还可以强制让电脑的GPU (Graphic Processing Unit, 图形处理器) 渲染动画。GPU的运算速度特别快，与电脑的CPU相比，执行特定类型的计算速度快得多。我们可以在样式中添加3D变形属性，以此“骗过”浏览器，让它使用GPU处理样式变化。但是因为GPU的处理能力有限，如果把太多视觉效果交给它处理，可能会拖慢浏览器，导致假死。</p>
 
         </div>
         <div class="post-tool">
@@ -279,9 +256,9 @@
 </div>
 <script src="/js/busuanzi.pure.mini.js"></script>
 
-        </div><!-- end #main-->
-    </div><!-- end #body -->
-    <footer class="footer">
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
     <div class="footer-inner">
         <p>
             <a href="/about" title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
@@ -307,19 +284,20 @@
 <script src="/js/InsightSearch.js"></script>
 <script src="/js/SimpleCore.js"></script>
 
-</div>
-<div class="fixed-btn">
-    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
-</div>
-<script>
-    $(function () {
-        SimpleCore.init({
-            buildingTime: '01/20/2018',
-            current: $('.post-tags').length > 0 ? 'post' : 'archive',
-            snsQRCode: '/images/sns-qrcode.png',
-            donateImg: '/images/donate-qr.png',
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '01/20/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
         });
-    });
-</script>
+    </script>
 </body>
+
 </html>

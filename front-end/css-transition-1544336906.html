@@ -127,11 +127,11 @@
         <li><a href="/">最新</a></li>
         
             
-                <li class="">
+                <li class="active">
                     <a href="/categories/front-end" data-name="前端">前端</a>
                 </li>
             
-                <li class="active">
+                <li class="">
                     <a href="/categories/tech-notes" data-name="技术">技术</a>
                 </li>
             
@@ -197,7 +197,7 @@
             </div>
             <h2 class="post-title">Web动画之transition</h2>
             <div class="post-meta">
-                本文总共1308个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1713个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -214,7 +214,8 @@
 <p>除以上两者外，我们也可以使用SVG 或 canvas等来制作动画。</p>
 </blockquote>
 <p>一般来说，大部分简单的动画都可以使用 transition 实现。JavaScript动画则往往用于更加复杂，或是需要结合各类用户交互操作的动画效果。在运行效率方面，像jQuery这种JavaScript类库的动画效果要低于CSS3动画。而在兼容性方面，CSS3动画的兼容性要差于jQuery等类库动画，前者并不支持IE9之前的浏览器。今天就先了解一下 transition 动画。</p>
-<h1 id="Transition"><a href="#Transition" class="headerlink" title="Transition"></a>Transition</h1><blockquote>
+<h1 id="Transition简介"><a href="#Transition简介" class="headerlink" title="Transition简介"></a>Transition简介</h1><p>一种简单的动画，在一定时间内从一组CSS属性变成另一组属性。</p>
+<blockquote>
 <p>IE只有10和以后的版本才支持transition</p>
 </blockquote>
 <p>为了实现过渡效果，要满足以下几个条件：</p>
@@ -256,6 +257,9 @@
 </ul>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 1<span class="selector-tag">s</span>;</span><br><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">background-color</span> 1<span class="selector-tag">s</span>,</span><br><span class="line">            <span class="selector-tag">color</span> <span class="selector-class">.5s</span>,</span><br><span class="line">            <span class="selector-tag">border-color</span> <span class="selector-class">.5s</span> 1<span class="selector-tag">s</span>;</span><br></pre></td></tr></table></figure>
 <p>附上一个综合版的Demo <a href="https://codepen.io/haohaio/pen/madEJw" target="_blank" rel="noopener">transition demo</a></p>
+<h2 id="让动画更流畅"><a href="#让动画更流畅" class="headerlink" title="让动画更流畅"></a>让动画更流畅</h2><p>以动画形式改变多个属性会增加Web浏览器的负担。一次有太多动画可能导致浏览器假死，甚至是崩溃。尤其是移动设备和平板电脑，因为这些设备的CPU比桌面电脑和笔记本电脑慢很多。</p>
+<p>不过，有4种变化导致浏览器使用太多CPU：opacity，以及transform属性的translate、scale和rotate函数。这四个属性处理起来比其它CSS属性省事，所以它们的动画效果更流畅。</p>
+<p>此外，还可以强制让电脑的GPU (Graphic Processing Unit, 图形处理器) 渲染动画。GPU的运算速度特别快，与电脑的CPU相比，执行特定类型的计算速度快得多。我们可以在样式中添加3D变形属性，以此”骗过“浏览器，让它使用GPU处理样式变化。但是因为GPU的处理能力有限，如果把太多视觉效果交给它处理，可能会拖慢浏览器，导致假死。</p>
 
         </div>
         <div class="post-tool">

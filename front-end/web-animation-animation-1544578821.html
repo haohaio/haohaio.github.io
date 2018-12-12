@@ -51,11 +51,11 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>web动画之transition - 灏絯喔</title>
+<title>web动画之animation - 灏絯喔</title>
 
-<meta name="keywords" content="html, css, animation">
+<meta name="keywords" content="IT，技术博客，笔记">
 
-<meta name="description " content="Web动画之transition简介">
+<meta name="description " content="好记性不如烂笔头">
 
 </head>
 
@@ -168,72 +168,17 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://haohaio.github.io" target="_blank">haohaio</a>
-                    <span title="最后编辑于2018-12-09">2018-12-09</span>
+                    <span title="最后编辑于2018-12-12">2018-12-12</span>
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">Web动画之transition</h2>
+            <h2 class="post-title">Web动画之animation</h2>
             <div class="post-meta">
-                本文总共1701个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共184个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>目前Web动画主要有两大实现途径：</p>
-<ul>
-<li>CSS3动画。这类动画是当前页面动画的主力军，主要通过 transition 和 animation 两种方式来实现。<ul>
-<li>transition (过渡) 一种简单的动画，在一定时间内从一组CSS属性变成另一组属性。</li>
-<li>animation 是关键帧动画，可以预先为动画设置多个节点，在每个节点中含有不同的状态属性，通过使用 animation 我们可以得到更为复杂的动画效果。</li>
-</ul>
-</li>
-<li>JavaScript动画。这类动画是通过JavaScript来动态的控制并刷新元素的各个属性值，以形成动画效果。</li>
-</ul>
-<blockquote>
-<p>除以上两者外，我们也可以使用SVG 或 canvas等来制作动画。</p>
-</blockquote>
-<p>一般来说，大部分简单的动画都可以使用 transition 实现。JavaScript动画则往往用于更加复杂，或是需要结合各类用户交互操作的动画效果。在运行效率方面，像jQuery这种JavaScript类库的动画效果要低于CSS3动画。而在兼容性方面，CSS3动画的兼容性要差于jQuery等类库动画，前者并不支持IE9之前的浏览器。今天就先了解一下 transition 动画。</p>
-<h1 id="Transition简介"><a href="#Transition简介" class="headerlink" title="Transition简介"></a>Transition简介</h1><p>一种简单的动画，在一定时间内从一组CSS属性变成另一组属性。</p>
-<blockquote>
-<p>IE只有10和以后的版本才支持transition</p>
-</blockquote>
-<p>为了实现过渡效果，要满足以下几个条件：</p>
-<ul>
-<li>两个样式 (过渡前的样式和过渡后的样式)</li>
-<li>transition属性 (添加到初始样式中)</li>
-<li>触发器 (指促使元素在两个在两个元素之间变化的操作 (e.g. :hover))</li>
-</ul>
-<h2 id="transition-的四个属性"><a href="#transition-的四个属性" class="headerlink" title="transition 的四个属性"></a>transition 的四个属性</h2><ul>
-<li>transition-property (指定需要变化的属性，可用关键字all表示所有属性)</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">transition-property</span>: <span class="selector-tag">color</span>, <span class="selector-tag">background-color</span>;</span><br><span class="line"><span class="selector-tag">transition-property</span>: <span class="selector-tag">all</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>transition-duration (动画持续时间)</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">transition-duration</span>: <span class="selector-class">.5s</span>;</span><br><span class="line"><span class="selector-tag">transition-duration</span>: 500<span class="selector-tag">ms</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>transition-timing-function (过渡的时序，即持续过程的速率)<ul>
-<li>linear (中间快，两头慢)</li>
-<li>ease (开始时慢，中间加速，末尾又降速)<code>default</code></li>
-<li>ease-in (开始时慢，之后快)</li>
-<li>ease-out (开始时快，结束时候慢)</li>
-<li>ease-in-out (两头慢)</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>可通过演示具体比较一下各个速率的区别  <a href="https://codepen.io/haohaio/pen/pqoqYR" target="_blank" rel="noopener">演示地址</a></p>
-</blockquote>
-<ul>
-<li>transition-delay (动画延时时间)</li>
-</ul>
-<h2 id="transition属性的简写形式"><a href="#transition属性的简写形式" class="headerlink" title="transition属性的简写形式"></a>transition属性的简写形式</h2><ul>
-<li>要变化的属性和动画的持续时间是必写的。默认情况下，时序函数是ease，而且没有延迟。</li>
-<li>多个要变化的属性时，可用逗号分开。</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 1<span class="selector-tag">s</span>;</span><br><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">background-color</span> 1<span class="selector-tag">s</span>,</span><br><span class="line">            <span class="selector-tag">color</span> <span class="selector-class">.5s</span>,</span><br><span class="line">            <span class="selector-tag">border-color</span> <span class="selector-class">.5s</span> 1<span class="selector-tag">s</span>;</span><br></pre></td></tr></table></figure>
-<p>附上一个综合版的Demo <a href="https://codepen.io/haohaio/pen/madEJw" target="_blank" rel="noopener">transition demo</a></p>
-<h2 id="让动画更流畅"><a href="#让动画更流畅" class="headerlink" title="让动画更流畅"></a>让动画更流畅</h2><p>以动画形式改变多个属性会增加Web浏览器的负担。一次有太多动画可能导致浏览器假死，甚至是崩溃。尤其是移动设备和平板电脑，因为这些设备的CPU比桌面电脑和笔记本电脑慢很多。</p>
-<p>不过，有4种变化导致浏览器使用太多CPU：opacity，以及transform属性的translate、scale和rotate函数。这四个属性处理起来比其它CSS属性省事，所以它们的动画效果更流畅。</p>
-<p>此外，还可以强制让电脑的GPU (Graphic Processing Unit, 图形处理器) 渲染动画。GPU的运算速度特别快，与电脑的CPU相比，执行特定类型的计算速度快得多。我们可以在样式中添加3D变形属性，以此“骗过”浏览器，让它使用GPU处理样式变化。但是因为GPU的处理能力有限，如果把太多视觉效果交给它处理，可能会拖慢浏览器，导致假死。</p>
+            <p>在 <a href="https://haohaio.github.io/front-end/web-animation-transition-1544336906.html">Web动画之transition</a> 中我们可以了解到 CSS transition 可以把一系列属性从一个状态变到另一个状态。CSS动画还提供了一种创建动画的方式，而且功能更加丰富。CSS animation 能把一系列属性从一个状态变到另一个状态，再变到第三个状态，然后一直这么变下去。此外，还能重播动画，鼠标移到动画上时停止动画，甚至在动画结束时还能倒播动画。</p>
 
         </div>
         <div class="post-tool">
@@ -243,8 +188,6 @@
         </div>
         
         <div class="post-tags">标签：
-            
-            <a href="/tags/css/">css</a>
             
         </div>
         
@@ -260,8 +203,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/front-end/css-transition-1544336906.html';
-        this.page.identifier = 'front-end/css-transition-1544336906.html';
+        this.page.url = 'https://haohaio.github.io/front-end/web-animation-animation-1544578821.html';
+        this.page.identifier = 'front-end/web-animation-animation-1544578821.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

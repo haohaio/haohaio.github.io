@@ -47,16 +47,22 @@
 <meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
 <meta name="author" content="haohaio">
 <link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
 
 <link rel="shortcut icon" href="../images/favicon.png">
 
 
-<title>canvas学习笔记一：初识canvas - 灏絯喔</title>
+<title>
+    
+    canvas学习笔记一：初识canvas -
+    
+    灏絯喔
+    
+</title>
 
 <meta name="keywords" content="IT，技术博客，笔记">
 
 <meta name="description " content="好记性不如烂笔头">
-
 </head>
 
 <body>
@@ -174,7 +180,7 @@
             </div>
             <h2 class="post-title">Canvas学习笔记一：初识Canvas</h2>
             <div class="post-meta">
-                本文总共1681个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2060个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -208,50 +214,52 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/1692994-af21d0a29fe4c2f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="css.png"></p>
 <p>所以一般情况下我们都是通过 width 与 height 属性而非 CSS 来修改 canvas 元素的大小。</p>
 <h2 id="canvas-元素的-API"><a href="#canvas-元素的-API" class="headerlink" title="canvas 元素的 API"></a>canvas 元素的 API</h2><p>canvas 元素只提供了2个属性与3个方法。</p>
+<ul>
+<li>canvas元素的属性</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th>属性</th>
-<th>类型</th>
-<th>默认值</th>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">默认值</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>width</td>
-<td>非负整数</td>
-<td>300</td>
+<td style="text-align:center">width</td>
+<td style="text-align:center">非负整数</td>
+<td style="text-align:center">300</td>
 </tr>
 <tr>
-<td>height</td>
-<td>非负整数</td>
-<td>150</td>
+<td style="text-align:center">height</td>
+<td style="text-align:center">非负整数</td>
+<td style="text-align:center">150</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li>canvas元素的方法</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">链接</th>
-<th style="text-align:center">结果</th>
-<th style="text-align:right">原因</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">文本内容</td>
-<td style="text-align:center"><strong><code>是</code></strong></td>
-<td style="text-align:right">同协议同域名同端口</td>
+<td style="text-align:left">getContext()</td>
+<td style="text-align:left">返回与该 canvas 元素相关的绘图环境对象。</td>
 </tr>
 <tr>
-<td style="text-align:left">文本内容</td>
-<td style="text-align:center"><strong><code>是</code></strong></td>
-<td style="text-align:right">同协议同域名同端口</td>
+<td style="text-align:left">toDataURL(type, encoderOptions)</td>
+<td style="text-align:left">返回一个数据地址（data URL），可将其设定为 img 元素的 src 属性值。第一个参数指定了图像的类型，例如 image/jpeg 或 image/png，默认为 image/png。第二个参数在指定图片格式为 image/jpeg 或 image/webp的情况下, 可设定为 0 ~ 1.0 之间的 double 值，表示 JPEG 图像的显示质量，如果超出取值范围，将会使用默认值 0.92。</td>
 </tr>
 <tr>
-<td style="text-align:left">文本内容</td>
-<td style="text-align:center"><strong><code>是</code></strong></td>
-<td style="text-align:right">同协议同域名同端口</td>
+<td style="text-align:left">toBlob(callback, type, encoderOptions)</td>
+<td style="text-align:left">创建一个用于表示次canvas 元素图像文件的 Blob。第一个参数是一个回调函数，并传入一个 blob 对象作为参数，第二个参数为图像类型，最后一个参数为 JPEG 图像的显示质量</td>
 </tr>
 </tbody>
 </table>

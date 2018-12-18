@@ -203,7 +203,6 @@
 <li>@Resource：JSR-250 提供的注解</li>
 </ul>
 <h2 id="SpringBootConfiguration"><a href="#SpringBootConfiguration" class="headerlink" title="@SpringBootConfiguration"></a>@SpringBootConfiguration</h2><p>这个注解的作用与 <code>@Configuration</code> 作用相同，都是用来声明当前类是一个配置类。可以通过 <code>＠Bean</code> 注解生成 IoC 容器管理的 bean。</p>
-<h2 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h2><p>@EnableAutoConfiguration 是 Spring Boot 实现自动化配置的核心注解，通过这个注解把 Spring 应用所需的 bean 注入容器中。</p>
 <h3 id="Java-配置"><a href="#Java-配置" class="headerlink" title="Java 配置"></a>Java 配置</h3><p>Java 配置是通过 @Configuration 和 @Bean 来实现的</p>
 <ul>
 <li>@Configuration：声明当前类是一个配置类，相当于一个 Spring 配置的 xml 文件</li>
@@ -212,6 +211,7 @@
 <blockquote>
 <p>Java 配置和注解配置的主要原则是：全局配置使用 Java 配置 (如数据库的相关配置、MVC 相关配置)，业务 Bean 的配置使用注解配置 (@Service、@Component、@Repository、@Controller)</p>
 </blockquote>
+<h2 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h2><p>@EnableAutoConfiguration 是 Spring Boot 实现自动化配置的核心注解，通过这个注解把 Spring 应用所需的 bean 注入容器中。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Spring Boot 是通过注解 @EnableAutoConfiguration 的方式，去查找，过滤，加载所需的 configuration，@ComponentScan 扫描我们自定义的 bean，@SpringBootConfiguration 使得被 @SpringBootApplication 注解的类声明为注解类。</p>
 <blockquote>
 <p>@SpringBootApplication = @SpringBootConfiguration + @EnableAutoConfiguration + @ComponentScan</p>

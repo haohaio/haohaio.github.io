@@ -54,7 +54,7 @@
 
 <title>
     
-    canvas学习笔记三：canvas的基本绘制操作 -
+    css颜色值之hsl -
     
     灏絯喔
     
@@ -170,27 +170,34 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://haohaio.github.io" target="_blank">haohaio</a>
-                    <span title="最后编辑于2018-12-17">2018-12-17</span>
+                    <span title="最后编辑于2018-12-20">2018-12-20</span>
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">Canvas学习笔记三：Canvas的基本绘制操作</h2>
+            <h2 class="post-title">CSS颜色值之HSL</h2>
             <div class="post-meta">
-                本文总共549个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共431个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h3 id="矩形的绘制"><a href="#矩形的绘制" class="headerlink" title="矩形的绘制"></a>矩形的绘制</h3><p>Canvas 的绘图环境提供了如下三个方法，用于有关矩形的绘制：</p>
+            <p>CSS3 的 HSL 方法已经被现代浏览器广泛的支持，但在日常开发中还是很少使用，今天我们就来简单了解一下，示例代码如下：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">hsl</span>(360, 50%, 50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>IE8 以及更早的版本不支持使用 HSL 设置颜色值。</p>
+</blockquote>
+<h3 id="RGB-vs-HSL"><a href="#RGB-vs-HSL" class="headerlink" title="RGB vs HSL"></a>RGB vs HSL</h3><p>CSS3 颜色规范中说到，之所以要增加对 HSL 格式的支持，是因为以 RGB 方式来指定颜色，主要有两个缺陷：</p>
 <ul>
-<li>clearRect(double x, double y, double w, double h)：清除矩形</li>
-<li>stokeRect(double x, double y, double w, double h)：描边矩形</li>
-<li>fillRect(double x, double y, double w, double h)：填充矩形</li>
+<li>它是以硬件为导向的。这种表述颜色的形式，是基于“阴极射线管”的；</li>
+<li>它不直观。</li>
 </ul>
-<p>示例：<a href="https://codepen.io/haohaio/pen/EGZKvr" target="_blank" rel="noopener">Canvas Rect</a></p>
-<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>Canvas 默认使用的颜色为不透明的黑色。在绘制矩形的示例中通过 strokeStyle 属性修改的描边的颜色，通过 fillStyle 属性修改了填充的颜色。代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 设置描边颜色</span></span><br><span class="line">context.strokeStyle = <span class="string">'red'</span>;</span><br><span class="line"><span class="comment">// 设置填充颜色</span></span><br><span class="line">context.fillStyle = <span class="string">'rgba(0, 0, 255, .5)'</span>;</span><br></pre></td></tr></table></figure>
-<p>可看到左边矩形的边框遮盖了文本，这是因为边框用的是不透明色。</p>
-<p>strokeStyle 与 fillStyle 的属性值可以是任意有效的 CSS 颜色字符串。可以用 RGB、RGBA、HSL、HSLA 以及十六进制 RGB 标注法来指定，还可以通过 ‘red’、‘yellow’ 这样的颜色名称来指定。</p>
+<h3 id="HSL-的-取值"><a href="#HSL-的-取值" class="headerlink" title="HSL 的 取值"></a>HSL 的 取值</h3><ul>
+<li>H：Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360</li>
+<li>S：Saturation(饱和度)。取值为：0.0% - 100.0%</li>
+<li>L：Lightness(亮度)。取值为：0.0% - 100.0%</li>
+</ul>
+<blockquote>
+<p>HSL颜色当然可以转换为 RGB颜色 或 HEX颜色。</p>
+</blockquote>
 
         </div>
         <div class="post-tool">
@@ -201,7 +208,7 @@
         
         <div class="post-tags">标签：
             
-            <a href="../tags/css/">CSS</a>
+            <a href="../tags/css/">css</a>
             
         </div>
         
@@ -217,8 +224,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/front-end/canvas-basic-drawing-1545040014.html';
-        this.page.identifier = 'front-end/canvas-basic-drawing-1545040014.html';
+        this.page.url = 'https://haohaio.github.io/front-end/css-color-hsl-1545300077.html';
+        this.page.identifier = 'front-end/css-color-hsl-1545300077.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

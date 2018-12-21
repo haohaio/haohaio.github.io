@@ -176,7 +176,7 @@
             </div>
             <h2 class="post-title">Docker 入门</h2>
             <div class="post-meta">
-                本文总共2432个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2420个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -203,7 +203,7 @@
 <p>An image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.</p>
 </blockquote>
 <p>只读模板，包含一个基本的操作系统。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索可用镜像</span></span><br><span class="line">$ docker search tutorial</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载镜像（用户名/镜像名:标签名）默认标签为 lastest</span></span><br><span class="line">$ docker pull learn/tutorial</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用该镜像创建一个容器，执行完成会进入 bash 界面，输入 exit 可退出</span></span><br><span class="line">$ docker run -it learn/tutorials bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有镜像</span></span><br><span class="line">$ docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除镜像（需先删除使用镜像的容器，使用 -f 参数强制删除(不推荐)）</span></span><br><span class="line">$ docker rmi 镜像id</span><br><span class="line">$ docker rmi 镜像名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索可用镜像</span></span><br><span class="line">$ docker search tutorial</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载镜像（用户名/镜像名:标签名）默认标签为 lastest</span></span><br><span class="line">$ docker pull learn/tutorial</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用该镜像创建一个容器，执行完成会进入 bash 界面，输入 exit 可退出</span></span><br><span class="line">$ docker run -it learn/tutorials bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有镜像</span></span><br><span class="line">$ docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除镜像（需先删除使用镜像的容器，使用 -f 参数强制删除(不推荐)）</span></span><br><span class="line">$ docker rmi 镜像名/镜像id</span><br></pre></td></tr></table></figure>
 <h3 id="Docker-container"><a href="#Docker-container" class="headerlink" title="Docker container"></a>Docker container</h3><blockquote>
 <p>A container is a runtime instance of an image.</p>
 </blockquote>

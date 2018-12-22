@@ -54,7 +54,7 @@
 
 <title>
     
-    canvas学习笔记三：canvas的基本绘制操作 -
+    canvas学习笔记三：描边与填充 -
     
     灏絯喔
     
@@ -174,32 +174,40 @@
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">Canvas学习笔记三：Canvas的基本绘制操作</h2>
+            <h2 class="post-title">Canvas学习笔记三：描边与填充</h2>
             <div class="post-meta">
-                本文总共1312个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1564个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h3 id="矩形的绘制"><a href="#矩形的绘制" class="headerlink" title="矩形的绘制"></a>矩形的绘制</h3><p>Canvas 的绘图环境提供了如下三个方法，用于有关矩形的绘制：</p>
+            <p>Canvas 的绘制操作主要分为两种：描边与填充。</p>
+<h3 id="文本的绘制"><a href="#文本的绘制" class="headerlink" title="文本的绘制"></a>文本的绘制</h3><p>anvas 的绘图环境提供了下面两个 API 来直接绘制文本：</p>
 <ul>
-<li>clearRect(double x, double y, double w, double h)：清除矩形</li>
-<li>strokeRect(double x, double y, double w, double h)：描边矩形</li>
-<li>fillRect(double x, double y, double w, double h)：填充矩形</li>
+<li>strokeText(string text, double x, double y)</li>
+<li>fillText(string text, double x, double y)</li>
 </ul>
+<h3 id="矩形的绘制"><a href="#矩形的绘制" class="headerlink" title="矩形的绘制"></a>矩形的绘制</h3><p>Canvas 的绘图环境中仅有两个方法可以用来立即绘制图形 (其它都需要路径)，用于有关矩形的绘制：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">- strokeRect(double x, double y, double width, double height)</span><br><span class="line">- fillRect(double x, double y, double width, double height)</span><br></pre></td></tr></table></figure>
+<p>还有一个与矩形相关的 API，可用来清除矩形区域：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">- clearRect(double x, double y, double width, double height)</span><br></pre></td></tr></table></figure>
 <p>示例：<a href="https://codepen.io/haohaio/pen/EGZKvr" target="_blank" rel="noopener">Canvas Rect</a></p>
-<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>Canvas 默认使用的颜色为不透明的黑色。在绘制矩形的示例中通过 strokeStyle 属性修改的描边的颜色，通过 fillStyle 属性修改了填充的颜色。代码如下：</p>
+<h3 id="描边与填充的样式-strokeStyle-amp-fillStyle"><a href="#描边与填充的样式-strokeStyle-amp-fillStyle" class="headerlink" title="描边与填充的样式 (strokeStyle &amp; fillStyle)"></a>描边与填充的样式 (strokeStyle &amp; fillStyle)</h3><h4 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h4><p>Canvas 默认使用的颜色为不透明的黑色。在绘制矩形的示例中通过 strokeStyle 属性修改的描边的颜色，通过 fillStyle 属性修改了填充的颜色。代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 设置描边颜色</span></span><br><span class="line">context.strokeStyle = <span class="string">'red'</span>;</span><br><span class="line"><span class="comment">// 设置填充颜色</span></span><br><span class="line">context.fillStyle = <span class="string">'rgba(0, 0, 255, .5)'</span>;</span><br></pre></td></tr></table></figure>
 <p>可看到左边矩形的边框遮盖了文本，这是因为边框用的是不透明色。</p>
 <p>strokeStyle 与 fillStyle 的属性值可以是任意有效的 CSS 颜色字符串。可以用 RGB、RGBA、HSL、HSLA 以及十六进制 RGB 标注法来指定，还可以通过 ‘red’、‘yellow’ 这样的颜色名称来指定。</p>
-<h3 id="渐变色和图案"><a href="#渐变色和图案" class="headerlink" title="渐变色和图案"></a>渐变色和图案</h3><h4 id="渐变色"><a href="#渐变色" class="headerlink" title="渐变色"></a>渐变色</h4><p>Canvas 元素支持线性 (linear) 渐变和放射 (radial) 渐变。</p>
-<h5 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h5><p>我们可以通过 context 调用 createLinearGradient(double x1, double y1, double x2, double y2) 方法来创建线性渐变。需要向该方法传入两个点的 x、y 坐标，两点之间的连线就是 canvas 建立颜色渐变效果的依据。可通过该方法创建返回的 LinearGradient 实例调用 addColorStop(double stop, string color) 来向该渐变色添加颜色停止点。然后将该实例指定为 fillStyle 进行绘制。</p>
-<p>示例代码：<a href="https://codepen.io/haohaio/pen/jXyawX" target="_blank" rel="noopener">Linear Gradient</a></p>
-<h5 id="放射渐变"><a href="#放射渐变" class="headerlink" title="放射渐变"></a>放射渐变</h5><p>我们可以通过 context 调用 createRadialGradient(double x1, double y1, double d1,double x2, double y2, double d2) 方法来创建放射渐变需要指定两个圆形 (x、y 指定圆心，d 指定半径)，它们表示某个圆锥的起止部位。该方法会返回一个 RadialGradient 实例。</p>
-<p>示例代码：<a href="https://codepen.io/haohaio/pen/OrpXRx" target="_blank" rel="noopener">Radial Gradient</a></p>
+<h4 id="渐变色"><a href="#渐变色" class="headerlink" title="渐变色"></a>渐变色</h4><p>Canvas 元素支持线性 (linear) 渐变和放射 (radial) 渐变。</p>
+<ul>
+<li><p>线性渐变<br>我们可以通过 context 调用 createLinearGradient(double x1, double y1, double x2, double y2) 方法来创建线性渐变。需要向该方法传入两个点的 x、y 坐标，两点之间的连线就是 canvas 建立颜色渐变效果的依据。可通过该方法创建返回的 LinearGradient 实例调用 addColorStop(double stop, string color) 来向该渐变色添加颜色停止点。然后将该实例指定为 fillStyle 进行绘制。</p>
+<p>示例：<a href="https://codepen.io/haohaio/pen/jXyawX" target="_blank" rel="noopener">Canvas Linear Gradient</a></p>
+</li>
+<li><p>放射渐变<br>我们可以通过 context 调用 createRadialGradient(double x1, double y1, double d1,double x2, double y2, double d2) 方法来创建放射渐变需要指定两个圆形 (x、y 指定圆心，d 指定半径)，它们表示某个圆锥的起止部位。该方法会返回一个 RadialGradient 实例。</p>
+<p>示例：<a href="https://codepen.io/haohaio/pen/OrpXRx" target="_blank" rel="noopener">Canvas Radial Gradient</a></p>
+</li>
+</ul>
 <h4 id="图案"><a href="#图案" class="headerlink" title="图案"></a>图案</h4><p>除了颜色和渐变色，Canvas 元素也允许使用图案来对图形和文本进行描边和填充。这里的图案可以是 image元素、canvas元素 或 video元素。</p>
 <p>可以用 createPattern(pattern, string repetition) 来创建图案。第一个参数指定了图案所用的图像，第二个参数指定如何重复图案：repeat | repeat-x | repeat-y | no-repeat。</p>
-<p>示例代码：<a href="https://codepen.io/haohaio/pen/yGMQPG" target="_blank" rel="noopener">Canvas Pattern</a></p>
-<h4 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h4>
+<p>示例：<a href="https://codepen.io/haohaio/pen/yGMQPG" target="_blank" rel="noopener">Canvas Pattern</a></p>
+
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -262,7 +270,7 @@
         </p>
         
 <!-- Tencent Analytics -->
-<script type="text/javascript" src="//tajs.qq.com/stats?sId=65036274" charset="UTF-8"></script>
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
 
 
     </div>

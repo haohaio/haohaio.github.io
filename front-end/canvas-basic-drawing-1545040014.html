@@ -176,14 +176,14 @@
             </div>
             <h2 class="post-title">Canvas学习笔记三：Canvas的基本绘制操作</h2>
             <div class="post-meta">
-                本文总共1165个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1312个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
             <h3 id="矩形的绘制"><a href="#矩形的绘制" class="headerlink" title="矩形的绘制"></a>矩形的绘制</h3><p>Canvas 的绘图环境提供了如下三个方法，用于有关矩形的绘制：</p>
 <ul>
 <li>clearRect(double x, double y, double w, double h)：清除矩形</li>
-<li>stokeRect(double x, double y, double w, double h)：描边矩形</li>
+<li>strokeRect(double x, double y, double w, double h)：描边矩形</li>
 <li>fillRect(double x, double y, double w, double h)：填充矩形</li>
 </ul>
 <p>示例：<a href="https://codepen.io/haohaio/pen/EGZKvr" target="_blank" rel="noopener">Canvas Rect</a></p>
@@ -197,7 +197,9 @@
 <h5 id="放射渐变"><a href="#放射渐变" class="headerlink" title="放射渐变"></a>放射渐变</h5><p>我们可以通过 context 调用 createRadialGradient(double x1, double y1, double d1,double x2, double y2, double d2) 方法来创建放射渐变需要指定两个圆形 (x、y 指定圆心，d 指定半径)，它们表示某个圆锥的起止部位。该方法会返回一个 RadialGradient 实例。</p>
 <p>示例代码：<a href="https://codepen.io/haohaio/pen/OrpXRx" target="_blank" rel="noopener">Radial Gradient</a></p>
 <h4 id="图案"><a href="#图案" class="headerlink" title="图案"></a>图案</h4><p>除了颜色和渐变色，Canvas 元素也允许使用图案来对图形和文本进行描边和填充。这里的图案可以是 image元素、canvas元素 或 video元素。</p>
-
+<p>可以用 createPattern(pattern, string repetition) 来创建图案。第一个参数指定了图案所用的图像，第二个参数指定如何重复图案：repeat | repeat-x | repeat-y | no-repeat。</p>
+<p>示例代码：<a href="https://codepen.io/haohaio/pen/yGMQPG" target="_blank" rel="noopener">Canvas Pattern</a></p>
+<h4 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h4>
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">

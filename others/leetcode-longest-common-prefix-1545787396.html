@@ -54,15 +54,13 @@
 
 <title>
     
-    [java leetcode]13. roman to integer -
-    
     灏絯喔
     
 </title>
 
 <meta name="keywords" content="IT，技术博客，笔记">
 
-<meta name="description " content="Roman to Integer">
+<meta name="description " content="Longest Common Prefix">
 </head>
 
 <body>
@@ -170,76 +168,29 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://haohaio.github.io" target="_blank">haohaio</a>
-                    <span title="最后编辑于2018-12-24">2018-12-24</span>
+                    <span title="最后编辑于2018-12-26">2018-12-26</span>
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">[Java LeetCode]13. Roman to Integer</h2>
+            <h2 class="post-title"></h2>
             <div class="post-meta">
-                本文总共2148个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1784个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p><a href="https://leetcode.com/problems/roman-to-integer/" target="_blank" rel="noopener">原题链接</a></p>
-<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Symbol</th>
-<th style="text-align:center">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">I</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">V</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">X</td>
-<td style="text-align:center">10</td>
-</tr>
-<tr>
-<td style="text-align:center">L</td>
-<td style="text-align:center">50</td>
-</tr>
-<tr>
-<td style="text-align:center">C</td>
-<td style="text-align:center">100</td>
-</tr>
-<tr>
-<td style="text-align:center">D</td>
-<td style="text-align:center">500</td>
-</tr>
-<tr>
-<td style="text-align:center">M</td>
-<td style="text-align:center">1000</td>
-</tr>
-</tbody>
-</table>
-<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.</p>
-<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
-<ul>
-<li>I can be placed before V (5) and X (10) to make 4 and 9.</li>
-<li>X can be placed before L (50) and C (100) to make 40 and 90.</li>
-<li>C can be placed before D (500) and M (1000) to make 400 and 900.</li>
-</ul>
-<p>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
+            <p><a href="https://leetcode.com/problems/longest-common-prefix/" target="_blank" rel="noopener">原题链接</a></p>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string “”.</p>
 <p>Example 1:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;III&quot;</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">Output: &quot;fl&quot;</span><br></pre></td></tr></table></figure>
 <p>Example 2:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;IV&quot;</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
-<p>Example 3:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;IX&quot;</span><br><span class="line">Output: 9</span><br></pre></td></tr></table></figure>
-<p>Example 4:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;LVIII&quot;</span><br><span class="line">Output: 58</span><br><span class="line">Explanation: L = 50, V = 30 and III = 3.</span><br></pre></td></tr></table></figure>
-<p>Example 5:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;MCMXCIV&quot;</span><br><span class="line">Output: 1994</span><br><span class="line">Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</span><br></pre></td></tr></table></figure>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>可以看到罗马数字的计数机制中，小的数字（限于 Ⅰ、X 和 C）在大的数字的左边，所表示的数等于大数减小数得到的数。其它情况都是数字相加即可。那么我们可以利用 HashMap 来完成罗马数字的 7 个数字符号与整数的映射关系，然后对字符串逆向遍历，处理得到结果。代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        HashMap&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">'I'</span>, <span class="number">1</span>);</span><br><span class="line">        map.put(<span class="string">'V'</span>, <span class="number">5</span>);</span><br><span class="line">        map.put(<span class="string">'X'</span>, <span class="number">10</span>);</span><br><span class="line">        map.put(<span class="string">'L'</span>, <span class="number">50</span>);</span><br><span class="line">        map.put(<span class="string">'C'</span>, <span class="number">100</span>);</span><br><span class="line">        map.put(<span class="string">'D'</span>, <span class="number">500</span>);</span><br><span class="line">        map.put(<span class="string">'M'</span>, <span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span> sum = map.get(s.charAt(len - <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.get(s.charAt(i)) &lt; map.get(s.charAt(i + <span class="number">1</span>))) &#123;</span><br><span class="line">                sum -= map.get(s.charAt(i));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                sum += map.get(s.charAt(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">Output: &quot;&quot;</span><br><span class="line">Explanation: There is no common prefix among the input strings.</span><br></pre></td></tr></table></figure>
+<p>Note:</p>
+<p>All given inputs are in lowercase letters a-z.</p>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>暴力破解。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        String prefix = strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> len = strs.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="comment">// prefix 不是当前项的前缀时</span></span><br><span class="line">            <span class="keyword">while</span> (strs[i].indexOf(prefix) != <span class="number">0</span>) &#123;</span><br><span class="line">                prefix = prefix.substring(<span class="number">0</span>, prefix.length() - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (prefix.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> prefix;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>相对于解法一，使用垂直扫描进行优化。并取字符串数组中最短字符串的长度，以减少嵌套遍历次数。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> minLen = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (String str : strs) &#123;</span><br><span class="line">            minLen = Math.min(minLen, str.length());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; minLen; i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> c = strs[<span class="number">0</span>].charAt(i);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; strs.length; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (strs[j].charAt(i) != c) &#123;</span><br><span class="line">                    <span class="keyword">return</span> strs[<span class="number">0</span>].substring(<span class="number">0</span>, i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>].substring(<span class="number">0</span>, minLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -265,8 +216,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/others/leetcode-roman-to-integer-1545615646.html';
-        this.page.identifier = 'others/leetcode-roman-to-integer-1545615646.html';
+        this.page.url = 'https://haohaio.github.io/others/leetcode-longest-common-prefix-1545787396.html';
+        this.page.identifier = 'others/leetcode-longest-common-prefix-1545787396.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

@@ -46,17 +46,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
 <meta name="author" content="haohaio">
-<link rel="stylesheet" href="../css/SimpleStyle.min.css">
-<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../../css/custom.css">
 
-<link rel="shortcut icon" href="../images/favicon.png">
+<link rel="shortcut icon" href="../../images/favicon.png">
 
 
 <title>
     
-    标签云 -
-    
     灏絯喔
+     -
+    一个人的小角落
     
 </title>
 
@@ -107,8 +107,22 @@
 </div>
                 <div class="page-title">
     <ul>
-        <li><a href="/" data-name="首页" title="Back Home">首页</a></li>
-        <li><a href="/archives" data-name="归档" title="归档">归档</a></li>
+        <li class="active">
+            <a href="/" data-name="最近文章">最近</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/front-end" data-name="前端">前端</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/back-end" data-name="后端">后端</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/others" data-name="其它">其它</a>
+        </li>
+        
         <li class="page-search">
     <form id="search" class="search-form">
         <label for="s" class="sr-only">请输入关键字</label>
@@ -138,7 +152,7 @@
             UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '../content.json',
+        CONTENT_URL: '../../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
@@ -148,32 +162,50 @@
     </ul>
 </div>
 <div class="main-inner">
-    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <h3 class="post-title">总的来说 - 目前共计7类标签</h3>
+    
+    <!-- 首页默认取最最新文章集 -->
+    
+    
+<article class="post">
+    
+    <!-- 有配图默认渲染第一张 -->
+    <div class="post-cover">
+        <a href="../../front-end/web-animation-transition-1544336906.html" target="_blank" title="Web动画之transition" style="background-image:url(/img/2018/css_animation.jpg)"></a>
+    </div>
+    
+    <div class="post-header">
+        <div class="post-meta">
+            <a href="https://haohaio.github.io" target="_blank">
+                <strong>haohaio</strong>
+            </a>
+            <em>·</em>2018-12-09
         </div>
-        <p><img src="/images/tags-bg.jpg" alt="tags-bg"></p> 
-        <div class="post-content markdown-body" itemprop="articleBody">
-            <ul class="tag-list">
-                
-                <li><a href="css/">CSS(7)</a></li>
-                
-                <li><a href="Canvas/">Canvas(1)</a></li>
-                
-                <li><a href="docker/">Docker(1)</a></li>
-                
-                <li><a href="git/">Git(1)</a></li>
-                
-                <li><a href="leetcode/">LeetCode(8)</a></li>
-                
-                <li><a href="spring/">Spring(2)</a></li>
-                
-                <li><a href="mp-wechat/">微信小程序(1)</a></li>
-                
-            </ul>
+        <a class="post-title" href="../../front-end/web-animation-transition-1544336906.html" target="_blank" title="Web动画之transition">Web动画之transition</a>
+        <div class="post-meta">
+            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+            
+                <em>·</em>
+                <a href="https://haohaio.github.io/tags/css/" target="_blank">CSS</a>
+            
         </div>
-    </article>
-</div><!-- end #main-->
+    </div>
+    <div class="post-desc">
+        css transition
+    </div>
+</article>
+
+
+
+    
+    
+</div>
+<!-- 分页开始 -->
+
+<div id="btn-pager">
+    
+    <a class="extend prev" rel="prev" href="../2/">上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span>
+</div>
+
 
             </div><!-- end #main-->
         </div><!-- end #body -->
@@ -201,8 +233,8 @@
 
     </div>
 </footer>
-<script src="../js/InsightSearch.js"></script>
-<script src="../js/SimpleCore.js"></script>
+<script src="../../js/InsightSearch.js"></script>
+<script src="../../js/SimpleCore.js"></script>
     </div>
     <div class="fixed-btn">
         <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>

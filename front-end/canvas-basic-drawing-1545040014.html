@@ -176,12 +176,15 @@
             </div>
             <h2 class="post-title">Canvas学习笔记三：描边与填充</h2>
             <div class="post-meta">
-                本文总共1564个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1742个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
             <p>Canvas 的绘制操作主要分为两种：描边与填充。</p>
-<h3 id="文本的绘制"><a href="#文本的绘制" class="headerlink" title="文本的绘制"></a>文本的绘制</h3><p>anvas 的绘图环境提供了下面两个 API 来直接绘制文本：</p>
+<h3 id="坐标系统"><a href="#坐标系统" class="headerlink" title="坐标系统"></a>坐标系统</h3><p>在进行绘制之前，我们还要先需要了解一下 Canvas 的坐标系统。只有先通过坐标确定了位置，Canvas 绘图环境才知道在哪里进行绘制。</p>
+<p>在默认情况下，坐标系统是以 canvas 的左上角为原点，X 坐标向右方增长，Y 坐标向下方延伸。</p>
+<p>但Canvas 的坐标系统并不是固定的，我们还可以对坐标系统进行平移、旋转、缩放等操作。这里先不做详细介绍</p>
+<h3 id="文本的绘制"><a href="#文本的绘制" class="headerlink" title="文本的绘制"></a>文本的绘制</h3><p>Canvas 的绘图环境提供了下面两个 API 来直接绘制文本：</p>
 <ul>
 <li>strokeText(string text, double x, double y)</li>
 <li>fillText(string text, double x, double y)</li>

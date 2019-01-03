@@ -54,7 +54,7 @@
 
 <title>
     
-    [java leetcode]7. reverse integer -
+    [java leetcode]9. palindrome number -
     
     灏絯喔
     
@@ -62,7 +62,7 @@
 
 <meta name="keywords" content="IT，技术博客，笔记">
 
-<meta name="description " content="Reverse Integer">
+<meta name="description " content="Palindrome Number">
 </head>
 
 <body>
@@ -118,7 +118,7 @@
                     <a href="/categories/back-end" data-name="后端">后端</a>
                 </li>
             
-                <li class="active">
+                <li class="">
                     <a href="/categories/others" data-name="其它">其它</a>
                 </li>
             
@@ -170,37 +170,30 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://haohaio.github.io" target="_blank">haohaio</a>
-                    <span title="最后编辑于2018-12-21">2018-12-21</span>
+                    <span title="最后编辑于2018-12-22">2018-12-22</span>
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">[Java LeetCode]7. Reverse Integer</h2>
+            <h2 class="post-title">[Java LeetCode]9. Palindrome Number</h2>
             <div class="post-meta">
-                本文总共1236个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1450个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
             <p><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="noopener">原题链接</a></p>
-<p>Given a 32-bit signed integer, reverse digits of an integer.</p>
+<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
 <p>Example 1:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 123</span><br><span class="line">Output: 321</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
 <p>Example 2:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: -123</span><br><span class="line">Output: -321</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
 <p>Example 3:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 120</span><br><span class="line">Output: 21</span><br></pre></td></tr></table></figure>
-<p>Note:</p>
-<blockquote>
-<p>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
-</blockquote>
-<h3 id="解法："><a href="#解法：" class="headerlink" title="解法："></a>解法：</h3><ul>
-<li>对数字进行反转的方法如下</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> pop = x % <span class="number">10</span>;</span><br><span class="line">x /= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rev = <span class="number">0</span>;</span><br><span class="line">rev = rev * <span class="number">10</span> + pop;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在32位的机器上，Integer 的取值范围为 [-2^31, 2^31 -1], 即 [-2147483648, 2147483647]。所以最后反转的结果有可能会超出取值范围，需要进行特殊处理。</li>
-</ul>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rev = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> pop = x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Integer.MAX_VALUE = 2147483647</span></span><br><span class="line">            <span class="keyword">if</span> (rev &gt; Integer.MAX_VALUE / <span class="number">10</span> || (rev == Integer.MAX_VALUE / <span class="number">10</span> &amp;&amp; pop &gt; <span class="number">7</span>)) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Integer.MIN_VALUE = -2147483648</span></span><br><span class="line">            <span class="keyword">if</span> (rev &lt; Integer.MIN_VALUE / <span class="number">10</span> || (rev == Integer.MIN_VALUE / <span class="number">10</span> &amp;&amp; pop &lt; -<span class="number">8</span>)) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            rev = rev * <span class="number">10</span> + pop;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+<p>Follow up:</p>
+<p>Coud you solve it without converting the integer to a string?</p>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>题意是判断一个有符号整型数是否是回文，即逆序过来的整数和原整数相同。则负数肯定不是，非 0 的 10 的倍数的数也不是。那就把数字进行反转进行比较就可得出结果。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || (x != <span class="number">0</span> &amp;&amp; x % <span class="number">10</span> == <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> copyX = x;</span><br><span class="line">        <span class="keyword">int</span> revertedNumber = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (copyX != <span class="number">0</span>) &#123;</span><br><span class="line">            revertedNumber = revertedNumber * <span class="number">10</span> + copyX % <span class="number">10</span>;</span><br><span class="line">            copyX /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x == reverse;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><p>但其实我们不需要将数字完全反转进行比对，只需要将数字反转一半进行然后与前面一半的数字进行比对即可。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || (x != <span class="number">0</span> &amp;&amp; x % <span class="number">10</span> == <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> revertedNumber = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertedNumber) &#123;</span><br><span class="line">            revertedNumber = revertedNumber * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x == revertedNumber || x == revertedNumber / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -226,8 +219,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/others/leetcode-reverse-integer-1545404912.html';
-        this.page.identifier = 'others/leetcode-reverse-integer-1545404912.html';
+        this.page.url = 'https://haohaio.github.io/leetcode/leetcode-palindrome-number-1545445186.html';
+        this.page.identifier = 'leetcode/leetcode-palindrome-number-1545445186.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

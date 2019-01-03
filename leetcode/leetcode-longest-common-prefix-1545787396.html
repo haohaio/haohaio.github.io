@@ -54,7 +54,7 @@
 
 <title>
     
-    [java leetcode]20. vaild parentheses -
+    [java leetcode]14. longest common prefix -
     
     灏絯喔
     
@@ -62,7 +62,7 @@
 
 <meta name="keywords" content="IT，技术博客，笔记">
 
-<meta name="description " content="Vaild Parentheses">
+<meta name="description " content="Longest Common Prefix">
 </head>
 
 <body>
@@ -118,7 +118,7 @@
                     <a href="/categories/back-end" data-name="后端">后端</a>
                 </li>
             
-                <li class="active">
+                <li class="">
                     <a href="/categories/others" data-name="其它">其它</a>
                 </li>
             
@@ -174,34 +174,25 @@
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">[Java LeetCode]20. Vaild Parentheses</h2>
+            <h2 class="post-title">[Java LeetCode]14. Longest Common Prefix</h2>
             <div class="post-meta">
-                本文总共2628个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1784个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">原题链接</a></p>
-<p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<ol>
-<li>Open brackets must be closed by the same type of brackets.</li>
-<li>Open brackets must be closed in the correct order.</li>
-</ol>
-<p>Note that an empty string is also considered valid.</p>
+            <p><a href="https://leetcode.com/problems/longest-common-prefix/" target="_blank" rel="noopener">原题链接</a></p>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string “”.</p>
 <p>Example 1:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;()&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">Output: &quot;fl&quot;</span><br></pre></td></tr></table></figure>
 <p>Example 2:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p>Example 3:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;(]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-<p>Example 4:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;([)]&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-<p>Example 5:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;&#123;[]&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>通过观察发现，在合法的情况下，当遇到第一个右括号时，其前面紧邻的一个括号必定是和其匹配的左括号。那么我们可以用栈来解决这个问题，当出现左括号的时候入栈，当遇到右括号时，判断栈顶的左括号是否和其匹配，匹配的话出栈，不匹配的话直接返回 false 即可。最终判断是否空栈即可。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        HashMap&lt;Character, Character&gt; map = <span class="keyword">new</span> HashMap&lt;Character, Character&gt;();</span><br><span class="line">        map.put(<span class="string">')'</span>, <span class="string">'('</span>);</span><br><span class="line">        map.put(<span class="string">']'</span>, <span class="string">'['</span>);</span><br><span class="line">        map.put(<span class="string">'&#125;'</span>, <span class="string">'&#123;'</span>);</span><br><span class="line"></span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;Character&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">          <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (map.containsKey(c)) &#123;</span><br><span class="line">            <span class="keyword">char</span> topElement = stack.empty() ? <span class="string">'#'</span> : stack.pop();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (topElement != map.get(c)) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            stack.push(c);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> stack.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>用数字的 <code>++</code> 和 <code>--</code>模拟栈的操作使其操作更快。有个细节注意下 top = 1;，从而省去了之后判空的操作和 top - 1 导致数组越界的错误。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// HashMap&lt;Character, Character&gt; map = new HashMap&lt;Character, Character&gt;();</span></span><br><span class="line">        <span class="comment">// map.put(')', '(');</span></span><br><span class="line">        <span class="comment">// map.put(']', '[');</span></span><br><span class="line">        <span class="comment">// map.put('&#125;', '&#123;');</span></span><br><span class="line">        <span class="keyword">int</span> top = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">char</span>[] stack = <span class="keyword">new</span> <span class="keyword">char</span>[s.length() + top];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">// if (map.containsKey(c)) &#123;</span></span><br><span class="line">            <span class="comment">//     if (stack[--top] != map.get(c)) &#123;</span></span><br><span class="line">            <span class="comment">//         return false;</span></span><br><span class="line">            <span class="comment">//     &#125;</span></span><br><span class="line">            <span class="comment">// &#125; else &#123;</span></span><br><span class="line">            <span class="comment">//     stack[top++] = c;</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'('</span> || c == <span class="string">'['</span> || c == <span class="string">'&#123;'</span>) &#123;</span><br><span class="line">                stack[top++] = c;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">')'</span> &amp;&amp; stack[--top] != <span class="string">'('</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">']'</span> &amp;&amp; stack[--top] != <span class="string">'['</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'&#125;'</span> &amp;&amp; stack[--top] != <span class="string">'&#123;'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> top == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">Output: &quot;&quot;</span><br><span class="line">Explanation: There is no common prefix among the input strings.</span><br></pre></td></tr></table></figure>
+<p>Note:</p>
+<p>All given inputs are in lowercase letters a-z.</p>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>暴力破解。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        String prefix = strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> len = strs.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="comment">// prefix 不是当前项的前缀时</span></span><br><span class="line">            <span class="keyword">while</span> (strs[i].indexOf(prefix) != <span class="number">0</span>) &#123;</span><br><span class="line">                prefix = prefix.substring(<span class="number">0</span>, prefix.length() - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (prefix.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> prefix;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>相对于解法一，使用垂直扫描进行优化。并取字符串数组中最短字符串的长度，以减少嵌套遍历次数。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> minLen = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (String str : strs) &#123;</span><br><span class="line">            minLen = Math.min(minLen, str.length());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; minLen; i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> c = strs[<span class="number">0</span>].charAt(i);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; strs.length; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (strs[j].charAt(i) != c) &#123;</span><br><span class="line">                    <span class="keyword">return</span> strs[<span class="number">0</span>].substring(<span class="number">0</span>, i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>].substring(<span class="number">0</span>, minLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -227,8 +218,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/others/leetcode-vaild-parentheses-1545834750.html';
-        this.page.identifier = 'others/leetcode-vaild-parentheses-1545834750.html';
+        this.page.url = 'https://haohaio.github.io/leetcode/leetcode-longest-common-prefix-1545787396.html';
+        this.page.identifier = 'leetcode/leetcode-longest-common-prefix-1545787396.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

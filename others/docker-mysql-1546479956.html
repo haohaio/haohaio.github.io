@@ -46,15 +46,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
 <meta name="author" content="haohaio">
-<link rel="stylesheet" href="../../css/SimpleStyle.min.css">
-<link rel="stylesheet" href="../../css/custom.css">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
 
-<link rel="shortcut icon" href="../../images/favicon.png">
+<link rel="shortcut icon" href="../images/favicon.png">
 
 
 <title>
     
-    标签 - docker -
+    使用 docker 搭建 mysql 服务 -
     
     灏絯喔
     
@@ -62,7 +62,7 @@
 
 <meta name="keywords" content="IT，技术博客，笔记">
 
-<meta name="description " content="好记性不如烂笔头">
+<meta name="description " content="使用 Docker 搭建 MySQL 服务">
 </head>
 
 <body>
@@ -107,21 +107,21 @@
 </div>
                 <div class="page-title">
     <ul>
-        <li class="">
-            <a href="/" data-name="最近文章">最近</a>
-        </li>
+        <li><a href="/">最新</a></li>
         
-        <li class="">
-            <a href="/categories/front-end" data-name="前端">前端</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/back-end" data-name="后端">后端</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/others" data-name="其它">其它</a>
-        </li>
+            
+                <li class="">
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class="active">
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -152,7 +152,7 @@
             UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '../../content.json',
+        CONTENT_URL: '../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
@@ -162,75 +162,78 @@
     </ul>
 </div>
 <div class="main-inner">
-    
-    
-    
-<article class="post">
-    
-    <!-- 有配图默认渲染第一张 -->
-    <div class="post-cover">
-        <a href="../../others/docker-mysql-1546479956.html" target="_blank" title="使用 Docker 搭建 MySQL 服务" style="background-image:url(/img/2019/mysql.png)"></a>
-    </div>
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://haohaio.github.io" target="_blank">
-                <strong>haohaio</strong>
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2019-01-03">2019-01-03</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">使用 Docker 搭建 MySQL 服务</h2>
+            <div class="post-meta">
+                本文总共966个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>最近在学习 Spring Boot 的时候，需要搭建一个 mysql 的服务，我们可以通过 docker 非常方便地搭建一个 mysql 服务。只需一个命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认使用 mysql:@latest 镜像，若未安装会自动下载</span></span><br><span class="line">$ docker run --name mysql-dev -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–-name：给新创建的容器命名，此处命名为 mysql-dev</li>
+<li>-e：配置信息，此处配置 mysql 的 root 用户的登陆密码</li>
+<li>-p：端口映射，此处映射主机 3306 端口到容器 mysql-dev 的 3306 端口</li>
+<li>-d：成功启动容器后输出容器的 ID</li>
+</ul>
+<p>mysql 的服务已经搭好了。</p>
+<p>可以通过 docker 连接上 mysql 服务，进行其它一些操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 登录容器</span></span><br><span class="line">$ docker <span class="built_in">exec</span> -it mysql-dev bash</span><br><span class="line"><span class="comment"># 连接 mysql 服务 (-p后面没有空格。第一次连接时会提示在命令行界面上直接使用密码可能不安全)</span></span><br><span class="line">$ mysql -p123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一个数据库 db_example</span></span><br><span class="line">mysql&gt; create database db_example;</span><br><span class="line"><span class="comment"># 创建用户</span></span><br><span class="line">mysql&gt; create user <span class="string">'springuser'</span>@<span class="string">'%'</span> identified by <span class="string">'ThePassword'</span>;</span><br><span class="line"><span class="comment"># 给 springuser 用户 db_example 的所有权限</span></span><br><span class="line">mysql&gt; grant all on db_example.* to <span class="string">'springuser'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><p>发现使用可视化工具 (笔者用的 Navicat) 连接 mysql 服务时，会报 <code>Authentication plugin &#39;caching_sha2_password&#39; cannot be loaded</code> 错误。是因为新版本的 mysql 加密方式改了, 而当前可视化工具还不支持。所以我们先通过修改密码将加密方式改为以前的加密方式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; ALTER USER <span class="string">'root'</span> IDENTIFIED WITH mysql_native_password BY <span class="string">'123456'</span>;</span><br></pre></td></tr></table></figure>
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
             </a>
-            <em>·</em>2019-01-03
         </div>
-        <a class="post-title" href="../../others/docker-mysql-1546479956.html" target="_blank" title="使用 Docker 搭建 MySQL 服务">使用 Docker 搭建 MySQL 服务</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+        
+        <div class="post-tags">标签：
             
-                <em>·</em>
-                <a href="https://haohaio.github.io/tags/docker/" target="_blank">Docker</a>
+            <a href="../tags/docker/">Docker</a>
             
         </div>
-    </div>
-    <div class="post-desc">
-        使用 Docker 搭建 MySQL 服务
-    </div>
-</article>
-
-
-
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
     
     
-<article class="post">
-    
-    <!-- 有配图默认渲染第一张 -->
-    <div class="post-cover">
-        <a href="../../others/docker-introduction-1545227266.html" target="_blank" title="Docker 入门" style="background-image:url(/img/2018/docker.png)"></a>
-    </div>
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://haohaio.github.io" target="_blank">
-                <strong>haohaio</strong>
-            </a>
-            <em>·</em>2018-12-19
-        </div>
-        <a class="post-title" href="../../others/docker-introduction-1545227266.html" target="_blank" title="Docker 入门">Docker 入门</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-                <em>·</em>
-                <a href="https://haohaio.github.io/tags/docker/" target="_blank">Docker</a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        Docker 的一些基本概念及常用命令
-    </div>
-</article>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/others/docker-mysql-1546479956.html';
+        this.page.identifier = 'others/docker-mysql-1546479956.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
 
-
-
-    
 </div>
-<!-- 分页开始 -->
-
+<script src="../js/busuanzi.pure.mini.js"></script>
 
             </div><!-- end #main-->
         </div><!-- end #body -->
@@ -258,8 +261,8 @@
 
     </div>
 </footer>
-<script src="../../js/InsightSearch.js"></script>
-<script src="../../js/SimpleCore.js"></script>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
     </div>
     <div class="fixed-btn">
         <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>

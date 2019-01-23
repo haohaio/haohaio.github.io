@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">Spring Boot 注解之@SpringBootApplication</h2>
             <div class="post-meta">
-                本文总共1486个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1403个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -202,17 +202,10 @@
 <li><code>@Import({AutoConfigurationImportSelector.class})</code> 的作用是就导入自动配置类，即从 classpath 中搜索所有 <code>META-INF/spring.factories</code> 配置文件，然后将其中 <code>org.springframework.boot.autoconfigure.EnableAutoConfiguration</code> key 对应的配置项加载到 spring 容器中。</li>
 </ul>
 <h2 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h2><p>被 <code>@ComponentScan</code> 标注的类，会被 spring 容器进行管理。</p>
-<p>Spring 里有四大注解：<code>@Component</code>、<code>@Controller</code>、<code>@Service</code> 和 <code>@Repository</code>。</p>
-<p><code>@ComponentScan</code> 注解就是用来自动扫描被这些注解标识的类，最终生成 IoC 容器里的 Bean。</p>
 <blockquote>
-<p>四个注解是等效的，可根据需要选用</p>
+<p>四个注解是等效的，可根据需要选用<br>Spring 里有四大注解：<code>@Component</code>、<code>@Controller</code>、<code>@Service</code> 和 <code>@Repository</code>。</p>
 </blockquote>
-<ul>
-<li>@Component：组件，没有明确的角色</li>
-<li>@Controller：在展现层使用</li>
-<li>@Service：在业务逻辑层使用</li>
-<li>@Repository：在数据访问层使用</li>
-</ul>
+<p><code>@ComponentScan</code> 注解就是用来自动扫描被这些注解标识的类，最终生成 IoC 容器里的 Bean。</p>
 
         </div>
         <div class="post-tool">

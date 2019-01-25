@@ -186,7 +186,7 @@
         <div class="post-content markdown-body">
             <p>我们经常可以在 Spring Boot 的引导类中见到如下代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面我们就来了解一下 <code>@SpringBootApplication</code> 这个注解。我们进入该注解的源码后就会发现，其内部主要是由 <code>@ComponentScan</code>、 <code>@SpringBootConfiguration</code>、 <code>@EnableAutoConfiguration</code> 这三个注解组合。接下来我们就来了解一下这三个注解</p>
+<p>下面我们就来了解一下 <code>@SpringBootApplication</code> 这个注解。我们进入该注解的源码后就会发现，其内部主要是由 <code>@ComponentScan</code>、 <code>@SpringBootConfiguration</code>、 <code>@EnableAutoConfiguration</code> 这三个注解组成。接下来我们就来了解一下这三个注解</p>
 <h2 id="SpringBootConfiguration"><a href="#SpringBootConfiguration" class="headerlink" title="@SpringBootConfiguration"></a>@SpringBootConfiguration</h2><p>查看源码发现 <code>@SpringBootConfiguration</code> 被 <code>@Configuration</code> 标注，声明当前类是一个配置类，等价于配置文件。再查看 <code>@Configuration</code> 源码发现，<code>@Configuration</code> 由 <code>@Component</code> 标注，表示将当前类添加到 spring 容器中，表示是一个组件。</p>
 <h3 id="Java-配置"><a href="#Java-配置" class="headerlink" title="Java 配置"></a>Java 配置</h3><p>Java 配置是通过 <code>@Configuration</code> 和 <code>@Bean</code> 来实现的</p>
 <ul>
@@ -230,8 +230,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/back-end/-1544879554.html';
-        this.page.identifier = 'back-end/-1544879554.html';
+        this.page.url = 'https://haohaio.github.io/back-end/spring-boot-logging-1544879554.html';
+        this.page.identifier = 'back-end/spring-boot-logging-1544879554.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

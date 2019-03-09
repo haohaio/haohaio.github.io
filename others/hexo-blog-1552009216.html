@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">使用 Hexo 搭建属于你自己的博客</h2>
             <div class="post-meta">
-                本文总共2036个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2035个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -197,9 +197,11 @@
 <blockquote>
 <p>建议将自己的博客用 Git 管理起来哦~~</p>
 </blockquote>
-<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 会在本地启动一个 http server，用来访问我们的个人博客</span></span><br><span class="line">$ hexo server (hexo s)</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 会在本地启动一个 http server，用来访问我们的个人博客</span></span><br><span class="line">$ hexo server (hexo s)</span><br></pre></td></tr></table></figure>
 <p>启动服务后即可在 <a href="localhost:4000" target="_blank" rel="noopener">本地</a> 访问自己刚刚搭建的博客。</p>
-<h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo new [layout] &lt;title&gt; 创建一篇新文章，layout 默认为 post（scaffolds/post）</span></span><br><span class="line">$ hexo n 我的第一篇博客</span><br></pre></td></tr></table></figure>
+<h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo new [layout] &lt;title&gt; 创建一篇新文章，layout 默认为 post（scaffolds/post）</span></span><br><span class="line">$ hexo n 我的第一篇博客</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>推荐一份 <a href="http://note.youdao.com/iyoudao/?p=2411&amp;vendor=unsilent14" target="_blank" rel="noopener">Markdown 语法指南</a></p>
 </blockquote>
@@ -211,13 +213,13 @@
 <li>首先我们要创建一个 GitHub 帐号，用户名一定要想好了再创建，因为用户名会关系到我们个人博客的域名哦~~</li>
 <li>然后创建一个名称为 <code>username.github.io</code> 的项目，然后点击项目的配置，就会发现，我们的Pages服务已经OK了,如下图所示</li>
 </ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/1692994-c6a7449764b9930a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="project.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1692994-becfe3d0fb14ade8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pages.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692994-aa18483b1638de5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="project.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692994-77ac0154b8739377.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pages.png"></p>
 <ul>
 <li>接下来只需要部署我们的代码就可以了</li>
 </ul>
 <p>配置 <code>_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/yuanfang008/yuanfang008.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/haohaio/haohaio.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装依赖以通过 Git 进行部署，然后生成静态文件进行部署</span></span><br><span class="line">$ npm install hexo-deployer-git --save &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -226,18 +228,12 @@
 <p>然后访问一下 <code>username.github.io</code> 就能看到自己搭建的博客啦~~</p>
 <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>但现在我们搭建的博客看上去还不是那么的好看，功能也很少，我们可以通过更换主题来改变一下我们博客的面貌。Hexo 提供了一份<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题列表</a>, 或者可以去 GitHub 上搜索 <code>hexo theme</code> 来选择一个喜欢的主题进行更换。</p>
 <p>那我们就以 GitHub 上 Star 最多的 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a> 为例来更换我们的主题。</p>
-<ol>
-<li>执行命令</li>
-</ol>
+<p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建主题文件夹</span></span><br><span class="line">$ mkdir themes/next</span><br><span class="line"><span class="comment"># 获取主题资源文件</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>配置 <code>_config.yml</code></li>
-</ol>
+<p>配置 <code>_config.yml</code></p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>执行命令，重新部署</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重新部署</span></span><br><span class="line">$ hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <p>刷新页面后就可以看到我们已经成功的更换主题了，具体还可以根据 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">详细介绍</a> 来让我们的博客更加美观、强大。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>坚持！坚持！坚持！一定要把写博客的习惯坚持下去~~</p>
 

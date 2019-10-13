@@ -119,7 +119,7 @@
                 </li>
             
                 <li class="active">
-                    <a href="/categories/leetcode" data-name="LeetCode">LeetCode</a>
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
                 </li>
             
                 <li class="">
@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">[Java LeetCode]27. Remove Element</h2>
             <div class="post-meta">
-                本文总共1753个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1754个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -198,6 +198,7 @@
 <p>Internally you can think of this:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// nums is passed in by reference. (i.e., without making a copy)</span><br><span class="line">int len = removeElement(nums, val);</span><br><span class="line"></span><br><span class="line">// any modification to nums in your function would be known by the caller.</span><br><span class="line">// using the length returned by your function, it prints the first len elements.</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> newLength = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] != val) &#123;</span><br><span class="line">                nums[newLength] = nums[i];</span><br><span class="line">                newLength++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newLength;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -223,8 +224,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/leetcode/leetcode-remove-element-1546528983.html';
-        this.page.identifier = 'leetcode/leetcode-remove-element-1546528983.html';
+        this.page.url = 'https://haohaio.github.io/data-structure/leetcode-remove-element-1546528983.html';
+        this.page.identifier = 'data-structure/leetcode-remove-element-1546528983.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

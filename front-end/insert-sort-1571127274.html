@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">排序之直接插入排序</h2>
             <div class="post-meta">
-                本文总共2057个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2128个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -198,6 +198,7 @@
 <li>当 i = 4 时，temp = arr[4] = 2，然后遍历 arr[4] 之前的元素，即 {3, 4, 5, 6}，发现所有元素都比 temp 大，则将所有元素都向后移，遍历结束后，j = -1，arr[-1 + 1] = temp = 2。此时序列为 {2，3, 4, 5, 6}，排序完成。</li>
 </ul>
 <h2 id="直接插入排序复杂度分析"><a href="#直接插入排序复杂度分析" class="headerlink" title="直接插入排序复杂度分析"></a>直接插入排序复杂度分析</h2><p>当最快的情况下，即待排序表时逆序的情况，比如 {6, 5, 4, 3, 2}，此时需要比较 2 + 3 + … + n = (n + 2)(n - 1) / 2 次。时间复杂度还是 O(n<sup>2</sup>)。</p>
+<p>显然，直接插入排序在记录本身就是基本有序的时候相对冒泡和简单选择排序而言是非常高效的，此时我们只需要少量的插入操作，就可以完成整个排序操作。</p>
 
         </div>
         <div class="post-tool">

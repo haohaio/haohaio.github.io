@@ -54,7 +54,7 @@
 
 <title>
     
-    [java leetcode]7. reverse integer -
+    [javascript leetcode]7. reverse integer -
     
     灏絯喔
     
@@ -178,33 +178,21 @@
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">[Java LeetCode]7. Reverse Integer</h2>
+            <h2 class="post-title">[JavaScript LeetCode]7. Reverse Integer</h2>
             <div class="post-meta">
-                本文总共1238个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共999个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
             <p><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="noopener">原题链接</a></p>
-<p>Given a 32-bit signed integer, reverse digits of an integer.</p>
-<p>Example 1:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 123</span><br><span class="line">Output: 321</span><br></pre></td></tr></table></figure>
-<p>Example 2:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: -123</span><br><span class="line">Output: -321</span><br></pre></td></tr></table></figure>
-<p>Example 3:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 120</span><br><span class="line">Output: 21</span><br></pre></td></tr></table></figure>
-<p>Note:</p>
+<p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br><span class="line"></span><br><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br><span class="line"></span><br><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31, 2^31 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
+<p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−2^31,  2^31 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p>
 </blockquote>
-<h3 id="解法："><a href="#解法：" class="headerlink" title="解法："></a>解法：</h3><ul>
-<li>对数字进行反转的方法如下</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> pop = x % <span class="number">10</span>;</span><br><span class="line">x /= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rev = <span class="number">0</span>;</span><br><span class="line">rev = rev * <span class="number">10</span> + pop;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在 32 位的机器上，Integer 的取值范围为 [-2^31, 2^31 -1], 即 [-2147483648, 2147483647]。所以最后反转的结果有可能会超出取值范围，需要进行特殊处理。</li>
-</ul>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rev = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> pop = x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Integer.MAX_VALUE = 2147483647</span></span><br><span class="line">            <span class="keyword">if</span> (rev &gt; Integer.MAX_VALUE / <span class="number">10</span> || (rev == Integer.MAX_VALUE / <span class="number">10</span> &amp;&amp; pop &gt; <span class="number">7</span>)) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Integer.MIN_VALUE = -2147483648</span></span><br><span class="line">            <span class="keyword">if</span> (rev &lt; Integer.MIN_VALUE / <span class="number">10</span> || (rev == Integer.MIN_VALUE / <span class="number">10</span> &amp;&amp; pop &lt; -<span class="number">8</span>)) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            rev = rev * <span class="number">10</span> + pop;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> rev = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (x !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> pop = x % <span class="number">10</span>;</span><br><span class="line">    x = <span class="built_in">parseInt</span>(x / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      rev &gt; <span class="built_in">parseInt</span>((<span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>) / <span class="number">10</span>) ||</span><br><span class="line">      (rev === <span class="built_in">parseInt</span>((<span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>) / <span class="number">10</span>) &amp;&amp; pop &gt; <span class="number">7</span>)</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      rev &lt; <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.pow(<span class="number">-2</span>, <span class="number">31</span>) / <span class="number">10</span>) ||</span><br><span class="line">      (rev === <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.pow(<span class="number">-2</span>, <span class="number">31</span>) / <span class="number">10</span>) &amp;&amp; pop &lt; <span class="number">-8</span>)</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rev = rev * <span class="number">10</span> + pop;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> rev;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> isNegative = x &lt; <span class="number">0</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">var</span> target = (isNegative ? -x : x).toString().split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</span><br><span class="line">  target = isNegative ? -target : +target;</span><br><span class="line">  <span class="keyword">var</span> outRange = target &lt; <span class="built_in">Math</span>.pow(<span class="number">-2</span>, <span class="number">31</span>) || target &gt; <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> outRange ? <span class="number">0</span> : target;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
         </div>
         <div class="post-tool">

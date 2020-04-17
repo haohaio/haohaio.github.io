@@ -1,0 +1,509 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
+<meta name="author" content="haohaio">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+
+<link rel="shortcut icon" href="../images/favicon.png">
+
+
+<title>
+    
+    正则表达式学习 -
+    
+    灏絯喔
+    
+</title>
+
+<meta name="keywords" content="IT，技术博客，笔记">
+
+<meta name="description " content="好记性不如烂笔头">
+</head>
+
+<body>
+    <div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="嗨">嗨</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+    <div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
+</div>
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar">
+        
+        <h1 class="cover-siteName">haohaio</h1>
+        <h3 class="cover-siteTitle">努力学习，艰苦奋斗</h3>
+        <p class="cover-siteDesc">写写代码，记记笔记</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+                <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2020-04-17">2020-04-17</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">正则表达式学习</h2>
+            <div class="post-meta">
+                本文总共8914个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>我们在开发过程中经常会用到正则表达式，比如输入校验，比如字符串替换等。可能大部分人包括我自己，需要正则表达式的时候都是到到网上去找一个满足我们要求的正则就想了，真让我们自己写的话还是有些困难的。今天就来系统的学习一下正则表达式，今后当需要我们正则的时候，自己也能码出来一个~~</p>
+<blockquote>
+<p>正则表达式是一组由字母和符号组成的特殊文本，它可以用来从文本中找出满足你想要的格式的句子。</p>
+</blockquote>
+<h3 id="基本匹配"><a href="#基本匹配" class="headerlink" title="基本匹配"></a>基本匹配</h3><p>例如：一个正则表达式 the，它表示一个规则：由字母 t 开始，接着是 h，再接着是 e。</p>
+<p>在 JavaScript 中，我们可以使用字符串的 <code>match</code> 方法来查找要匹配字符串：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/the/</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["the", index: 19, input: "The fat cat sat on the mat.", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+<p>可以看到正则表达式是大小写敏感的，不会匹配到字符串开头的 <code>The</code>，而是匹配到后面的 <code>the</code>。</p>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>正则表达式主要依赖于元字符。 元字符不代表他们本身的字面意思，他们都有特殊的含义。一些元字符写在方括号中的时候有一些特殊的意思。以下是一些元字符的介绍：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td>匹配任意单个字符除了换行符。</td>
+</tr>
+<tr>
+<td style="text-align:center">[ ]</td>
+<td>字符种类。匹配方括号内的任意字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">[^ ]</td>
+<td>否定的字符种类。匹配除了方括号里的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td>匹配&gt;=0 个重复的在*号之前的字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td>匹配&gt;=1 个重复的+号前的字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td>标记?之前的字符为可选。</td>
+</tr>
+<tr>
+<td style="text-align:center">{n,m}</td>
+<td>匹配 num 个大括号之前的字符或字符集 (n &lt;= num &lt;= m)。</td>
+</tr>
+<tr>
+<td style="text-align:center">(xyz)</td>
+<td>字符集，匹配与 xyz 完全相等的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">&#124;</td>
+<td>或运算符，匹配符号前或后的字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">&#92;</td>
+<td>转义字符,用于匹配一些保留的字符 <code><a href=""> </a> { } . * + ? ^ \$ \ &#124;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td>从开始行开始匹配。</td>
+</tr>
+<tr>
+<td style="text-align:center">\$</td>
+<td>从末端开始匹配。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="点运算符"><a href="#点运算符" class="headerlink" title="点运算符 ."></a>点运算符 <code>.</code></h4><p><code>.</code> 匹配任意单个字符，但不匹配换行符。</p>
+<p>例如，表达式 <code>.at</code> 匹配一个任意字符后面跟着是 <code>a</code> 和 <code>t</code> 的字符串。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/.ar/</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["car", index: 4, input: "The car parked in the garage.", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>表达式不设置全部搜索, 即使用修饰符 <code>g</code> 时，匹配到第一个字符串后就会停止匹配。</p>
+</blockquote>
+<h4 id="字符集"><a href="#字符集" class="headerlink" title="字符集 []"></a>字符集 <code>[]</code></h4><p>字符集也叫做字符类。 方括号用来指定一个字符集。在方括号中的字符集不关心顺序。</p>
+<p>例如，表达式<code>[Tt]he</code> 匹配 <code>the</code> 和 <code>The</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[Tt]he/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The", "the"]</span></span><br></pre></td></tr></table></figure>
+<p>在方括号中使用连字符来指定字符集的范围。</p>
+<p>例如：<code>[A-Za-z]he</code> 匹配任意英文字母后接着是 h，再接着是 e。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[A-Za-z]he/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The", "the"]</span></span><br></pre></td></tr></table></figure>
+<p>方括号中的 <code>.</code> 就表示 <code>.</code> 字符，<code>ar[.]</code> 就是单纯的匹配 <code>ar.</code> 字符串。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"A garage is a good place to park a car."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/ar[.]/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["ar."]</span></span><br></pre></td></tr></table></figure>
+<h4 id="否定字符集"><a href="#否定字符集" class="headerlink" title="否定字符集 [^ ]"></a>否定字符集 <code>[^ ]</code></h4><p><code>^</code> 用在方括号的开头时，它表示这个字符集是否定的。 例如，表达式 <code>[^c]ar</code> 匹配一个后面跟着 ar 的除了 c 的任意字符。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[^c]ar/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["par", "gar"]</span></span><br></pre></td></tr></table></figure>
+<p>举一个常见的栗子，使用字符串的 <code>replace</code> 方法，去除字符串中的非英文字符：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car parked in the garage.@123"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[^A-Za-z]/g</span>;</span><br><span class="line">str = str.replace(regex, <span class="string">""</span>);</span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// Thecarparkedinthegarage</span></span><br></pre></td></tr></table></figure>
+<h4 id="重复次数"><a href="#重复次数" class="headerlink" title="重复次数"></a>重复次数</h4><h5 id="号"><a href="#号" class="headerlink" title="* 号"></a><code>*</code> 号</h5><p><code>*</code> 号匹配 在 <code>*</code> 之前的字符出现 <code>大于等于0</code> 次。例如，表达式 <code>a*</code> 匹配 0 或更多个以 a 开头的字符。表达式<code>[a-z]*</code> 匹配一个行中所有以小写字母开头的字符串。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[a-z]*/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["", "he", "", "car", "", "parked", "", "in", "", "the", "", "garage", "", ""]</span></span><br></pre></td></tr></table></figure>
+<p><code>*</code> 字符和 <code>.</code> 字符搭配可以匹配所有的字符 <code>.*</code>。</p>
+<p><code>*</code> 和表示匹配空格的符号 <code>\s</code> 连起来用，如表达式 <code>\s*cat\s*</code> 匹配 0 或更多个空格开头和 0 或更多个空格结尾的 cat 字符串。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the concatenation."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\s*cat\s*/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// [" cat ", "cat"]</span></span><br></pre></td></tr></table></figure>
+<h5 id="号-1"><a href="#号-1" class="headerlink" title="+ 号"></a><code>+</code> 号</h5><p><code>+</code>号匹配<code>+</code>号之前的字符出现 &gt;=1 次。</p>
+<p>例如表达式<code>c.+t</code> 匹配以首字母<code>c</code>开头以<code>t</code>结尾，中间跟着至少一个字符的字符串。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/c.+t/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["cat sat on the mat"]</span></span><br></pre></td></tr></table></figure>
+<h5 id="号-2"><a href="#号-2" class="headerlink" title="? 号"></a><code>?</code> 号</h5><p>在正则表达式中元字符 <code>?</code> 标记在符号前面的字符为可选，即出现 0 或 1 次。</p>
+<p>例如，表达式 <code>[T]?he</code> 匹配字符串 <code>he</code> 和 <code>The</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[T]?he/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The", "he"]</span></span><br></pre></td></tr></table></figure>
+<p>可以看到 <code>*</code> 号是匹配 0 个或多个，<code>?</code> 号是匹配 0 个或 1 个。</p>
+<h4 id="号-3"><a href="#号-3" class="headerlink" title="{} 号"></a><code>{}</code> 号</h4><p>在正则表达式中 <code>{}</code> 是一个量词，常用来限定一个或一组字符可以重复出现的次数。</p>
+<p>例如， 表达式 <code>[0-9]{2,3}</code> 匹配最少 2 位最多 3 位 0~9 的数字：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The number was 9.9997 but we rounded it off to 10.0."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[0-9]&#123;2,3&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["999", "10"]</span></span><br></pre></td></tr></table></figure>
+<p>我们可以省略第二个参数。 例如，<code>[0-9]{2,}</code> 匹配至少两位 0~9 的数字。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The number was 9.9997 but we rounded it off to 10.0."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[0-9]&#123;2,&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["9997", "10"]</span></span><br></pre></td></tr></table></figure>
+<p>如果逗号也省略掉则表示重复固定的次数。例如，<code>[0-9]{2}</code> 匹配 2 位数字：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The number was 9.9997 but we rounded it off to 10.0."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[0-9]&#123;2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["99", "97", "10"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="特征标群"><a href="#特征标群" class="headerlink" title="(...) 特征标群"></a><code>(...)</code> 特征标群</h4><p><code>(...)</code> 小括号中包含的内容将会被看成一个整体。</p>
+<p>例如, 表达式 <code>(ab)*</code> 匹配连续出现 0 或更多个 <code>ab</code>。如果没有使用 <code>(...)</code> ，那么表达式 <code>ab*</code> 将匹配 <code>a</code> 后面连续出现 0 或更多个 <code>b</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"ab abbb abab"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(ab)*/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["ab", "", "ab", "", "", "", "abab", ""]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"ab abbb abab"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/ab*/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["ab", "abbb", "ab", "ab"]</span></span><br></pre></td></tr></table></figure>
+<p>我们还可以在 <code>()</code> 中用或字符 <code>|</code> 表示或。例如，<code>(c|g|p)ar</code> 匹配 <code>car</code> 或 <code>gar</code> 或 <code>par</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car is parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(c|g|p)ar/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["car", "par", "gar"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="或运算符"><a href="#或运算符" class="headerlink" title="| 或运算符"></a><code>|</code> 或运算符</h4><p>或运算符就表示或，用作判断条件。</p>
+<p>例如 <code>(T|t)he|car</code> 匹配 <code>(T|t)he</code> 或 <code>car</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car is parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(T|t)he|car/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The", "car", "the"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="转码特殊字符"><a href="#转码特殊字符" class="headerlink" title="转码特殊字符"></a>转码特殊字符</h4><p>反斜线 <code>\</code> 在表达式中用于转码紧跟其后的字符。用于指定 <code>{ } [ ] / \ + * . $ ^ | ?</code> 这些特殊字符。如果想要匹配这些特殊字符则要在其前面加上反斜线 <code>\</code>。</p>
+<p>例如 <code>.</code> 是用来匹配除换行符外的所有字符的。如果想要匹配句子中的 <code>.</code> 则要写成 <code>\.</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(f|c|m)at\.?/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["fat", "cat", "mat."]</span></span><br></pre></td></tr></table></figure>
+<h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><p>在正则表达式中，想要匹配指定开头或结尾的字符串就要使用到锚点。<code>^</code> 指定开头，<code>$</code> 指定结尾。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The car is parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/^(T|t)he/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"The car is parked in the garage."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/^the/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat. sat. on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(at\.)$/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["at."]</span></span><br></pre></td></tr></table></figure>
+<h3 id="简写字符集"><a href="#简写字符集" class="headerlink" title="简写字符集"></a>简写字符集</h3><p>正则表达式提供一些常用的字符集简写。如下:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">简写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td>除换行符外的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td>匹配所有字母数字和下划线 <code>_</code>，等同于 <code>[a-zA-Z0-9_]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td>匹配所有非字母数字，即符号，等同于： <code>[^\w]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td>匹配数字： <code>[0-9]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td>匹配非数字： <code>[^\d]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td>匹配所有空格字符，等同于： <code>[\t\n\f\r\p{Z}]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td>匹配所有非空格字符： <code>[^\s]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td>匹配一个换页符</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td>匹配一个回车符</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td>匹配一个垂直制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\p</td>
+<td>匹配 CR/LF（等同于 <code>\r\n</code>），用来匹配 DOS 行终止符</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>\w 会匹配到 <code>_</code>，一般我们匹配所有字母数字时，会使用<code>[a-zA-Z0-9]</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123_"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\w/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["at."]</span></span><br></pre></td></tr></table></figure>
+<h3 id="零宽度断言（前后预查）"><a href="#零宽度断言（前后预查）" class="headerlink" title="零宽度断言（前后预查）"></a>零宽度断言（前后预查）</h3><h4 id="正先行断言"><a href="#正先行断言" class="headerlink" title="?=... 正先行断言"></a><code>?=...</code> 正先行断言</h4><p><code>?=...</code> 正先行断言，表示第一部分表达式之后必须跟着 <code>?=...</code>定义的表达式。返回结果只包含满足匹配条件的第一部分表达式。定义一个正先行断言要使用 <code>()</code>。在括号内部使用一个问号和等号： <code>(?=...)</code>。</p>
+<p>举个栗子理解一下，<code>(T|t)he(?=\sfat)</code> 表示匹配 <code>The</code> 和 <code>the</code> 后面紧跟着 <code>(空格)fat</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(T|t)he(?=\sfat)/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="负先行断言"><a href="#负先行断言" class="headerlink" title="?!... 负先行断言"></a><code>?!...</code> 负先行断言</h4><p>负先行断言 <code>?!</code> 用于筛选所有匹配结果，筛选条件为 其后不跟随着断言中定义的格式。</p>
+<p>举个栗子理解一下，<code>(T|t)he(?!\sfat)</code> 表示匹配 <code>The</code> 和 <code>the</code> 后面不跟着 <code>(空格)fat</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(T|t)he(?!\sfat)/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["the"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="lt-正后发断言"><a href="#lt-正后发断言" class="headerlink" title="?&lt;= ... 正后发断言"></a><code>?&lt;= ...</code> 正后发断言</h4><p>正后发断言 记作<code>(?&lt;=...)</code> 用于筛选所有匹配结果，筛选条件为其前跟随着断言中定义的格式。</p>
+<p>举个栗子理解一下，表达式 <code>(?&lt;=(T|t)he\s)(fat|mat)</code> 匹配 <code>fat</code> 和 <code>mat</code>，且其前跟着 <code>The</code> 或 <code>the</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?&lt;=(T|t)he\s)(fat|mat)/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["fat", "mat"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="lt-负后发断言"><a href="#lt-负后发断言" class="headerlink" title="?&lt;!... 负后发断言"></a><code>?&lt;!...</code> 负后发断言</h4><p>负后发断言 记作 <code>(?&lt;!...)</code> 用于筛选所有匹配结果，筛选条件为 其前不跟随着断言中定义的格式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The cat sat on cat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?&lt;!(T|t)he\s)(cat)/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["cat"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="标志"><a href="#标志" class="headerlink" title="标志"></a>标志</h3><p>标志也叫模式修正符，因为它可以用来修改表达式的搜索结果。 这些标志可以任意的组合使用，它也是整个正则表达式的一部分。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标志</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">i</td>
+<td>忽略大小写。</td>
+</tr>
+<tr>
+<td style="text-align:center">g</td>
+<td>全局搜索。</td>
+</tr>
+<tr>
+<td style="text-align:center">m</td>
+<td>多行修饰符：锚点元字符 <code>^</code> <code>$</code> 工作范围在每行的起始。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="忽略大小写-i"><a href="#忽略大小写-i" class="headerlink" title="忽略大小写 i"></a>忽略大小写 <code>i</code></h4><p><code>g</code> 我们前面已经一直在用了，看下和 <code>i</code> 组合一起使用吧：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/The/gi</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The", "the"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="多行修饰符-m"><a href="#多行修饰符-m" class="headerlink" title="多行修饰符 m"></a>多行修饰符 <code>m</code></h4><p>像之前介绍的 <code>(^,$)</code> 用于检查格式是否是在待检测字符串的开头或结尾。但我们如果想要它在每行的开头和结尾生效，我们需要用到多行修饰符 <code>m</code>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">`The fat</span></span><br><span class="line"><span class="string">          cat sat</span></span><br><span class="line"><span class="string">          on the mat.`</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/.at(.)?$/</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["mat."]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/.at(.)?$/</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["fat", "sat", "mat."]</span></span><br></pre></td></tr></table></figure>
+<h3 id="贪婪匹配与惰性匹配"><a href="#贪婪匹配与惰性匹配" class="headerlink" title="贪婪匹配与惰性匹配"></a>贪婪匹配与惰性匹配</h3><p>正则表达式默认采用贪婪匹配模式，在该模式下意味着会匹配尽可能长的子串。我们可以使用 ? 将贪婪匹配模式转化为惰性匹配模式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"The fat cat sat on the mat."</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(.*at)/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The fat cat sat on the mat"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(.*?at)/g</span>;</span><br><span class="line"><span class="keyword">var</span> res = str.match(regex);</span><br><span class="line"><span class="built_in">console</span>.log(res); <span class="comment">// ["The fat", " cat", " sat", " on the mat"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>接下来我们来练习写一下我们经常会用到的正则吧。</p>
+<h4 id="正整数"><a href="#正整数" class="headerlink" title="正整数"></a>正整数</h4><p>正整数的规则很简单，前面有 0 个或 1 个 <code>+</code> 号，因此我们可以用 <code>?</code> 号 或 <code>{0, 1}</code> 进行校验；此外匹配 <code>+</code> 号时，需要使用 <code>\</code> 进行转义。后面至少有一个 0-9 的数字，因此我们可以用 <code>[0-9]+</code> 或 <code>\d+</code> 来进行表示，接下来我们写一个校验是否是正整数的方法，方便进行测试：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPositiveInteger</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> regex = <span class="regexp">/^\+?\d+$/</span>;</span><br><span class="line">  <span class="keyword">return</span> regex.test(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">isPositiveInteger(<span class="string">"3"</span>); <span class="comment">// true</span></span><br><span class="line">isPositiveInteger(<span class="string">"+3"</span>); <span class="comment">// true</span></span><br><span class="line">isPositiveInteger(<span class="string">"+3a"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>是不是 so easy ~~</p>
+<h4 id="手机号"><a href="#手机号" class="headerlink" title="手机号"></a>手机号</h4><p>现在的手机号都是以 1 开头，第二位可以是 3-9 的数字，后面是 9 位数字，接下来我们就自己码一下，写一个校验手机号的方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isMobile</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> regex = <span class="regexp">/^1[3-9]\d&#123;9&#125;$/</span>;</span><br><span class="line">  <span class="keyword">return</span> regex.test(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">isMobile(<span class="string">"18123456789"</span>); <span class="comment">// true</span></span><br><span class="line">isMobile(<span class="string">"12123456789"</span>); <span class="comment">// false</span></span><br><span class="line">isMobile(<span class="string">"181234567890"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>没什么问题 ~~</p>
+<h4 id="身份证号"><a href="#身份证号" class="headerlink" title="身份证号"></a>身份证号</h4><p>接下来我们在来写一下身份证号的正则，身份证一共 18 位，首位是 1-9 的数字，2-6 位是 0-9 的数字，7-14 位是出生日期，15-17 位是 0-9 的数字，末位是 0-9 的数字或 x。需要注意的是我们还需要校验一下出生日期格式。</p>
+<p>这里我们只对出生日期做一下简单校验，就不做月份对应日期的相关校验了。具体规则为：出生日期年份为 18|19|20 开头，后两位为 0-9 的数字，正则可以写成 <code>(18|19|20)\d{2}</code>。月份为 01-12，正则可以写成 <code>(0[1-9])|(1[0-2])</code>，日期为 0-31, 正则可以写成 <code>(([0-2][1-9])|10|20|30|31)</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isIdCard</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> regex = <span class="regexp">/^[1-9]\d&#123;5&#125;(18|19|20)\d&#123;2&#125;(0[1-9])|(1[0-2])(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]$/</span>;</span><br><span class="line">  <span class="keyword">return</span> regex.test(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">isIdCard(<span class="string">"41112319921008111x"</span>); <span class="comment">// true</span></span><br><span class="line">isIdCard(<span class="string">"41112319921032111x"</span>); <span class="comment">// false</span></span><br><span class="line">isIdCard(<span class="string">"411123199210011111x"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>验证一下，搞定 ~~</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="../tags/javascript/">JavaScript</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/front-end/regex-1587092288.html';
+        this.page.identifier = 'front-end/regex-1587092288.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
+<script src="../js/busuanzi.pure.mini.js"></script>
+
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">
+                关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <!-- <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp -->
+            <a href="/links" title="友情链接">友情链接</a>
+            <!-- <a href="/app" title="App下载">App下载</a> -->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0
+                国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2018 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://haohaio.github.io/" target="_blank">haohaio</a>
+        </p>
+        
+<!-- Tencent Analytics -->
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
+
+
+    </div>
+</footer>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '12/08/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
+        });
+    </script>
+</body>
+
+</html>

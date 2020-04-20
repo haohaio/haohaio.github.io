@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">[JavaScript LeetCode]35. 外观数列</h2>
             <div class="post-meta">
-                本文总共859个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共889个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -190,7 +190,7 @@
 <p><code>1</code>  被读作   <code>&quot;one 1&quot;</code>  (<code>&quot;一个一&quot;</code>) , 即  <code>11</code>。<br><code>11</code> 被读作  <code>&quot;two 1s&quot;</code> (<code>&quot;两个一&quot;</code>）, 即  <code>21</code>。<br><code>21</code> 被读作  <code>&quot;one 2&quot;, &quot;one 1&quot;</code> （<code>&quot;一个二&quot; , &quot;一个一&quot;</code>) , 即  <code>1211</code>。</p>
 <p>给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。</p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: 1</span><br><span class="line">输出: &quot;1&quot;</span><br><span class="line">解释：这是一个基本样例。</span><br><span class="line"></span><br><span class="line">输入: 4</span><br><span class="line">输出: &quot;1211&quot;</span><br><span class="line">解释：当 n = 3 时，序列是 &quot;21&quot;，其中我们有 &quot;2&quot; 和 &quot;1&quot; 两组，&quot;2&quot; 可以读作 &quot;12&quot;，也就是出现频次 = 1 而 值 = 2；类似 &quot;1&quot; 可以读作 &quot;11&quot;。所以答案是 &quot;12&quot; 和 &quot;11&quot; 组合在一起，也就是 &quot;1211&quot;。</span><br></pre></td></tr></table></figure>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>通过正则匹配连续出现的数字，进行累加。</p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>通过正则匹配连续出现的数字，进行累加。下面正则中的 <code>\1</code> 表示正则前面第一个括号内匹配到的字符串。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> countAndSay = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">'1'</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">    str = str.replace(<span class="regexp">/(\d)\1*/g</span>, item =&gt; <span class="string">`<span class="subst">$&#123;item.length&#125;</span><span class="subst">$&#123;item[<span class="number">0</span>]&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
         </div>

@@ -46,15 +46,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
 <meta name="author" content="haohaio">
-<link rel="stylesheet" href="../css/SimpleStyle.min.css">
-<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../../../../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../../../../css/custom.css">
 
-<link rel="shortcut icon" href="../images/favicon.png">
+<link rel="shortcut icon" href="../../../../images/favicon.png">
 
 
 <title>
     
-    [javascript leetcode]58. 最后一个单词的长度 -
+    分类 - 数据结构 -
     
     灏絯喔
     
@@ -107,25 +107,25 @@
 </div>
                 <div class="page-title">
     <ul>
-        <li><a href="/">最新</a></li>
+        <li class="">
+            <a href="/" data-name="最近文章">最近</a>
+        </li>
         
-            
-                <li class="active">
-                    <a href="/categories/front-end" data-name="前端">前端</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/back-end" data-name="后端">后端</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/others" data-name="其它">其它</a>
-                </li>
-            
+        <li class="">
+            <a href="/categories/front-end" data-name="前端">前端</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/back-end" data-name="后端">后端</a>
+        </li>
+        
+        <li class="active">
+            <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+        </li>
+        
+        <li class="">
+            <a href="/categories/others" data-name="其它">其它</a>
+        </li>
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -156,7 +156,7 @@
             UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '../content.json',
+        CONTENT_URL: '../../../../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
@@ -166,74 +166,80 @@
     </ul>
 </div>
 <div class="main-inner">
-    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
-                    <img width="48" src="/images/favicon.png" alt="avatar">
-                </a>
-                <p><span class="label">作者</span>
-                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
-                    <span title="最后编辑于2020-04-21">2020-04-21</span>
-                </p>
-                <p>写写代码，记记笔记</p>
-            </div>
-            <h2 class="post-title">[JavaScript LeetCode]58. 最后一个单词的长度</h2>
-            <div class="post-meta">
-                本文总共714个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <p>给定一个仅包含大小写字母和空格 ‘ ‘ 的字符串 s，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。</p>
-<p>如果不存在最后一个单词，请返回 0 。</p>
-<p>说明：一个单词是指仅由字母组成、不包含任何空格字符的 最大子字符串。</p>
-<p>示例:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: &quot;Hello World&quot;</span><br><span class="line">输出: 5</span><br></pre></td></tr></table></figure>
-<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>由于存在字符串末位存在空格的情况，可以使用 <code>trim()</code> 方法去除首尾空格，然后找到最后一个空格的下标即可。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLastWord = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  s = s.trim();</span><br><span class="line">  <span class="keyword">return</span> s.length - <span class="number">1</span> - s.lastIndexOf(<span class="string">" "</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>不使用 JavaScript 提供的便捷方法，使用纯算法实现。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLastWord = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 最后一个单词的末位下标</span></span><br><span class="line">  <span class="keyword">let</span> end = s.length - <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// 逆序遍历，若字符串末尾又空格，则最后一个单词的末位下标向前移动</span></span><br><span class="line">  <span class="keyword">while</span> (end &gt;= <span class="number">0</span> &amp;&amp; s[end] === <span class="string">" "</span>) end--;</span><br><span class="line">  <span class="keyword">if</span> (end &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 最后一个单词的首位下标</span></span><br><span class="line">  <span class="keyword">let</span> start = end;</span><br><span class="line">  <span class="comment">// 逆序遍历，找到空格或到字符串首位为止</span></span><br><span class="line">  <span class="keyword">while</span> (start &gt;= <span class="number">0</span> &amp;&amp; s[start] !== <span class="string">" "</span>) start--;</span><br><span class="line">  <span class="keyword">return</span> end - start;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+    
+    
+    
+<article class="post">
+    
+    <!-- 有配图默认渲染第一张 -->
+    <div class="post-cover">
+        <a href="../../../../data-structure/leetcode-reverse-integer-1545404912.html" target="_blank" title="[JavaScript LeetCode]7. 整数反转" style="background-image:url(/img/tags/leetcode.png)"></a>
+    </div>
+    
+    <div class="post-header">
+        <div class="post-meta">
+            <a href="https://haohaio.github.io" target="_blank">
+                <strong>haohaio</strong>
             </a>
+            <em>·</em>2018-12-21
         </div>
-        
-        <div class="post-tags">标签：
+        <a class="post-title" href="../../../../data-structure/leetcode-reverse-integer-1545404912.html" target="_blank" title="[JavaScript LeetCode]7. 整数反转">[JavaScript LeetCode]7. 整数反转</a>
+        <div class="post-meta">
+            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
             
-            <a href="../tags/leetcode/">LeetCode</a>
+                <em>·</em>
+                <a href="https://haohaio.github.io/tags/leetcode/" target="_blank">LeetCode</a>
             
         </div>
-        
-    </article>
-    
-    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
-    
-    
-<div id="disqus_thread"></div>
-<script>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/front-end/leetcode-length-of-last-word-1587480431.html';
-        this.page.identifier = 'front-end/leetcode-length-of-last-word-1587480431.html';
-    };
-    (function () { // DON'T EDIT BELOW THIS LINE
-        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
-        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
-        Disqus.</a></noscript>
+    </div>
+    <div class="post-desc">
+        Reverse Integer
+    </div>
+</article>
 
+
+
+    
+    
+<article class="post">
+    
+    <!-- 有配图默认渲染第一张 -->
+    <div class="post-cover">
+        <a href="../../../../data-structure/leetcode-two-sum-1545398651.html" target="_blank" title="[JavaScript LeetCode]1. 两数之和" style="background-image:url(/img/tags/leetcode.png)"></a>
+    </div>
+    
+    <div class="post-header">
+        <div class="post-meta">
+            <a href="https://haohaio.github.io" target="_blank">
+                <strong>haohaio</strong>
+            </a>
+            <em>·</em>2018-12-21
+        </div>
+        <a class="post-title" href="../../../../data-structure/leetcode-two-sum-1545398651.html" target="_blank" title="[JavaScript LeetCode]1. 两数之和">[JavaScript LeetCode]1. 两数之和</a>
+        <div class="post-meta">
+            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+            
+                <em>·</em>
+                <a href="https://haohaio.github.io/tags/leetcode/" target="_blank">LeetCode</a>
+            
+        </div>
+    </div>
+    <div class="post-desc">
+        Two Sum
+    </div>
+</article>
+
+
+
+    
 </div>
-<script src="../js/busuanzi.pure.mini.js"></script>
+<!-- 分页开始 -->
+
+<div id="btn-pager">
+    
+    <a class="extend prev" rel="prev" href="../2/">上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span>
+</div>
+
 
             </div><!-- end #main-->
         </div><!-- end #body -->
@@ -261,8 +267,8 @@
 
     </div>
 </footer>
-<script src="../js/InsightSearch.js"></script>
-<script src="../js/SimpleCore.js"></script>
+<script src="../../../../js/InsightSearch.js"></script>
+<script src="../../../../js/SimpleCore.js"></script>
     </div>
     <div class="fixed-btn">
         <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>

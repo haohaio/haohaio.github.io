@@ -218,7 +218,7 @@
 <p><img src="../img/assets/sentry_error_detail.png" alt="sentry_issues"></p>
 <p>可以看到，错误信息收集的十分完整，不仅有错误的堆栈信息，还有浏览器环境相关信息等等。</p>
 <p>现在已经可以愉快的收集异常了，是不是非常简单 ~~</p>
-<h3 id="生成环境"><a href="#生成环境" class="headerlink" title="生成环境"></a>生成环境</h3><p>生产环境中我们的代码肯定都是经过压缩的，那我们看一下在生产环境中，Sentry 的表现是怎样的。可以本地通过 docker 启动一个 nginx 服务来部署我们的代码，这里就不详细介绍了。项目部署之后，再去看一下我们收集到的异常详细信息：</p>
+<h3 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h3><p>生产环境中我们的代码肯定都是经过压缩的，那我们看一下在生产环境中，Sentry 的表现是怎样的。可以本地通过 docker 启动一个 nginx 服务来部署我们的代码，这里就不详细介绍了。项目部署之后，再去看一下我们收集到的异常详细信息：</p>
 <p><img src="../img/assets/sentry_prod_error_1.png" alt="生产环境错误详情"><br><img src="../img/assets/sentry_prod_error_2.png" alt="生产环境错误详情"></p>
 <p>只能看到错误发生在哪个组件的生命周期钩子里，错误的堆栈信息是代码压缩后的代码堆栈信息，这对我们对错误进行定位就不是很方便了，为了解决这个问题，我们需要把webpack打包生成的 js 文件以及 sourceMap 文件上传到 Sentry 上面，这样，Sentry 就能够帮助我们准确定位了。</p>
 <p>我们需要做以下操作：</p>

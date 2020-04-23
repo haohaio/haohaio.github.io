@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">使用 Sentry 对前端项目进行异常监控</h2>
             <div class="post-meta">
-                本文总共3068个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共4764个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -205,7 +205,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Using npm</span></span><br><span class="line">$ npm install @sentry/integrations</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using yarn</span></span><br><span class="line">$ yarn add @sentry/integrations</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在 app.js 中添加代码</li>
+<li>在 <code>/src/main.js</code> 中添加代码</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Sentry <span class="keyword">from</span> <span class="string">'@sentry/browser'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Vue <span class="keyword">as</span> VueIntegration &#125; <span class="keyword">from</span> <span class="string">'@sentry/integrations'</span>;</span><br><span class="line"></span><br><span class="line">Sentry.init(&#123;</span><br><span class="line">  dsn: <span class="string">'https://66ed9457c0e5405397f465b4f9223aa1@o381494.ingest.sentry.io/5208892'</span>, <span class="comment">// 创建项目后会生成 dsn</span></span><br><span class="line">  integrations: [<span class="keyword">new</span> VueIntegration(&#123;Vue, <span class="attr">attachProps</span>: <span class="literal">true</span>&#125;)],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>OK，配置完成。</p>
@@ -236,7 +236,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">url=https://sentry.io/</span><br><span class="line">org=org</span><br><span class="line">project=org</span><br><span class="line"></span><br><span class="line">[auth]</span><br><span class="line">token=token</span><br></pre></td></tr></table></figure>
 <p>对文件中的参数进行一下说明：</p>
-<p>使用 Sentry 线上服务的话，url 设置为 <code>https://sentry.io/</code></p>
+<p>使用 Sentry 在线服务的话，url 设置为 <code>https://sentry.io/</code></p>
 <p>org 和 project 可按下图进行配置：</p>
 <p><img src="../img/assets/sentry_sentryclirc.png" alt="sentryclirc配置"></p>
 <p>token 按以下步骤获取：</p>
@@ -265,7 +265,22 @@
 <p>部署后，刷新页面，然后进入到 error 详情中查看，如下：</p>
 <p><img src="../img/assets/sentry_map_error.png" alt="map error"></p>
 <p>发现可以精准的对错误信息进行定位，完美 ~~</p>
-<h3 id="私有化部署"><a href="#私有化部署" class="headerlink" title="私有化部署"></a>私有化部署</h3><p>Todo</p>
+<h3 id="私有化部署"><a href="#私有化部署" class="headerlink" title="私有化部署"></a>私有化部署</h3><p>如果企业内部使用的话，私有化部署还是很有必要的。接下来我们就使用 Docker 部署一个 Sentry 服务</p>
+<h4 id="1-启动Redis容器"><a href="#1-启动Redis容器" class="headerlink" title="1. 启动Redis容器"></a>1. 启动Redis容器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name sentry-redis redis</span><br></pre></td></tr></table></figure>
+<h4 id="2-启动-Postgres-容器"><a href="#2-启动-Postgres-容器" class="headerlink" title="2. 启动 Postgres 容器"></a>2. 启动 Postgres 容器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name sentry-postgres -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=sentry postgres</span><br></pre></td></tr></table></figure>
+<h4 id="3-生成所有-Sentry-容器共享的密钥"><a href="#3-生成所有-Sentry-容器共享的密钥" class="headerlink" title="3. 生成所有 Sentry 容器共享的密钥"></a>3. 生成所有 Sentry 容器共享的密钥</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SECRET_KEY=$(docker run --rm sentry config generate-secret-key|tail -n 1)</span><br></pre></td></tr></table></figure>
+<h4 id="4-如果这是一个新数据库，则需要运行-upgrade"><a href="#4-如果这是一个新数据库，则需要运行-upgrade" class="headerlink" title="4. 如果这是一个新数据库，则需要运行 upgrade"></a>4. 如果这是一个新数据库，则需要运行 upgrade</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it --rm -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-postgres:postgres --link sentry-redis:redis sentry upgrade</span><br></pre></td></tr></table></figure>
+<p>输入邮箱、密码 创建用户。</p>
+<h4 id="5-启动-Sentry-容器"><a href="#5-启动-Sentry-容器" class="headerlink" title="5. 启动 Sentry 容器"></a>5. 启动 Sentry 容器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 9000:9000 --name my-sentry -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-redis:redis --link sentry-postgres:postgres sentry</span><br></pre></td></tr></table></figure>
+<h4 id="6-启动调度器和-worker"><a href="#6-启动调度器和-worker" class="headerlink" title="6. 启动调度器和 worker"></a>6. 启动调度器和 worker</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name sentry-cron -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-postgres:postgres --link sentry-redis:redis sentry run cron</span><br><span class="line"></span><br><span class="line">docker run -d --name sentry-worker-1 -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-postgres:postgres --link sentry-redis:redis sentry run worker</span><br></pre></td></tr></table></figure>
+<h3 id="使用本地-Sentry-服务"><a href="#使用本地-Sentry-服务" class="headerlink" title="使用本地 Sentry 服务"></a>使用本地 Sentry 服务</h3><p>依次执行命令后，没有问题的话就可以访问 <code>http://localhost:9000</code> 来看一下我们部署的 Sentry 服务了。页面与 Sentry 的在线服务有些区别，但操作流程基本一样。</p>
+<p><img src="../img/assets/sentry_server.png" alt="sentry_server"></p>
+<p>登陆成功后，新建一个项目，然后修改一下配置：</p>
+<h4 id="1-在-src-main-js-中修改-dsn"><a href="#1-在-src-main-js-中修改-dsn" class="headerlink" title="1. 在 /src/main.js 中修改 dsn"></a>1. 在 <code>/src/main.js</code> 中修改 dsn</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Sentry <span class="keyword">from</span> <span class="string">'@sentry/browser'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Vue <span class="keyword">as</span> VueIntegration &#125; <span class="keyword">from</span> <span class="string">'@sentry/integrations'</span>;</span><br><span class="line"></span><br><span class="line">Sentry.init(&#123;</span><br><span class="line">  dsn: <span class="string">'http://7b4af4c05ee84328a2497b4493bacc74@localhost:9000/3'</span>, <span class="comment">// 创建项目后会生成 dsn</span></span><br><span class="line">  integrations: [<span class="keyword">new</span> VueIntegration(&#123;Vue, <span class="attr">attachProps</span>: <span class="literal">true</span>&#125;)],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="2-重新生成-token-并修改-sentryclirc-文件"><a href="#2-重新生成-token-并修改-sentryclirc-文件" class="headerlink" title="2. 重新生成 token 并修改 .sentryclirc 文件"></a>2. 重新生成 token 并修改 <code>.sentryclirc</code> 文件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">url=http://localhost:9000</span><br><span class="line">org=sentry</span><br><span class="line">project=vue-exception-monitor</span><br><span class="line"></span><br><span class="line">[auth]</span><br><span class="line">token=037bf45801df4404b410dcc224768c907d5f09f1d9b8496e9228507371bd105d</span><br></pre></td></tr></table></figure>
+<p>然后重新部署 Vue 项目，测试一下：</p>
+<p><img src="../img/assets/sentry_server_2.png" alt="sentry_server"></p>
+<p>可以看到我们本地部署的 Sentry 服务，也能帮我们收集异常了。完美 ~~</p>
 
         </div>
         <div class="post-tool">

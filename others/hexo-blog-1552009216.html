@@ -33,7 +33,7 @@
 //                  不见满街漂亮妹，哪个归得程序员？
 -->
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--[if lte IE 9]>
 <meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
 <![endif]-->
@@ -110,15 +110,15 @@
         <li><a href="/">最新</a></li>
         
             
-                <li class="">
+                <li class>
                     <a href="/categories/front-end" data-name="前端">前端</a>
                 </li>
             
-                <li class="">
+                <li class>
                     <a href="/categories/back-end" data-name="后端">后端</a>
                 </li>
             
-                <li class="">
+                <li class>
                     <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
                 </li>
             
@@ -166,7 +166,7 @@
     </ul>
 </div>
 <div class="main-inner">
-    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
             <div class="post-author clearfix">
                 <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
@@ -219,7 +219,7 @@
 <li>接下来只需要部署我们的代码就可以了</li>
 </ul>
 <p>配置 <code>_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/haohaio/haohaio.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/haohaio/haohaio.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装依赖以通过 Git 进行部署，然后生成静态文件进行部署</span></span><br><span class="line">$ npm install hexo-deployer-git --save &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <blockquote>

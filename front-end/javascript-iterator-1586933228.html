@@ -33,7 +33,7 @@
 //                  不见满街漂亮妹，哪个归得程序员？
 -->
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--[if lte IE 9]>
 <meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
 <![endif]-->
@@ -114,15 +114,15 @@
                     <a href="/categories/front-end" data-name="前端">前端</a>
                 </li>
             
-                <li class="">
+                <li class>
                     <a href="/categories/back-end" data-name="后端">后端</a>
                 </li>
             
-                <li class="">
+                <li class>
                     <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
                 </li>
             
-                <li class="">
+                <li class>
                     <a href="/categories/others" data-name="其它">其它</a>
                 </li>
             
@@ -166,7 +166,7 @@
     </ul>
 </div>
 <div class="main-inner">
-    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
             <div class="post-author clearfix">
                 <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
@@ -203,7 +203,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> iterable = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">"a"</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">"b"</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">"c"</span>,</span><br><span class="line">  length: <span class="number">3</span>,</span><br><span class="line">  [<span class="built_in">Symbol</span>.iterator]: <span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.iterator],</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> iterable) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a</span></span><br><span class="line"><span class="comment">// b</span></span><br><span class="line"><span class="comment">// c</span></span><br></pre></td></tr></table></figure>
 <p>但是，为普通对象部署数组的 <code>Symbol.iterator</code> 方法，并无效果：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> iterable = &#123;</span><br><span class="line">  a: <span class="string">"a"</span>,</span><br><span class="line">  b: <span class="string">"b"</span>,</span><br><span class="line">  c: <span class="string">"c"</span>,</span><br><span class="line">  length: <span class="number">3</span>,</span><br><span class="line">  [<span class="built_in">Symbol</span>.iterator]: <span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.iterator],</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> iterable) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-<h3 id="调用-Iterator-接口的场合"><a href="#调用-Iterator-接口的场合" class="headerlink" title="调用 Iterator 接口的场合"></a>调用 Iterator 接口的场合</h3><h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]);</span><br><span class="line"><span class="keyword">let</span> [x, y] = set; <span class="comment">// // x='a'; y='b'</span></span><br><span class="line"><span class="keyword">let</span> [first, ...rest] = set; <span class="comment">// first='a'; rest=['b','c'];</span></span><br></pre></td></tr></table></figure>
+<h3 id="调用-Iterator-接口的场合"><a href="#调用-Iterator-接口的场合" class="headerlink" title="调用 Iterator 接口的场合"></a>调用 Iterator 接口的场合</h3><h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set(["a", "b", "c"]);</span><br><span class="line">let [x, y] = <span class="keyword">set</span>; // // x='a'; y='b'</span><br><span class="line">let [first, ...rest] = <span class="keyword">set</span>; // first='a'; rest=['b','c'];</span><br></pre></td></tr></table></figure>
 <h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"hello"</span>;</span><br><span class="line"></span><br><span class="line">[...str]; <span class="comment">// ["h", "e", "l", "l", "o"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line">[<span class="string">"a"</span>, ...arr, <span class="string">"d"</span>]; <span class="comment">// ['a', 'b', 'c', 'd']</span></span><br></pre></td></tr></table></figure>
 <h4 id="yield"><a href="#yield" class="headerlink" title="yield*"></a>yield*</h4><p>Generator 函数中的 <code>yield*</code> 后面跟的是一个可遍历的结构，它会调用该结构的迭代器接口。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> generator = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span>* [<span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">4</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> iterator = generator();</span><br><span class="line">iterator.next(); <span class="comment">// &#123; value: 1, done: false &#125;</span></span><br><span class="line">iterator.next(); <span class="comment">// &#123; value: 2, done: false &#125;</span></span><br><span class="line">iterator.next(); <span class="comment">// &#123; value: 3, done: false &#125;</span></span><br><span class="line">iterator.next(); <span class="comment">// &#123; value: 4, done: false &#125;</span></span><br><span class="line">iterator.next(); <span class="comment">// &#123; value: undefined, done: true &#125;</span></span><br></pre></td></tr></table></figure>

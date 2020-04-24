@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
+<meta name="author" content="haohaio">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+
+<link rel="shortcut icon" href="../images/favicon.png">
+
+
+<title>
+    
+    排序之归并排序 -
+    
+    灏絯喔
+    
+</title>
+
+<meta name="keywords" content="IT，技术博客，笔记">
+
+<meta name="description " content="好记性不如烂笔头">
+</head>
+
+<body>
+    <div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="嗨">嗨</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+    <div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
+</div>
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar">
+        
+        <h1 class="cover-siteName">haohaio</h1>
+        <h3 class="cover-siteTitle">努力学习，艰苦奋斗</h3>
+        <p class="cover-siteDesc">写写代码，记记笔记</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+                <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class>
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class="active">
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2019-10-29">2019-10-29</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">排序之归并排序</h2>
+            <div class="post-meta">
+                本文总共1818个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <blockquote>
+<p>归并，在数据结构中，是指将两个或两个以上的有序表组合成一个新的有序表</p>
+</blockquote>
+<p>归并排序（Merging Sort）就是利用归并的思想实现的排序方法。它的原始是假设初始序列含有 n 个记录，则可以看成是 n 个有序的子序列，每个子序列的长度为 1，然后两两归并，得到 n / 2（|x|表示不小于 x 的最小整数）个长度为 2 或 1 的有序子序列；再两两归并，如此重复，直至得到一个长度为 n 的有序序列为止，这种排序方法称为 2 路归并排序</p>
+<p>来看下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">50</span>, <span class="number">10</span>, <span class="number">90</span>, <span class="number">30</span>, <span class="number">70</span>, <span class="number">40</span>, <span class="number">80</span>, <span class="number">60</span>, <span class="number">20</span>&#125;;</span><br><span class="line"></span><br><span class="line">        mergeSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            System.out.println(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当子序列中只有一个元素时结束递归</span></span><br><span class="line">        <span class="keyword">if</span> (start == end) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 划分子序列</span></span><br><span class="line">        <span class="keyword">int</span> mid = (start + end) / <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 对左侧子序列进行递归排序</span></span><br><span class="line">        mergeSort(a, start, mid);</span><br><span class="line">        <span class="comment">// 对右侧子序列进行递归排序</span></span><br><span class="line">        mergeSort(a, mid + <span class="number">1</span>, end);</span><br><span class="line">        <span class="comment">//合并</span></span><br><span class="line">        merge(a, start, mid, end);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 两路归并算法，两个排好序的子序列合并为一个子序列 &#123;50, 10&#125; , 0, 0, 1</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] tmp = <span class="keyword">new</span> <span class="keyword">int</span>[a.length];</span><br><span class="line">        <span class="comment">// p1、p2是检测指针，k是存放指针</span></span><br><span class="line">        <span class="keyword">int</span> p1 = left, p2 = mid + <span class="number">1</span>, k = left;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (p1 &lt;= mid &amp;&amp; p2 &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[p1] &lt;= a[p2]) &#123;</span><br><span class="line">                tmp[k++] = a[p1++];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                tmp[k++] = a[p2++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果第一个序列未检测完，直接将后面所有元素加到合并的序列中</span></span><br><span class="line">        <span class="keyword">while</span> (p1 &lt;= mid) &#123;</span><br><span class="line">            tmp[k++] = a[p1++];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//同上</span></span><br><span class="line">        <span class="keyword">while</span> (p2 &lt;= right) &#123;</span><br><span class="line">            tmp[k++] = a[p2++];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//复制回原素组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">            a[i] = tmp[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来直接看下整个数据变换示意图：</p>
+<p><img src="../img/assets/merge_sort_2.png" alt="第一次调用 MergeSort"></p>
+<h2 id="归并排序复杂度分析"><a href="#归并排序复杂度分析" class="headerlink" title="归并排序复杂度分析"></a>归并排序复杂度分析</h2><p>无论在什么情况下，归并排序的时间复杂度都是 O(nlogn)。</p>
+<p>归并排序是一种比较占用内存，但却效率高且稳定的算法。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="../tags/排序/">排序</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/data-structure/merge-sort.html';
+        this.page.identifier = 'data-structure/merge-sort.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
+<script src="../js/busuanzi.pure.mini.js"></script>
+
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">
+                关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <!-- <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp -->
+            <a href="/links" title="友情链接">友情链接</a>
+            <!-- <a href="/app" title="App下载">App下载</a> -->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0
+                国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2018 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://haohaio.github.io/" target="_blank">haohaio</a>
+        </p>
+        
+<!-- Tencent Analytics -->
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
+
+
+    </div>
+</footer>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '12/08/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
+<meta name="author" content="haohaio">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+
+<link rel="shortcut icon" href="../images/favicon.png">
+
+
+<title>
+    
+    flutter 入门 -
+    
+    灏絯喔
+    
+</title>
+
+<meta name="keywords" content="Flutter">
+
+<meta name="description " content="Flutter 快速入门">
+</head>
+
+<body>
+    <div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="嗨">嗨</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+    <div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
+</div>
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar">
+        
+        <h1 class="cover-siteName">haohaio</h1>
+        <h3 class="cover-siteTitle">努力学习，艰苦奋斗</h3>
+        <p class="cover-siteDesc">写写代码，记记笔记</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+                <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2019-04-03">2019-04-03</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">Flutter 入门</h2>
+            <div class="post-meta">
+                本文总共5677个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Flutter allows you to build beautiful native apps on iOS and Android from a single codebase.</p>
+<p>Flutter 是 Google 推出并开源的移动应用开发框架，采用 Dart 语言进行开发，使用自绘引擎渲染视图，主打跨平台、高保真、高性能。</p>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><h3 id="安装-Flutter"><a href="#安装-Flutter" class="headerlink" title="安装 Flutter"></a>安装 Flutter</h3><ul>
+<li>使用镜像</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Flutter官方为中国开发者搭建的临时镜像</span></span><br><span class="line"><span class="built_in">export</span> PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line"><span class="built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br></pre></td></tr></table></figure>
+<p>以 Mac 环境为例进行安装，其它环境请看 <a href="https://flutterchina.club/setup-windows/" target="_blank" rel="noopener">Windows</a>、<a href="https://flutterchina.club/setup-linux/" target="_blank" rel="noopener">Linux</a></p>
+<ul>
+<li>下载 SDK，然后解压到相应目录中，并添加 flutter 相关工具到 path 中：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将 SDK 解压到了 ~/Flutter/sdk/ 目录下</span></span><br><span class="line">$ <span class="built_in">export</span> PATH=~/Flutter/sdk/flutter/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行 flutter doctor</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 flutter 提供的命令检查当前环境并在终端窗口中显示报告</span></span><br><span class="line">$ flutter doctor</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据提示直接复制命令继续执行即可</li>
+</ul>
+<h3 id="安装-Xcode-和-Android-Studio"><a href="#安装-Xcode-和-Android-Studio" class="headerlink" title="安装 Xcode 和 Android Studio"></a>安装 Xcode 和 Android Studio</h3><p>Xcode 和 Android Studio 是进行原生开发的 IDE，安装后也会便于进行 Flutter 开发。具体安装自行了解一下，可看 <a href="https://flutterchina.club/setup-macos/#ios-%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">参考链接</a></p>
+<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><ul>
+<li>Visual Studio Code (VS Code)<br>安装 Flutter 插件即可</li>
+<li>Android Studio<br>安装 Flutter 和 Dart 插件即可</li>
+</ul>
+<h2 id="工程"><a href="#工程" class="headerlink" title="工程"></a>工程</h2><h3 id="新建项目（VS-Code）"><a href="#新建项目（VS-Code）" class="headerlink" title="新建项目（VS Code）"></a>新建项目（VS Code）</h3><ol>
+<li>打开命令面板（Command + shift + P），输入 “flutter”, 然后选择 “Flutter: New Project” action</li>
+<li>输入 Project 名称 (如myapp), 然后按回车键确认</li>
+<li>指定放置项目的位置，然后按蓝色的确定按钮</li>
+<li>等待项目创建继续，并显示main.dart文件</li>
+</ol>
+<h3 id="运行项目（VS-Code）"><a href="#运行项目（VS-Code）" class="headerlink" title="运行项目（VS Code）"></a>运行项目（VS Code）</h3><ol>
+<li>在 VS Code 的右下角选择目标设备</li>
+<li>按 F5 键进行调试</li>
+</ol>
+<h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><ul>
+<li>创建 keystore (若已有keystore，跳至下一步)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过 Java JDK 的 keytool 在根目录下创建一个 key.jks 文件</span></span><br><span class="line">$ keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -<span class="built_in">alias</span> key</span><br></pre></td></tr></table></figure>
+<ul>
+<li>引用keystore</li>
+</ul>
+<p>创建一个名为 <code>&lt;app dir&gt;/android/key.properties</code> 的文件，其中包含对密钥库的引用：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">storePassword=&lt;password from previous step&gt;</span><br><span class="line">keyPassword=&lt;password from previous step&gt;</span><br><span class="line">keyAlias=key</span><br><span class="line">storeFile=&lt;location of the key store file, e.g. /Users/&lt;user name&gt;/key.jks&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在 gradle 中配置签名</li>
+</ul>
+<ol>
+<li>替换:</li>
+</ol>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">android &#123;</span><br></pre></td></tr></table></figure>
+<p>为：</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> keystorePropertiesFile = rootProject.<span class="keyword">file</span>(<span class="string">"key.properties"</span>)</span><br><span class="line"><span class="keyword">def</span> keystoreProperties = <span class="keyword">new</span> Properties()</span><br><span class="line">keystoreProperties.load(<span class="keyword">new</span> FileInputStream(keystorePropertiesFile))</span><br><span class="line"></span><br><span class="line">android &#123;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>替换:</li>
+</ol>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">    release &#123;</span><br><span class="line">        <span class="comment">// <span class="doctag">TODO:</span> Add your own signing config for the release build.</span></span><br><span class="line">        <span class="comment">// Signing with the debug keys for now, so `flutter run --release` works.</span></span><br><span class="line">        signingConfig signingConfigs.debug</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为：</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">signingConfigs &#123;</span><br><span class="line">    release &#123;</span><br><span class="line">        keyAlias keystoreProperties[<span class="string">'keyAlias'</span>]</span><br><span class="line">        keyPassword keystoreProperties[<span class="string">'keyPassword'</span>]</span><br><span class="line">        storeFile <span class="keyword">file</span>(keystoreProperties[<span class="string">'storeFile'</span>])</span><br><span class="line">        storePassword keystoreProperties[<span class="string">'storePassword'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">buildTypes &#123;</span><br><span class="line">    release &#123;</span><br><span class="line">        signingConfig signingConfigs.release</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行命令打包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在 &lt;app dir&gt; 下执行命令（非 android/ 目录下）</span></span><br><span class="line">$ flutter build apk (flutter build 默认会包含 --release选项)</span><br></pre></td></tr></table></figure>
+<p>打包好的APK位于 <code>&lt;app dir&gt;/build/app/outputs/apk/</code></p>
+<h4 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h4><p>和正常的iOS项目一样打包，具体可查看 <a href="https://flutterchina.club/ios-release/" target="_blank" rel="noopener">详细介绍</a></p>
+<h3 id="热补丁"><a href="#热补丁" class="headerlink" title="热补丁"></a>热补丁</h3><p>目前 Flutter 是默认不支持热补丁的，暂时也未发现靠谱的热补丁方法。</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="Dart"><a href="#Dart" class="headerlink" title="Dart"></a>Dart</h3><p><a href="http://dart.goodev.org/" target="_blank" rel="noopener">Dart</a> 是由 Google 开发并开源的应用编程语言。我们需要用其进行 Flutter 开发。</p>
+<p>简单介绍一些语法：</p>
+<ul>
+<li>变量声明</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> t;</span><br><span class="line">t=<span class="string">"hi world"</span>;</span><br><span class="line">t=<span class="number">1000</span>; <span class="comment">// error</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dynamic</span> t;</span><br><span class="line"><span class="built_in">Object</span> x;</span><br><span class="line">t = <span class="string">"hi world"</span>;</span><br><span class="line">x = <span class="string">'Hello Object'</span>;</span><br><span class="line">t = <span class="number">1000</span>; <span class="comment">// ok</span></span><br><span class="line">x = <span class="number">1000</span>; <span class="comment">// ok</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// dynamic 声明的对象编译器会提供所有可能的组合, 而 Object 声明的对象只能使用 Object 的属性与方法</span></span><br><span class="line"><span class="built_in">dynamic</span> a;</span><br><span class="line"><span class="built_in">Object</span> b;</span><br><span class="line">main() &#123;</span><br><span class="line">    a = <span class="string">""</span>;</span><br><span class="line">    b = <span class="string">""</span>;</span><br><span class="line">    printLengths();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printLengths() &#123;</span><br><span class="line">    <span class="built_in">print</span>(a.length); <span class="comment">// ok</span></span><br><span class="line">    <span class="built_in">print</span>(b.length); <span class="comment">// error: The getter 'length' is not defined for the class 'Object'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>异步处理</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">Future.delayed(<span class="keyword">new</span> <span class="built_in">Duration</span>(seconds: <span class="number">2</span>),()&#123;</span><br><span class="line">   <span class="comment">//return "hello world!";</span></span><br><span class="line">   <span class="keyword">throw</span> AssertionError(<span class="string">"Error"</span>);</span><br><span class="line">&#125;).then((data)&#123;</span><br><span class="line">   <span class="comment">//执行成功会走到这里</span></span><br><span class="line">   <span class="built_in">print</span>(data);</span><br><span class="line">&#125;).catchError((e)&#123;</span><br><span class="line">   <span class="comment">//执行失败会走到这里</span></span><br><span class="line">   <span class="built_in">print</span>(e);</span><br><span class="line">&#125;).whenComplete(()&#123;</span><br><span class="line">   <span class="comment">//无论成功或失败都会走到这里</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个异步任务</span></span><br><span class="line">Future.wait([</span><br><span class="line">  <span class="comment">// 2秒后返回结果  </span></span><br><span class="line">  Future.delayed(<span class="keyword">new</span> <span class="built_in">Duration</span>(seconds: <span class="number">2</span>), () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello"</span>;</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">// 4秒后返回结果  </span></span><br><span class="line">  Future.delayed(<span class="keyword">new</span> <span class="built_in">Duration</span>(seconds: <span class="number">4</span>), () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">" world"</span>;</span><br><span class="line">  &#125;)</span><br><span class="line">]).then((results)&#123;</span><br><span class="line">  <span class="built_in">print</span>(results[<span class="number">0</span>]+results[<span class="number">1</span>]);</span><br><span class="line">&#125;).catchError((e)&#123;</span><br><span class="line">  <span class="built_in">print</span>(e);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Future 消除 callback hell</span></span><br><span class="line">login(<span class="string">"alice"</span>,<span class="string">"******"</span>).then((id)&#123;</span><br><span class="line">      <span class="keyword">return</span> getUserInfo(id);</span><br><span class="line">&#125;).then((userInfo)&#123;</span><br><span class="line">    <span class="keyword">return</span> saveUserInfo(userInfo);</span><br><span class="line">&#125;).then((e)&#123;</span><br><span class="line">   <span class="comment">// 执行接下来的操作</span></span><br><span class="line">&#125;).catchError((e)&#123;</span><br><span class="line">  <span class="comment">// 错误处理  </span></span><br><span class="line">  <span class="built_in">print</span>(e);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p>Flutter 有一套自己的布局机制。其核心就是 Widget。在Flutter中，几乎所有的对象都是一个 Widget。</p>
+<p>简单介绍一下：</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Text(<span class="string">'Hello World'</span>, style: <span class="keyword">new</span> TextStyle(fontSize: <span class="number">32.0</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Icon(Icons.star, color: Colors.red[<span class="number">500</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Center(</span><br><span class="line">  child: <span class="keyword">new</span> Text(<span class="string">'Hello World'</span>, style: <span class="keyword">new</span> TextStyle(fontSize: <span class="number">32.0</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="Widget"><a href="#Widget" class="headerlink" title="Widget"></a>Widget</h3><p>与原生开发中“控件”不同的是，Flutter 中的 Widget 的概念更广泛，它不仅可以表示UI元素，也可以表示一些功能性的组件如：用于手势检测的 GestureDetector Widget、用于应用主题数据传递的 Theme 等等。</p>
+<p>其实在 Flutter 中，Widget 的功能是“描述一个UI元素的配置数据”，Flutter 中真正代表屏幕上显示元素的类是 Element，也就是说 Widget 只是描述 Element 的一个配置。不过，由于 Element 是通过 Widget 生成，所以它们之间有对应关系，所以在大多数场景，我们可以宽泛地认为 Widget 树就是指UI控件树或UI渲染树。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><span class="line"><span class="meta">@immutable</span></span><br><span class="line"><span class="comment">// DiagnosticableTree 即“诊断树”，主要作用是提供调试信息。</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Widget</span> <span class="keyword">extends</span> <span class="title">DiagnosticableTree</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> Widget(&#123; <span class="keyword">this</span>.key &#125;);</span><br><span class="line">  <span class="comment">// key属性类似于 React/Vue 中的 key，主要的作用是决定是否在下一次 build 时复用旧的widget，决定的条件在 canUpdate()方法中。</span></span><br><span class="line">  <span class="keyword">final</span> Key key;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@protected</span></span><br><span class="line">  <span class="comment">// 由 Flutter Framework 隐式调用，来生成对应的 Element 对象，构建 UI 树。</span></span><br><span class="line">  <span class="built_in">Element</span> createElement();</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="built_in">String</span> toStringShort() &#123;</span><br><span class="line">    <span class="keyword">return</span> key == <span class="keyword">null</span> ? <span class="string">'<span class="subst">$runtimeType</span>'</span> : <span class="string">'<span class="subst">$runtimeType</span>-<span class="subst">$key</span>'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="keyword">void</span> debugFillProperties(DiagnosticPropertiesBuilder properties) &#123;</span><br><span class="line">    <span class="keyword">super</span>.debugFillProperties(properties);</span><br><span class="line">    properties.defaultDiagnosticsTreeStyle = DiagnosticsTreeStyle.dense;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断是否用新的 Widget 对象去更新旧UI树上所对应的 Element 对象的配置。</span></span><br><span class="line">  <span class="keyword">static</span> <span class="built_in">bool</span> canUpdate(Widget oldWidget, Widget newWidget) &#123;</span><br><span class="line">    <span class="keyword">return</span> oldWidget.runtimeType == newWidget.runtimeType</span><br><span class="line">        &amp;&amp; oldWidget.key == newWidget.key;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在Flutter开发中，我们一般都不用直接继承 Widget 类来实现 Widget，相反，我们通常会通过继承 StatelessWidget 和 StatefulWidget 来间接继承 Widget类来实现，而 StatelessWidget 和 StatefulWidget 都是直接继承自 Widget 类。</p>
+</blockquote>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p><a href="https://flutter.dev/" target="_blank" rel="noopener">Flutter 官网</a><br><a href="https://flutterchina.club/" target="_blank" rel="noopener">Flutter 中文网</a><br><a href="https://github.com/Solido/awesome-flutter" target="_blank" rel="noopener">Awesome Flutter</a><br><a href="https://juejin.im/tag/Flutter" target="_blank" rel="noopener">Flutter 掘金社区</a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><table>
+<thead>
+<tr>
+<th>技术类型</th>
+<th>UI渲染方式</th>
+<th>性能</th>
+<th>开发效率</th>
+<th>动态化</th>
+<th>框架代表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H5 + 原生</td>
+<td>WebView渲染</td>
+<td>一般</td>
+<td>高</td>
+<td>支持</td>
+<td>Cordova、Ionic</td>
+</tr>
+<tr>
+<td>JavaScript + 原生渲染</td>
+<td>原生控件渲染</td>
+<td>好</td>
+<td>高</td>
+<td>支持</td>
+<td>RN、Weex</td>
+</tr>
+<tr>
+<td>自绘UI + 原生渲染</td>
+<td>调用系统API渲染</td>
+<td>好</td>
+<td>Flutter高，QT低</td>
+<td>默认不支持</td>
+<td>QT、Flutter</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="../tags/Flutter/">Flutter</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/front-end/flutter-quick-start.html';
+        this.page.identifier = 'front-end/flutter-quick-start.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
+<script src="../js/busuanzi.pure.mini.js"></script>
+
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">
+                关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <!-- <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp -->
+            <a href="/links" title="友情链接">友情链接</a>
+            <!-- <a href="/app" title="App下载">App下载</a> -->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0
+                国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2018 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://haohaio.github.io/" target="_blank">haohaio</a>
+        </p>
+        
+<!-- Tencent Analytics -->
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
+
+
+    </div>
+</footer>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '12/08/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
+        });
+    </script>
+</body>
+
+</html>

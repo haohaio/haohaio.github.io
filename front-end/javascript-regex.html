@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
+<meta name="author" content="haohaio">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+
+<link rel="shortcut icon" href="../images/favicon.png">
+
+
+<title>
+    
+    如何在 javascript 中使用正则表达式 -
+    
+    灏絯喔
+    
+</title>
+
+<meta name="keywords" content="IT，技术博客，笔记">
+
+<meta name="description " content="好记性不如烂笔头">
+</head>
+
+<body>
+    <div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="嗨">嗨</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+    <div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
+</div>
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar">
+        
+        <h1 class="cover-siteName">haohaio</h1>
+        <h3 class="cover-siteTitle">努力学习，艰苦奋斗</h3>
+        <p class="cover-siteDesc">写写代码，记记笔记</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+                <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2020-04-18">2020-04-18</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">如何在 JavaScript 中使用正则表达式</h2>
+            <div class="post-meta">
+                本文总共3603个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>之前我们已经了解了如何写正则表达式，今天就来具体了解一下正则表达式在 JavaScript 中的使用。</p>
+<h3 id="正则表达式的创建"><a href="#正则表达式的创建" class="headerlink" title="正则表达式的创建"></a>正则表达式的创建</h3><p>在 JavaScript 中，正则表达式就是 <code>RegExp</code> 对象。有两种方法来创建正则表达式，一种是使用字面量创建，另一种是使用 <code>RegExp</code> 构造函数来创建了一个正则表达式对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用字面量创建正则表达式</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/ab+c/i</span>;</span><br><span class="line">regex <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 `RegExp` 构造函数创建正则表达式</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"ab+c"</span>, <span class="string">"i"</span>);</span><br><span class="line"><span class="keyword">var</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/ab+c/</span>, <span class="string">"i"</span>);</span><br></pre></td></tr></table></figure>
+<p>两种创建方式对于结果来说，没什么区别。所以一般我们都是语法采用更为简单的字面量创建方法。</p>
+<h3 id="RegExp-方法"><a href="#RegExp-方法" class="headerlink" title="RegExp 方法"></a>RegExp 方法</h3><h4 id="test"><a href="#test" class="headerlink" title="test()"></a>test()</h4><p><code>test()</code> 方法用来测试当前正则是否能匹配目标字符串。</p>
+<p>直接举个栗子看一下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/ab+c/i</span>;</span><br><span class="line">regex.test(<span class="string">"Abbc"</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>有一点需要注意的是，如果正则表达式设置了全局搜索，<code>test()</code> 的执行会改变正则表达式 <code>lastIndex</code> 属性。连续的执行 <code>test()</code> 方法，后续的执行将会从 <code>lastIndex</code> 处开始匹配字符串，来看下栗子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/foo/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// regex.lastIndex is at 0</span></span><br><span class="line">regex.test(<span class="string">"foo"</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// regex.lastIndex is now at 3</span></span><br><span class="line">regex.test(<span class="string">"foo"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h4 id="exec"><a href="#exec" class="headerlink" title="exec()"></a>exec()</h4><p><code>exec</code> 方法用来在目标字符串中执行一次正则匹配操作。返回一个结果数组或 null。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">"https://www.google.com/"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[^.]+/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regex.exec(url)); <span class="comment">// ["https://www", index: 0, input: "https://www.google.com/", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+<p>和 <code>test()</code> 方法一样，当表达式设置了全局搜索时，<code>exec()</code> 的执行也会改变正则表达式 <code>lastIndex</code> 属性。使用此特性，<code>exec()</code> 可用来对单个字符串中的多次匹配结果进行逐条的遍历。还是直接看个栗子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">"https://www.google.com/"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[^.]+/g</span>;</span><br><span class="line"><span class="keyword">var</span> arr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> ((arr = regex.exec(url)) !== <span class="literal">null</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Found <span class="subst">$&#123;arr[<span class="number">0</span>]&#125;</span> Next starts at <span class="subst">$&#123;regex.lastIndex&#125;</span>.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Found https://www Next starts at 11.</span></span><br><span class="line"><span class="comment">// Found google Next starts at 18.</span></span><br><span class="line"><span class="comment">// Found com/ Next starts at 23.</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串相关正则方法"><a href="#字符串相关正则方法" class="headerlink" title="字符串相关正则方法"></a>字符串相关正则方法</h3><h4 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h4><p>在上一篇文章中，我们已经多次使用 <code>match()</code> 方法了，这里我们再说一下。</p>
+<p>使用字符串的 <code>match()</code> 方法时，如果未使用 <code>g</code> 标志，则仅返回第一个完整匹配及其相关的结果数组。如果正则使用了 <code>g</code> 标志，则将返回与完整正则表达式匹配的所有结果。</p>
+<h4 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h4><p>使用字符串的 <code>search()</code> 方法，会返回匹配到的第一个字符串起始位置的下标（无论是否使用了 <code>g</code> 标志）：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">"https://www.google.com/"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[^.]+/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(url.search(regex)); <span class="comment">// ["https://www", index: 0, input: "https://www.google.com/", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+<h4 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h4><p>我们经常使用 <code>split()</code> 方法来分割字符串，其实我们也可以传入一个正则表达式作为参数，来分割字符串：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> classNameStr = <span class="string">`container user-info    flex-container`</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\s+/</span>;</span><br><span class="line"><span class="keyword">var</span> classNames = classNameStr.split(regex);</span><br><span class="line"><span class="built_in">console</span>.log(classNames); <span class="comment">// ["container", "user-info", "flex-container"]</span></span><br></pre></td></tr></table></figure>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h4><p>我们在开发中会使用 <code>replace()</code> 方法来替换字符串中子串，先来看看语法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.replace(regexp|subStr, newSubStr|<span class="function"><span class="keyword">function</span>)</span></span><br></pre></td></tr></table></figure>
+<p>接下里看个栗子，使用空字符串替换非数字和空格的字符：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"- -The car parked in the garage.@123"</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/[^A-Za-z\s]/g</span>;</span><br><span class="line">str = str.replace(regex, <span class="string">""</span>);</span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// The car parked in the garage</span></span><br></pre></td></tr></table></figure>
+<p>最后看一下 <code>replace()</code> 方法第二个参数为函数的情况。</p>
+<p>先看一下该函数的参数：</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>代表值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>match</code></td>
+<td>匹配的子串</td>
+</tr>
+<tr>
+<td><code>p1,p2, ...</code></td>
+<td>假如 <code>replace()</code> 方法的第一个参数是一个 RegExp 对象，则代表第 n 个括号匹配的字符串。例如，如果是用 <code>/(\a+)(\b+)/</code> 这个来匹配，<code>p1</code> 就是匹配的 <code>\a+</code>，p2 就是匹配的 <code>\b+</code>。</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>匹配到的子字符串在原字符串中的偏量。</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>被匹配的原字符串。</td>
+</tr>
+</tbody>
+</table>
+<p>接下来看个栗子吧：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'&lt;div&gt;&#123;&#123; name &#125;&#125;&lt;/div&gt;'</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\&#123;\&#123;\s*(.+?)\s*\&#125;\&#125;/</span></span><br><span class="line">str.replace(regex, (...args) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(args)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ["&#123;&#123; name &#125;&#125;", "name", 5, "&lt;div&gt;&#123;&#123; name &#125;&#125;&lt;/div&gt;"]</span></span><br></pre></td></tr></table></figure>
+<p>可以看到 <code>args</code> 中第以个元素 <code></code> 是匹配到的子串，<code>args</code> 中第二个元素 <code>name</code> 就是 <code>(.+?)</code> 匹配到的内容。</p>
+<p>接下来我们我们可以简单模拟一下 Vue 中的模板解析功能：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">  name: <span class="string">'haohaio'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'&lt;div&gt;&#123;&#123; name &#125;&#125;&lt;/div&gt;'</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\&#123;\&#123;\s?(.+?)\s?\&#125;\&#125;/</span></span><br><span class="line">str = str.replace(regex, (...args) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> data[args[<span class="number">1</span>]]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// &lt;div&gt;haohaio&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>replace()</code> 方法参数中的正则如果使用了 <code>g</code> 标志，那么函数将会多次调用：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">  name: <span class="string">'haohaio'</span>,</span><br><span class="line">  age: <span class="number">28</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'&lt;div&gt;&#123;&#123; name &#125;&#125; - &#123;&#123; age &#125;&#125;&lt;/div&gt;'</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\&#123;\&#123;\s*(.+?)\s*\&#125;\&#125;/g</span>;</span><br><span class="line">str = str.replace(regex, (...args) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> data[args[<span class="number">1</span>]]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// &lt;div&gt;haohaio - 28&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>正则表达式在我们的开发过程中，还是很重要的。本篇文章介绍的 JavaScript 中的一些常用方法，一定要掌握哦 ~~</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="../tags/javascript/">JavaScript</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/front-end/javascript-regex.html';
+        this.page.identifier = 'front-end/javascript-regex.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
+<script src="../js/busuanzi.pure.mini.js"></script>
+
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">
+                关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <!-- <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp -->
+            <a href="/links" title="友情链接">友情链接</a>
+            <!-- <a href="/app" title="App下载">App下载</a> -->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0
+                国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2018 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://haohaio.github.io/" target="_blank">haohaio</a>
+        </p>
+        
+<!-- Tencent Analytics -->
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
+
+
+    </div>
+</footer>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '12/08/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
+        });
+    </script>
+</body>
+
+</html>

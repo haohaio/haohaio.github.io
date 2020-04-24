@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
+<meta name="author" content="haohaio">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+
+<link rel="shortcut icon" href="../images/favicon.png">
+
+
+<title>
+    
+    使用 hexo 搭建属于你自己的博客 -
+    
+    灏絯喔
+    
+</title>
+
+<meta name="keywords" content="IT，技术博客，笔记">
+
+<meta name="description " content="使用 Hexo 快速搭建个人博客">
+</head>
+
+<body>
+    <div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="嗨">嗨</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+    <div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
+</div>
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar">
+        
+        <h1 class="cover-siteName">haohaio</h1>
+        <h3 class="cover-siteTitle">努力学习，艰苦奋斗</h3>
+        <p class="cover-siteDesc">写写代码，记记笔记</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+                <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class>
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+                </li>
+            
+                <li class="active">
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2019-03-08">2019-03-08</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">使用 Hexo 搭建属于你自己的博客</h2>
+            <div class="post-meta">
+                本文总共2032个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h2 id="为什么要搭建个人博客"><a href="#为什么要搭建个人博客" class="headerlink" title="为什么要搭建个人博客"></a>为什么要搭建个人博客</h2><p>博客，我个人觉得更多是写给自己看的，主要是把自己学到的东西给记录下来，进行总结，从而让自己有一定的提升。其次也能将自己学来的知识与他人进行分享，帮助他人解决问题，在分享的过程中他人和自己都能获得一定的提升。</p>
+<p>至于为什么要个人建站，是因为本人是做 Web 开发的，所以想要定制一个自己喜欢的个人博客（其实就是从网上众多的主题中挑选一个自己顺眼的，自己再小小修改一下），想怎么来就怎么来~~</p>
+<p>今天就来介绍一下如何使用 Hexo 来搭建自己的个人博客。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 是一个基于 Node.js, 支持 Markdown 的快速、简洁且高效的博客框架。</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>需先安装 <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">Node.js</a> 和 Git</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h3 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h3><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成博客目录并安装依赖</span></span><br><span class="line">$ hexo init blog &amp;&amp; <span class="built_in">cd</span> blog &amp;&amp; npm install</span><br></pre></td></tr></table></figure>
+<p>生成的主要文件目录如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">├── /scaffolds/          <span class="comment"># 模版文件夹：新建文章时的模板</span></span><br><span class="line">├── /sources/            <span class="comment"># 资源文件夹</span></span><br><span class="line">│ ├── /_posts/           <span class="comment"># 文章文件夹</span></span><br><span class="line">├── /themes/             <span class="comment"># 主题文件夹：Hexo 根据主题来生成静态页面</span></span><br><span class="line">├── _config.yml          <span class="comment"># 网站配置信息</span></span><br><span class="line">├── package.json         <span class="comment"># 应用程序信息</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>建议将自己的博客用 Git 管理起来哦~~</p>
+</blockquote>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 会在本地启动一个 http server，用来访问我们的个人博客</span></span><br><span class="line">$ hexo server (hexo s)</span><br></pre></td></tr></table></figure>
+<p>启动服务后即可在 <a href="localhost:4000" target="_blank" rel="noopener">本地</a> 访问自己刚刚搭建的博客。</p>
+<h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo new [layout] &lt;title&gt; 创建一篇新文章，layout 默认为 post（scaffolds/post）</span></span><br><span class="line">$ hexo n 我的第一篇博客</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>推荐一份 <a href="http://note.youdao.com/iyoudao/?p=2411&amp;vendor=unsilent14" target="_blank" rel="noopener">Markdown 语法指南</a></p>
+</blockquote>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>我们可以将我们的个人博客部署在服务器上，并代理到我们自己的域名，但这些都是需要 ￥￥ 的。所以推荐一些免费的服务来用来部署我们的博客，比如 <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>、<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a> 和 <a href="https://gitee.com/" target="_blank" rel="noopener">码云</a> 等，这些平台提供了免费的 Pages 服务，可以用来部署我们的博客。下面以 Github Pages 为例，讲一下如何进行部署，其它平台的操作也是大同小异。</p>
+<h4 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h4><blockquote>
+<p>GitHub 提供了 GitHub Pages 的服务，免费提供 <code>username.github.io</code> 的域名，来让我们部署一个静态网页。</p>
+</blockquote>
+<ul>
+<li>首先我们要创建一个 GitHub 帐号，用户名一定要想好了再创建，因为用户名会关系到我们个人博客的域名哦~~</li>
+<li>然后创建一个名称为 <code>username.github.io</code> 的项目，然后点击项目的配置，就会发现，我们的Pages服务已经OK了,如下图所示</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692994-aa18483b1638de5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="project.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1692994-77ac0154b8739377.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pages.png"></p>
+<ul>
+<li>接下来只需要部署我们的代码就可以了</li>
+</ul>
+<p>配置 <code>_config.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/haohaio/haohaio.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装依赖以通过 Git 进行部署，然后生成静态文件进行部署</span></span><br><span class="line">$ npm install hexo-deployer-git --save &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最好配置一下 GitHub 的 SSH key，将 repo 改成 SSH 类型的，这样部署的时候就不需要输入用户名和密码啦~~</p>
+</blockquote>
+<p>然后访问一下 <code>username.github.io</code> 就能看到自己搭建的博客啦~~</p>
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>但现在我们搭建的博客看上去还不是那么的好看，功能也很少，我们可以通过更换主题来改变一下我们博客的面貌。Hexo 提供了一份<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题列表</a>, 或者可以去 GitHub 上搜索 <code>hexo theme</code> 来选择一个喜欢的主题进行更换。</p>
+<p>那我们就以 GitHub 上 Star 最多的 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a> 为例来更换我们的主题。</p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建主题文件夹</span></span><br><span class="line">$ mkdir themes/next</span><br><span class="line"><span class="comment"># 获取主题资源文件</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>配置 <code>_config.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重新部署</span></span><br><span class="line">$ hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>刷新页面后就可以看到我们已经成功的更换主题了，具体还可以根据 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">详细介绍</a> 来让我们的博客更加美观、强大。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>坚持！坚持！坚持！一定要把写博客的习惯坚持下去~~</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="../tags/hexo/">Hexo</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/others/hexo-blog.html';
+        this.page.identifier = 'others/hexo-blog.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
+<script src="../js/busuanzi.pure.mini.js"></script>
+
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">
+                关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <!-- <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp -->
+            <a href="/links" title="友情链接">友情链接</a>
+            <!-- <a href="/app" title="App下载">App下载</a> -->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0
+                国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2018 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://haohaio.github.io/" target="_blank">haohaio</a>
+        </p>
+        
+<!-- Tencent Analytics -->
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
+
+
+    </div>
+</footer>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '12/08/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
+<meta name="author" content="haohaio">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+
+<link rel="shortcut icon" href="../images/favicon.png">
+
+
+<title>
+    
+    使用 sentry 对前端项目进行异常监控 -
+    
+    灏絯喔
+    
+</title>
+
+<meta name="keywords" content="IT，技术博客，笔记">
+
+<meta name="description " content="好记性不如烂笔头">
+</head>
+
+<body>
+    <div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="嗨">嗨</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+    <div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
+</div>
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar">
+        
+        <h1 class="cover-siteName">haohaio</h1>
+        <h3 class="cover-siteTitle">努力学习，艰苦奋斗</h3>
+        <p class="cover-siteDesc">写写代码，记记笔记</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+                <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2020-04-22">2020-04-22</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">使用 Sentry 对前端项目进行异常监控</h2>
+            <div class="post-meta">
+                本文总共4771个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>前面在 <a href="/front-end/exception-monitor-1586335615.html">前端异常监控</a> 一文里大概了解了前端是如何进行异常监控的，但是要搭建一个完整的异常监控系统还是很麻烦的，不仅仅需要完善一下我们前端的异常监控代码，还需要单独开发一个异常管理系统。好在我们有现成的轮子可以使用，Sentry 是就是一个非常出色的服务，今天我们就来了解一下如何使用 Sentry 进行异常监控的。</p>
+<h3 id="创建前端项目"><a href="#创建前端项目" class="headerlink" title="创建前端项目"></a>创建前端项目</h3><p>我们以 Vue 的项目为例，首先使用 <code>vue-cli</code> 创建一个项目</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue create hello-world</span><br></pre></td></tr></table></figure>
+<p>然后在在项目里手动抛出一个异常，以便后续异常上报。</p>
+<p>在 <code>/src/components/HelloWorld.vue</code> 文件第 40 行抛出一个错误：</p>
+<p><img src="../img/assets/sentry_error.png" alt="异常"></p>
+<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>我们可以使用 Sentry 提供的在线服务来帮助我们进行异常监控。首先我们需要注册一个帐号，<a href="https://sentry.io/signup" target="_blank" rel="noopener">注册地址</a></p>
+<p><img src="../img/assets/sentry_register.png" alt="注册"></p>
+<p>如上图所示，填写姓名、组织、邮箱、密码后就可以了。</p>
+<h3 id="创建-Sentry-项目"><a href="#创建-Sentry-项目" class="headerlink" title="创建 Sentry 项目"></a>创建 Sentry 项目</h3><p>创建一个 Sentry 非常简单，只需要选中我们想要类型的项目就可以了：</p>
+<p><img src="../img/assets/sentry_project.png" alt="创建项目"></p>
+<h3 id="前端项目相关配置"><a href="#前端项目相关配置" class="headerlink" title="前端项目相关配置"></a>前端项目相关配置</h3><p>按照创建完项目后 Sentry 的提示，在我们的 Vue 项目中进行配置即可：</p>
+<ul>
+<li>安装 <code>@sentry/browser</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Using npm</span></span><br><span class="line">$ npm install @sentry/browser</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using yarn</span></span><br><span class="line">$ yarn add @sentry/browser</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装 <code>@sentry/integrations</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Using npm</span></span><br><span class="line">$ npm install @sentry/integrations --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using yarn</span></span><br><span class="line">$ yarn add @sentry/integrations</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在 <code>/src/main.js</code> 中添加代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Sentry <span class="keyword">from</span> <span class="string">'@sentry/browser'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Vue <span class="keyword">as</span> VueIntegration &#125; <span class="keyword">from</span> <span class="string">'@sentry/integrations'</span>;</span><br><span class="line"></span><br><span class="line">Sentry.init(&#123;</span><br><span class="line">  dsn: <span class="string">'https://66ed9457c0e5405397f465b4f9223aa1@o381494.ingest.sentry.io/5208892'</span>, <span class="comment">// 创建项目后会生成 dsn</span></span><br><span class="line">  integrations: [<span class="keyword">new</span> VueIntegration(&#123;Vue, <span class="attr">attachProps</span>: <span class="literal">true</span>&#125;)],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>OK，配置完成。</p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>启动我们的项目，然后打开我们的前端页面。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
+<p>打开控制台，发现浏览器并没有打印我们的错误，可见 Sentry 已经捕获到错误了。 若需要浏览器在控制台打印错误，可通过设置 <code>integrations</code> 的 <code>logErrors</code> 选项为 <code>true</code>。</p>
+<p>然后看一下我们的 Sentry 项目管理页面，可以看到已经收集到异常了：</p>
+<p><img src="../img/assets/sentry_issues.png" alt="sentry_issues"></p>
+<p>点开错误详情看一下：</p>
+<p><img src="../img/assets/sentry_error_detail.png" alt="sentry_issues"></p>
+<p>可以看到，错误信息收集的十分完整，不仅有错误的堆栈信息，还有浏览器环境相关信息等等。</p>
+<p>现在已经可以愉快的收集异常了，是不是非常简单 ~~</p>
+<h3 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h3><p>生产环境中我们的代码肯定都是经过压缩的，那我们看一下在生产环境中，Sentry 的表现是怎样的。可以本地通过 docker 启动一个 nginx 服务来部署我们的代码，这里就不详细介绍了。项目部署之后，再去看一下我们收集到的异常详细信息：</p>
+<p><img src="../img/assets/sentry_prod_error_1.png" alt="生产环境错误详情"><br><img src="../img/assets/sentry_prod_error_2.png" alt="生产环境错误详情"></p>
+<p>只能看到错误发生在哪个组件的生命周期钩子里，错误的堆栈信息是代码压缩后的代码堆栈信息，这对我们对错误进行定位就不是很方便了，为了解决这个问题，我们需要把webpack打包生成的 js 文件以及 sourceMap 文件上传到 Sentry 上面，这样，Sentry 就能够帮助我们准确定位了。</p>
+<p>我们需要做以下操作：</p>
+<h4 id="1-安装-sentry-webpack-plugin"><a href="#1-安装-sentry-webpack-plugin" class="headerlink" title="1. 安装 @sentry/webpack-plugin"></a>1. 安装 @sentry/webpack-plugin</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Using npm</span></span><br><span class="line">$ npm install --save-dev @sentry/webpack-plugin</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using yarn</span></span><br><span class="line">$ yarn add --dev @sentry/webpack-plugin</span><br></pre></td></tr></table></figure>
+<h4 id="2-修改-webpack-配置-和-release-相关版本配置"><a href="#2-修改-webpack-配置-和-release-相关版本配置" class="headerlink" title="2. 修改 webpack 配置 和 release 相关版本配置"></a>2. 修改 webpack 配置 和 release 相关版本配置</h4><ul>
+<li>新增 <code>/src/settings.js</code> 文件，方便进行 release 版本管理。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  version: <span class="string">'v1.0.0'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在 <code>/src/main.js</code> 中初始化 Sentry 时添加 release 相关配置。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> settings <span class="keyword">from</span> <span class="string">'./settings.js'</span></span><br><span class="line"></span><br><span class="line">Sentry.init(&#123;</span><br><span class="line">  release: settings.version,</span><br><span class="line">  dsn: <span class="string">'https://66ed9457c0e5405397f465b4f9223aa1@o381494.ingest.sentry.io/5208892'</span>, <span class="comment">// 创建项目后会生成 dsn</span></span><br><span class="line">  integrations: [<span class="keyword">new</span> VueIntegration(&#123;Vue, <span class="attr">attachProps</span>: <span class="literal">true</span>, <span class="attr">logErrors</span>: process.env.NODE_ENV === <span class="string">"production"</span> ? <span class="literal">false</span> : <span class="literal">true</span>&#125;)],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新增 <code>.sentryclirc</code> 文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">url=https://sentry.io/</span><br><span class="line">org=org</span><br><span class="line">project=org</span><br><span class="line"></span><br><span class="line">[auth]</span><br><span class="line">token=token</span><br></pre></td></tr></table></figure>
+<p>对文件中的参数进行一下说明：</p>
+<p>使用 Sentry 在线服务的话，url 设置为 <code>https://sentry.io/</code></p>
+<p>org 和 project 可按下图进行配置：</p>
+<p><img src="../img/assets/sentry_sentryclirc.png" alt="sentryclirc配置"></p>
+<p>token 按以下步骤获取：</p>
+<ol>
+<li><p>点击红框标出的 setting<br><img src="../img/assets/sentry_token_1.png" alt="sentryclirc配置"></p>
+</li>
+<li><p>点击红框标出的 Auth Tokens<br><img src="../img/assets/sentry_token_2.png" alt="sentryclirc配置"></p>
+</li>
+<li><p>点击红框标出的 Create New Token<br><img src="../img/assets/sentry_token_3.png" alt="sentryclirc配置"></p>
+</li>
+<li><p>选中 project:write<br><img src="../img/assets/sentry_token_4.png" alt="sentryclirc配置"></p>
+</li>
+<li><p>复制 token 到 <code>.sentryclirc</code> 文件中<br><img src="../img/assets/sentry_token_5.png" alt="sentryclirc配置"></p>
+</li>
+</ol>
+<ul>
+<li>新增 <code>vue.config.js</code> 文件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">const</span> SentryCliPlugin = <span class="built_in">require</span>(<span class="string">"@sentry/webpack-plugin"</span>);</span><br><span class="line"><span class="keyword">const</span> settings = <span class="built_in">require</span>(<span class="string">"./src/settings.js"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="keyword">new</span> SentryCliPlugin(&#123;</span><br><span class="line">        release: settings.version,</span><br><span class="line">        include: <span class="string">"./dist"</span>,</span><br><span class="line">        ignore: [<span class="string">"node_modules"</span>, <span class="string">"vue.config.js"</span>],</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="3-重新打包部署"><a href="#3-重新打包部署" class="headerlink" title="3. 重新打包部署"></a>3. 重新打包部署</h4><p>执行打包命令:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<p>可以在命令行中看到我们上传了打包后生成的 js 文件 和 map 文件：</p>
+<p><img src="../img/assets/sentry_upload.png" alt="上传map"></p>
+<p>上传后的文件可以在 Sentry 的管理页面中 Releases 相关版本详情中看到：</p>
+<p><img src="../img/assets/sentry_upload_2.png" alt="上传map"></p>
+<p>部署后，刷新页面，然后进入到 error 详情中查看，如下：</p>
+<p><img src="../img/assets/sentry_map_error.png" alt="map error"></p>
+<p>发现可以精准的对错误信息进行定位，完美 ~~</p>
+<h3 id="私有化部署"><a href="#私有化部署" class="headerlink" title="私有化部署"></a>私有化部署</h3><p>如果企业内部使用的话，私有化部署还是很有必要的。接下来我们就使用 Docker 部署一个 Sentry 服务</p>
+<h4 id="1-启动Redis容器"><a href="#1-启动Redis容器" class="headerlink" title="1. 启动Redis容器"></a>1. 启动Redis容器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name sentry-redis redis</span><br></pre></td></tr></table></figure>
+<h4 id="2-启动-Postgres-容器"><a href="#2-启动-Postgres-容器" class="headerlink" title="2. 启动 Postgres 容器"></a>2. 启动 Postgres 容器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name sentry-postgres -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=sentry postgres</span><br></pre></td></tr></table></figure>
+<h4 id="3-生成所有-Sentry-容器共享的密钥"><a href="#3-生成所有-Sentry-容器共享的密钥" class="headerlink" title="3. 生成所有 Sentry 容器共享的密钥"></a>3. 生成所有 Sentry 容器共享的密钥</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SECRET_KEY=$(docker run --rm sentry config generate-secret-key|tail -n 1)</span><br></pre></td></tr></table></figure>
+<h4 id="4-如果这是一个新数据库，则需要运行-upgrade"><a href="#4-如果这是一个新数据库，则需要运行-upgrade" class="headerlink" title="4. 如果这是一个新数据库，则需要运行 upgrade"></a>4. 如果这是一个新数据库，则需要运行 upgrade</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it --rm -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-postgres:postgres --link sentry-redis:redis sentry upgrade</span><br></pre></td></tr></table></figure>
+<p>输入邮箱、密码 创建用户。</p>
+<h4 id="5-启动-Sentry-容器"><a href="#5-启动-Sentry-容器" class="headerlink" title="5. 启动 Sentry 容器"></a>5. 启动 Sentry 容器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 9000:9000 --name my-sentry -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-redis:redis --link sentry-postgres:postgres sentry</span><br></pre></td></tr></table></figure>
+<h4 id="6-启动调度器和-worker"><a href="#6-启动调度器和-worker" class="headerlink" title="6. 启动调度器和 worker"></a>6. 启动调度器和 worker</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name sentry-cron -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-postgres:postgres --link sentry-redis:redis sentry run cron</span><br><span class="line"></span><br><span class="line">docker run -d --name sentry-worker-1 -e SENTRY_SECRET_KEY=<span class="variable">$&#123;SECRET_KEY&#125;</span> --link sentry-postgres:postgres --link sentry-redis:redis sentry run worker</span><br></pre></td></tr></table></figure>
+<h3 id="使用本地-Sentry-服务"><a href="#使用本地-Sentry-服务" class="headerlink" title="使用本地 Sentry 服务"></a>使用本地 Sentry 服务</h3><p>依次执行命令后，没有问题的话就可以访问 <code>http://localhost:9000</code> 来看一下我们部署的 Sentry 服务了。页面与 Sentry 的在线服务有些区别，但操作流程基本一样。</p>
+<p><img src="../img/assets/sentry_server.png" alt="sentry_server"></p>
+<p>登陆成功后，新建一个项目，然后修改一下配置：</p>
+<h4 id="1-在-src-main-js-中修改-dsn"><a href="#1-在-src-main-js-中修改-dsn" class="headerlink" title="1. 在 /src/main.js 中修改 dsn"></a>1. 在 <code>/src/main.js</code> 中修改 dsn</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Sentry <span class="keyword">from</span> <span class="string">'@sentry/browser'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Vue <span class="keyword">as</span> VueIntegration &#125; <span class="keyword">from</span> <span class="string">'@sentry/integrations'</span>;</span><br><span class="line"></span><br><span class="line">Sentry.init(&#123;</span><br><span class="line">  dsn: <span class="string">'http://7b4af4c05ee84328a2497b4493bacc74@localhost:9000/3'</span>, <span class="comment">// 创建项目后会生成 dsn</span></span><br><span class="line">  integrations: [<span class="keyword">new</span> VueIntegration(&#123;Vue, <span class="attr">attachProps</span>: <span class="literal">true</span>&#125;)],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="2-重新生成-token-并修改-sentryclirc-文件"><a href="#2-重新生成-token-并修改-sentryclirc-文件" class="headerlink" title="2. 重新生成 token 并修改 .sentryclirc 文件"></a>2. 重新生成 token 并修改 <code>.sentryclirc</code> 文件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">url=http://localhost:9000</span><br><span class="line">org=sentry</span><br><span class="line">project=vue-exception-monitor</span><br><span class="line"></span><br><span class="line">[auth]</span><br><span class="line">token=037bf45801df4404b410dcc224768c907d5f09f1d9b8496e9228507371bd105d</span><br></pre></td></tr></table></figure>
+<p>然后重新部署 Vue 项目，测试一下：</p>
+<p><img src="../img/assets/sentry_server_2.png" alt="sentry_server"></p>
+<p>可以看到我们本地部署的 Sentry 服务，也能帮我们收集异常了。完美 ~~</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="../tags/Web/">Web</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/front-end/sentry.html';
+        this.page.identifier = 'front-end/sentry.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
+<script src="../js/busuanzi.pure.mini.js"></script>
+
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">
+                关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <!-- <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp -->
+            <a href="/links" title="友情链接">友情链接</a>
+            <!-- <a href="/app" title="App下载">App下载</a> -->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0
+                国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2018 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://haohaio.github.io/" target="_blank">haohaio</a>
+        </p>
+        
+<!-- Tencent Analytics -->
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
+
+
+    </div>
+</footer>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '12/08/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
+        });
+    </script>
+</body>
+
+</html>

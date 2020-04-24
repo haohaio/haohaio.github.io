@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">[JavaScript LeetCode]88. 合并两个有序数组</h2>
             <div class="post-meta">
-                本文总共985个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共984个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -196,7 +196,7 @@
 <h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>直接在不超过数组空间的情况下合并两个数组（splice），再进行排序。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span> (<span class="params">nums1, m, nums2, n</span>) </span>&#123;</span><br><span class="line">  nums1.splice(m, n, ...nums2);</span><br><span class="line">  nums1.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>设置指针 len1 和 len2 分别指向 nums1 和 nums2 的有数字尾部，从尾部值开始比较遍历，同时设置指针 len 指向 nums1 的最末尾，每次遍历比较值大小之后，则进行填充。</p>
-<p>当 len2 先小于 0 时，此时 num2 已全部填充进 nums1 中，则已经得到目标结果。 若 len1 先小于 0 时，表明此时 nums2 中 len2 之前的值都比 nums1 中的元素小，替换调 nums1 中，长度为 len2 + 1 的元素即可。</p>
+<p>当 len2 先小于 0 时，此时 num2 已全部填充进 nums1 中，则已经得到目标结果。 若 len1 先小于 0 时，表明此时 nums2 中 len2 之前的值都比 nums1 中的元素小，替换掉 nums1 中长度为 len2 + 1 的元素即可。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span> (<span class="params">nums1, m, nums2, n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len1 = m - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> len2 = n - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> len = m + n - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (len1 &gt;= <span class="number">0</span> &amp;&amp; len2 &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    nums1[len--] = nums1[len1] &gt; nums2[len2] ? nums1[len1--] : nums2[len2--];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (len1 &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    nums1.splice(<span class="number">0</span>, len2 + <span class="number">1</span>, ...nums2.slice(<span class="number">0</span>, len2 + <span class="number">1</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
         </div>

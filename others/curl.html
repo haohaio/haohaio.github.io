@@ -54,7 +54,7 @@
 
 <title>
     
-    docker 入门 -
+    curl 常用用法 -
     
     灏絯喔
     
@@ -62,7 +62,7 @@
 
 <meta name="keywords" content="IT，技术博客，笔记">
 
-<meta name="description " content="Docker 的一些基本概念及常用命令">
+<meta name="description " content="好记性不如烂笔头">
 </head>
 
 <body>
@@ -174,49 +174,54 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://haohaio.github.io" target="_blank">haohaio</a>
-                    <span title="最后编辑于2018-12-19">2018-12-19</span>
+                    <span title="最后编辑于2020-04-24">2020-04-24</span>
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">Docker 入门</h2>
+            <h2 class="post-title">Curl 常用用法</h2>
             <div class="post-meta">
-                本文总共2421个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1813个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口。</p>
-<p>Docker 将应用程序与该程序的依赖，打包在一个文件里面。运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了 Docker，就不用担心环境问题。</p>
-<p>Docker 系统有两个程序：Docker 服务端 和 Docker 客户端。</p>
-<ul>
-<li>Docker 服务端是一个服务进程，管理着所有的容器。</li>
-<li>Docker 客户端则扮演着 Docker 服务端的远程控制器，可以用来控制 Docker 的服务端进程。</li>
-<li>大部分情况下，Docker 服务端和客户端运行在一台机器上。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看 docker 版本</span></span><br><span class="line">$ docker version</span><br></pre></td></tr></table></figure>
-<h3 id="虚拟机-VS-Linux-容器"><a href="#虚拟机-VS-Linux-容器" class="headerlink" title="虚拟机 VS Linux 容器"></a>虚拟机 VS Linux 容器</h3><p>Linux 容器与虚拟机享有相似的资源隔离和分配，但是两者还是有很大区别的。</p>
+            <p>curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就是客户端（client）的 URL 工具的意思。</p>
+<p>它的功能非常强大，命令行参数多达几十种。如果熟练的话，完全可以取代 Postman 这一类的图形界面工具。</p>
+<p>今天来了解一下 curl 的常用用法。</p>
+<h3 id="不带参数"><a href="#不带参数" class="headerlink" title="不带参数"></a>不带参数</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 向 `www.example.com` 发送一个 GET 请求，服务器返回的内容会在命令行输出。</span></span><br><span class="line">$ curl https://www.example.com</span><br></pre></td></tr></table></figure>
+<h3 id="b"><a href="#b" class="headerlink" title="-b"></a>-b</h3><p><code>-b</code> 参数用来向服务器发送 Cookie。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 向服务器发送一个名为 foo，值为 bar 的 Cookie。</span></span><br><span class="line">$ curl -b <span class="string">'foo=bar'</span> https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送多个 cookie 时，中间用 ; 隔开</span></span><br><span class="line">$ curl -b <span class="string">'foo1=bar;foo2=bar2'</span> https://www.example.com</span><br></pre></td></tr></table></figure>
+<h3 id="d"><a href="#d" class="headerlink" title="-d"></a>-d</h3><p><code>-d</code> 参数用于发送 POST 请求的数据体。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -d <span class="string">'username=emma＆password=123'</span> -X POST https://google.com/login</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ curl -d <span class="string">'username=emma'</span> -d <span class="string">'password=123'</span> -X POST  https://google.com/login</span><br></pre></td></tr></table></figure>
+<h3 id="data-urlencode"><a href="#data-urlencode" class="headerlink" title="--data-urlencode"></a>--data-urlencode</h3><p><code>--data-urlencode</code> 参数等同于 <code>-d</code>，发送 POST 请求的数据体，区别在于会自动将发送的数据进行 URL 编码。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl --data-urlencode <span class="string">'comment=hello world'</span> https://google.com/login</span><br></pre></td></tr></table></figure>
+<h3 id="G"><a href="#G" class="headerlink" title="-G"></a>-G</h3><p><code>-G</code> 参数用来构造 URL 的查询字符串。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -G -d <span class="string">'q=kitties'</span> -d <span class="string">'count=20'</span> https://google.com/search</span><br></pre></td></tr></table></figure>
+<p>上面命令会发出一个 GET 请求，实际请求的 URL 为 <code>https://google.com/search?q=kitties&amp;count=20</code>。如果省略 <code>-G</code>，会发出一个 POST 请求。</p>
 <blockquote>
-<p>虚拟机可以在一种操作系统里面运行另一种操作系统。看上去跟真实系统一模一样，而对于底层系统来说，虚拟机就是一个普通文件，不需要了就删掉，对其他部分毫无影响。<br>Linux 容器是 Linux 的一种虚拟化技术。它不是模拟一个完整的操作系统，而是对进程进行隔离。</p>
+<p>如果数据需要 URL 编码，可以结合 --data-urlencode 参数。</p>
 </blockquote>
-<p>由于 Linux 容器是进程级别的，相比虚拟机有很多优势：</p>
-<ul>
-<li>启动快 (启动虚拟机就相当于启动操作系统)</li>
-<li>资源占用少 (虚拟机会独占一部分内存和硬盘空间)</li>
-<li>体积小</li>
-</ul>
-<h3 id="Docker-Image"><a href="#Docker-Image" class="headerlink" title="Docker Image"></a>Docker Image</h3><blockquote>
-<p>An image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.</p>
-</blockquote>
-<p>只读模板，包含一个基本的操作系统。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索可用镜像</span></span><br><span class="line">$ docker search tutorial</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载镜像（用户名/镜像名:标签名）默认标签为 lastest</span></span><br><span class="line">$ docker pull learn/tutorial</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用该镜像创建一个容器，执行完成会进入 bash 界面，输入 exit 可退出</span></span><br><span class="line">$ docker run -it learn/tutorials bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有镜像</span></span><br><span class="line">$ docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除镜像（需先删除使用镜像的容器，使用 -f 参数强制删除(不推荐)）</span></span><br><span class="line">$ docker rmi 镜像名/镜像id</span><br></pre></td></tr></table></figure>
-<h3 id="Docker-container"><a href="#Docker-container" class="headerlink" title="Docker container"></a>Docker container</h3><blockquote>
-<p>A container is a runtime instance of an image.</p>
-</blockquote>
-<p>一个轻量级的沙箱，容器是从镜像创建的，应用的运行实例。可以启动、开始、停止和删除，容器彼此间相互隔离。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建容器</span></span><br><span class="line"><span class="comment"># -i：让容器的标准输入保持打开; -t：让docker分配一个伪终端(pseudo-tty)，并绑定到容器的标准输入上。即允许用户交互</span></span><br><span class="line">$ docker create -it --name ubuntu-demo ubuntu:16.04</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动容器</span></span><br><span class="line">$ docker start 容器名/容器id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看正在运行的容器列表</span></span><br><span class="line">$ docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有容器列表</span></span><br><span class="line">$ docker ps -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看刚刚操作的容器id</span></span><br><span class="line">$ docker ps -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建并启动容器 (docker run = docker create + docker start)(-d：后台运行)</span></span><br><span class="line">$ docker run -it ubuntu:16.04 /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># run 命令后可跟在镜像中运行的命令</span></span><br><span class="line"><span class="comment"># 使用 Ubuntu 的 apt-get 命令来安装 ping 程序</span></span><br><span class="line"><span class="comment"># 在执行 apt-get 命令的时候，要带上 -y 参数。如果不指定 -y 参数的话，apt-get 命令会进入交互模式，需要用户输入命令来进行确认，但在 Docker 环境中是无法响应这种交互的。</span></span><br><span class="line">$ docker run learn/tutorial apt-get install -y ping</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录容器</span></span><br><span class="line">$ docker <span class="built_in">exec</span> -it 容器名/容器id /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line">$ docker stop 容器名/容器id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止所有容器</span></span><br><span class="line">$ docker stop $(docker ps -a -q)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">$ docker rm 容器id（需先停止容器或者使用 -f）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有容器</span></span><br><span class="line">$ docker rm $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="Docker-数据管理"><a href="#Docker-数据管理" class="headerlink" title="Docker 数据管理"></a>Docker 数据管理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># copy 本地文件到容器内</span></span><br><span class="line">$ docker cp ./index.html nginx-demo:/usr/share/nginx/html</span><br><span class="line"></span><br><span class="line"><span class="comment"># Volume</span></span><br><span class="line"><span class="comment"># 将本地的 ~/docker/nginx-demo 目录挂载到容器内部的 /usr/share/nginx/html</span></span><br><span class="line">$ docker run --name nginx-demo -v ~/docker/nginx-demo:/usr/share/nginx/html -d nginx</span><br></pre></td></tr></table></figure>
-<h3 id="Docker-端口映射"><a href="#Docker-端口映射" class="headerlink" title="Docker 端口映射"></a>Docker 端口映射</h3><p>在启动容器的时候，如果不指定对应的参数，在容器外部是无法通过网络来访问容器内的网络应用和服务的。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将本地的 8001 端口映射到容器的 80 端口</span></span><br><span class="line">$ docker run --name nginx-demo -p 8001:80 -d nginx</span><br><span class="line">$ curl http://localhost:8001/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看容器端口映射情况</span></span><br><span class="line">$ docker port 容器名/容器id</span><br></pre></td></tr></table></figure>
-<h3 id="Docker-其它常用命令"><a href="#Docker-其它常用命令" class="headerlink" title="Docker 其它常用命令"></a>Docker 其它常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 登录</span></span><br><span class="line">$ docker login -u 用户名 -p 密码</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布镜像</span></span><br><span class="line">$ docker push 镜像名</span><br></pre></td></tr></table></figure>
+<h3 id="H"><a href="#H" class="headerlink" title="-H"></a>-H</h3><p><code>-H</code> 参数添加 HTTP 请求的标头。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -d <span class="string">'&#123;"login": "emma", "pass": "123"&#125;'</span> -H <span class="string">'Content-Type: application/json'</span> https://google.com/login</span><br></pre></td></tr></table></figure>
+<h3 id="i"><a href="#i" class="headerlink" title="-i"></a>-i</h3><p><code>-i</code> 参数打印出服务器回应的 HTTP 标头。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -i https://www.example.com</span><br></pre></td></tr></table></figure>
+<p>上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码。</p>
+<h3 id="I-head"><a href="#I-head" class="headerlink" title="-I(--head)"></a>-I(--head)</h3><p><code>-I</code> 参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -I https://www.example.com</span><br></pre></td></tr></table></figure>
+<h3 id="limit-rate"><a href="#limit-rate" class="headerlink" title="--limit-rate"></a>--limit-rate</h3><p><code>--limit-rate</code> 用来限制 HTTP 请求和回应的带宽，模拟慢网速的环境。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl --<span class="built_in">limit</span>-rate 200k https://google.com</span><br></pre></td></tr></table></figure>
+<p>上面命令将带宽限制在每秒 200K 字节。</p>
+<h3 id="o"><a href="#o" class="headerlink" title="-o"></a>-o</h3><p><code>-o</code> 参数将服务器的回应保存成文件，等同于 <code>wget</code> 命令。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -o example.html https://www.example.com</span><br></pre></td></tr></table></figure>
+<p>上面命令将 <code>www.example.com</code> 保存成 <code>example.html</code>。</p>
+<h3 id="O"><a href="#O" class="headerlink" title="-O"></a>-O</h3><p><code>-O</code> 参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -O https://www.example.com/foo/bar.html</span><br></pre></td></tr></table></figure>
+<p>上面命令将服务器回应保存成文件，文件名为 <code>bar.html</code>。</p>
+<h3 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h3><p><code>-v</code> 参数输出通信的整个过程，用于调试。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -v https://www.example.com</span><br></pre></td></tr></table></figure>
+<h3 id="X"><a href="#X" class="headerlink" title="-X"></a>-X</h3><p><code>-X</code> 参数指定 HTTP 请求的方法。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -X POST https://www.example.com</span><br></pre></td></tr></table></figure>
+<p>上面命令对 <code>https://www.example.com</code> 发出 POST 请求。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.ruanyifeng.com/blog/2019/09/curl-reference.html" target="_blank" rel="noopener">curl 的用法指南</a></p>
 
         </div>
         <div class="post-tool">
@@ -227,7 +232,7 @@
         
         <div class="post-tags">标签：
             
-            <a href="../tags/docker/">Docker</a>
+            <a href="../tags/工具/">工具</a>
             
         </div>
         
@@ -243,8 +248,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     var disqus_config = function () {
-        this.page.url = 'https://haohaio.github.io/others/docker-introduction.html';
-        this.page.identifier = 'others/docker-introduction.html';
+        this.page.url = 'https://haohaio.github.io/others/curl.html';
+        this.page.identifier = 'others/curl.html';
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');

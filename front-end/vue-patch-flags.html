@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">Vue 之 PatchFlags</h2>
             <div class="post-meta">
-                本文总共5167个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共5170个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -201,8 +201,8 @@
 <h5 id="按位或运算符（-）"><a href="#按位或运算符（-）" class="headerlink" title="按位或运算符（|）"></a>按位或运算符（|）</h5><p><code>|</code> 运算符表示按位或，即两个位有一位为 1 时，结果就为 1，例如 <code>3 | 5</code>，即 <code>0000 0011 &amp; 0000 0101</code>，结果为 <code>0000 0111</code>，即 <code>3 | 5</code> 的值为 7。</p>
 <h5 id="按位异或运算符（-）"><a href="#按位异或运算符（-）" class="headerlink" title="按位异或运算符（^）"></a>按位异或运算符（^）</h5><p><code>^</code> 运算符表示按位异或，即两个位相同时结果为 0，相异时结果为 1。例如 <code>3 ^ 5</code>，即 <code>0000 0011 &amp; 0000 0101</code>，结果为 <code>0000 0110</code>，即 <code>3 &amp; 5</code> 的值为 6。</p>
 <h5 id="按位取反运算符（-）"><a href="#按位取反运算符（-）" class="headerlink" title="按位取反运算符（~）"></a>按位取反运算符（~）</h5><p><code>~</code> 运算符表示按位取反，即对一个二进制数按位取反，即将 0 变 1， 1 变 0。例如 <code>~3</code>，即将 <code>0000 0011</code> 变成 <code>1111 1100</code>。很明显是一个负数。现在计算机普遍使用补码表示负数，补码转换成原码就是等于其绝对值取反然后末位加 1，先绝对值取反就是 <code>1000 0011</code>，末位加 1，变成<code>1000 0100</code>，即 <code>~3</code> 的值为 <code>-4</code></p>
-<h5 id="左移运算符（-lt-lt-）"><a href="#左移运算符（-lt-lt-）" class="headerlink" title="左移运算符（&lt;&lt;）"></a>左移运算符（&lt;&lt;）</h5><p><code>&lt;&lt;</code> 表示把各二进位全部左移若干位，高位丢弃，低位补0。例如二进制 <code>1010 1110</code> 左移两位就是 <code>1011 1000</code>。</p>
-<h5 id="右移运算符（-gt-gt-）"><a href="#右移运算符（-gt-gt-）" class="headerlink" title="右移运算符（&gt;&gt;）"></a>右移运算符（&gt;&gt;）</h5><p><code>&gt;&gt;</code> 表示把各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补0（逻辑右移）。</p>
+<h5 id="左移运算符（-lt-lt-）"><a href="#左移运算符（-lt-lt-）" class="headerlink" title="左移运算符（&lt;&lt;）"></a>左移运算符（&lt;&lt;）</h5><p><code>&lt;&lt;</code> 表示把各二进位全部左移若干位，高位丢弃，低位补 0。例如二进制 <code>1010 1110</code> 左移两位就是 <code>1011 1000</code>。</p>
+<h5 id="右移运算符（-gt-gt-）"><a href="#右移运算符（-gt-gt-）" class="headerlink" title="右移运算符（&gt;&gt;）"></a>右移运算符（&gt;&gt;）</h5><p><code>&gt;&gt;</code> 表示把各二进位全部右移若干位，对无符号数，高位补 0，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补 0（逻辑右移）。</p>
 <h3 id="PatchFlags-中的枚举值"><a href="#PatchFlags-中的枚举值" class="headerlink" title="PatchFlags 中的枚举值"></a>PatchFlags 中的枚举值</h3><p>再来看一下 <code>PatchFlags</code>  中定义的枚值就很清楚了：</p>
 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="keyword">enum</span> PatchFlags &#123;</span><br><span class="line">  TEXT = <span class="number">1</span>, <span class="comment">// 1  二进制: 0000 0001 (1)</span></span><br><span class="line">  CLASS = <span class="number">1</span> &lt;&lt; <span class="number">1</span>, <span class="comment">// 二进制: 0000 0010 (2)</span></span><br><span class="line">  STYLE = <span class="number">1</span> &lt;&lt; <span class="number">2</span>, <span class="comment">// 二进制: 0000 0100 (4)</span></span><br><span class="line">  PROPS = <span class="number">1</span> &lt;&lt; <span class="number">3</span>, <span class="comment">// 二进制:  0000 1000 (8)</span></span><br><span class="line">  FULL_PROPS = <span class="number">1</span> &lt;&lt; <span class="number">4</span> <span class="comment">//  二进制: 0001 0000 (16)</span></span><br></pre></td></tr></table></figure>
 <p>通过观察可以看到，每个枚举值的二进制数中都只有一个 1，通过左移的位数不同来进行区分。就是通过这个特点，我们可以方便的进行多枚举值情况的处理。</p>

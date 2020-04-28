@@ -54,7 +54,7 @@
 
 <title>
     
-    [java leetcode]21. merge two sorted lists -
+    [javascript leetcode]21. 合并两个有序链表 -
     
     灏絯喔
     
@@ -178,21 +178,23 @@
                 </p>
                 <p>写写代码，记记笔记</p>
             </div>
-            <h2 class="post-title">[Java LeetCode]21. Merge Two Sorted Lists</h2>
+            <h2 class="post-title">[JavaScript LeetCode]21. 合并两个有序链表</h2>
             <div class="post-meta">
-                本文总共1106个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1058个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">原题链接</a></p>
-<p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
-<p>Example:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>首先要对 ListNode 有一定的了解：</p>
+            <p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">原题链接</a></p>
+<p>将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
+<p>首先要对 ListNode 有一定的了解：</p>
 <p>ListNode 存储了两个变量：val 和 next。val 是这个节点的值，next 是指向下一节点的指针，当 next 为空指针时，这个节点是链表的最后一个节点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val; <span class="comment">// 当前指针的值</span></span><br><span class="line">    ListNode next; <span class="comment">// 下一个节点</span></span><br><span class="line"></span><br><span class="line">    ListNode(<span class="keyword">int</span> x)&#123;</span><br><span class="line">        val = x;</span><br><span class="line">        next = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>新链表指针每次指向值小的节点，依次比较下去，最后，当其中一个链表到达了末尾，我们只需要把新链表指针指向另一个没有到末尾的链表此时的指针即可。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode head = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode temp = head;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1.val &lt; l2.val) &#123;</span><br><span class="line">                temp.next = l1;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                temp.next = l2;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next = l1 != <span class="keyword">null</span> ? l1 : l2;</span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ListNode</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.val = val;</span><br><span class="line">  <span class="keyword">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>可以创建一个新链表，新链表指针每次指向值小的节点，依次比较下去，最后，当其中一个链表到达了末尾，我们只需要把新链表指针指向另一个没有到末尾的链表此时的指针即可。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mergeTwoLists = <span class="function"><span class="keyword">function</span> (<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> head = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">let</span> temp = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (l1 !== <span class="literal">null</span> &amp;&amp; l2 !== <span class="literal">null</span>) &#123;˝</span><br><span class="line">    <span class="keyword">if</span> (l1.val &lt; l2.val) &#123;</span><br><span class="line">      temp.next = l1;</span><br><span class="line">      l1 = l1.next;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      temp.next = l2;</span><br><span class="line">      l2 = l2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp = temp.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  temp.next = l1 !== <span class="literal">null</span> ? l1 : l2;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> head.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>也可以使用递归。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mergeTwoLists = <span class="function"><span class="keyword">function</span> (<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l1 === <span class="literal">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">  <span class="keyword">if</span> (l2 === <span class="literal">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (l1.val &lt; l2.val) &#123;</span><br><span class="line">    l1.next = mergeTwoLists(l1.next, l2);</span><br><span class="line">    <span class="keyword">return</span> l1;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    l2.next = mergeTwoLists(l1, l2.next);</span><br><span class="line">    <span class="keyword">return</span> l2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
         </div>
         <div class="post-tool">

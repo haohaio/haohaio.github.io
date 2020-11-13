@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=https://haohaio.github.io/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://haohaio.github.io">
+<meta name="author" content="haohaio">
+<link rel="stylesheet" href="../css/SimpleStyle.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+
+<link rel="shortcut icon" href="../images/favicon.png">
+
+
+<title>
+    
+    flv video -
+    
+    灏絯喔
+    
+</title>
+
+<meta name="keywords" content="IT，技术博客，笔记">
+
+<meta name="description " content="通过 flv.js 自定义一个 video">
+</head>
+
+<body>
+    <div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="嗨">嗨</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+    <div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-weixin"></i></a>
+</div>
+    <div id="wrapper" class="clearfix">
+        <div id="body">
+            <div class="main" id="main">
+                <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar">
+        
+        <h1 class="cover-siteName">haohaio</h1>
+        <h3 class="cover-siteTitle">努力学习，艰苦奋斗</h3>
+        <p class="cover-siteDesc">写写代码，记记笔记</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+                <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/front-end" data-name="前端">前端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/back-end" data-name="后端">后端</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/data-structure" data-name="数据结构">数据结构</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其它">其它</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" placeholder="请输入关键字">
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://haohaio.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://haohaio.github.io" target="_blank">haohaio</a>
+                    <span title="最后编辑于2020-11-13">2020-11-13</span>
+                </p>
+                <p>写写代码，记记笔记</p>
+            </div>
+            <h2 class="post-title">Flv Video</h2>
+            <div class="post-meta">
+                本文总共6444个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>由于年底谷歌浏览器将不在支持 Flash Player 了，为了避免到时候出现问题，所以决定使用 flv.js 来播放视频流了。</p>
+<p>flv.js 不像 video.js 一样，能在 UI 方面帮我们处理一些问题。所以对 video 进行了进一步封装，自定了 loading 和 切换全屏操作。接下来就看看具体如何操作吧。直接上代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">"videoContainer"</span> <span class="attr">class</span>=<span class="string">"video-container"</span> @<span class="attr">mouseover</span>=<span class="string">"handleControls('over')"</span> @<span class="attr">mouseleave</span>=<span class="string">"handleControls('leave')"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">ref</span>=<span class="string">"video"</span> <span class="attr">class</span>=<span class="string">"video"</span> <span class="attr">muted</span>&gt;</span></span><br><span class="line">      Sorry, your browser doesn't support embedded videos.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--- Loading ---&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"isShowLoading"</span> <span class="attr">class</span>=<span class="string">"loading-spinner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--- 播放器底部控制栏，提供切换全屏功能 ---&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video-bottom-control"</span> <span class="attr">v-show</span>=<span class="string">"!hideControl"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">v-if</span>=<span class="string">"isFullScreen"</span> <span class="attr">class</span>=<span class="string">"el-icon-copy-document icon"</span> @<span class="attr">click</span>=<span class="string">"handleExitFullScreen"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">v-else</span> <span class="attr">class</span>=<span class="string">"el-icon-full-screen icon"</span> @<span class="attr">click</span>=<span class="string">"handleFullScreen"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> flvjs <span class="keyword">from</span> <span class="string">'flv.js'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="actionscript">  name: <span class="string">'FlvVideo'</span>,</span></span><br><span class="line">  props: &#123;</span><br><span class="line"><span class="javascript">    sourceUrl: <span class="built_in">String</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">      player: <span class="literal">null</span>,</span></span><br><span class="line"><span class="actionscript">      hideControl: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      isFullScreen: <span class="literal">false</span>,</span></span><br><span class="line"><span class="actionscript">      <span class="comment">// 通过 poster 设置 loading 时，存在图片尺寸变化的问题，所以需要自定义 loading 效果，这里搬了下 video.js 的 loading 效果</span></span></span><br><span class="line"><span class="actionscript">      isShowLoading: <span class="literal">false</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.destroyVideo()</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.playVideo()</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 由于全屏状态下无法监听 onkeydown 事件，所以通过 onresize 来监听 ESC 退出全屏事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onresize = <span class="keyword">this</span>.dobounce(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.isFullScreen = <span class="keyword">this</span>.checkFullScreen()</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    dobounce(fn) &#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> timer = <span class="literal">null</span></span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line">        timer &amp;&amp; clearTimeout(timer)</span><br><span class="line"><span class="javascript">        timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">          fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span></span><br><span class="line">        &#125;, 100)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    playVideo() &#123;</span><br><span class="line">      if (flvjs.isSupported()) &#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.isShowLoading = <span class="literal">true</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">const</span> videoElement = <span class="keyword">this</span>.$refs.video</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 切换视频流时，先将播放器销毁</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.destroyVideo()</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player = flvjs.createPlayer(&#123;</span></span><br><span class="line"><span class="actionscript">          type: <span class="string">'flv'</span>,</span></span><br><span class="line"><span class="actionscript">          isLive: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">          url: <span class="keyword">this</span>.sourceUrl,</span></span><br><span class="line"><span class="actionscript">          hasAudio: <span class="literal">false</span>,</span></span><br><span class="line"><span class="actionscript">          hasVideo: <span class="literal">true</span></span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.attachMediaElement(videoElement)</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.load()</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.play()</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 通过监听 SCRIPTDATA_ARRIVED 事件，延时隐藏 loading</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.on(flvjs.Events.SCRIPTDATA_ARRIVED, () =&gt; &#123;</span></span><br><span class="line"><span class="javascript">          setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">this</span>.isShowLoading = <span class="literal">false</span></span></span><br><span class="line">          &#125;, 1000)</span><br><span class="line"></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.player.off(flvjs.Events.SCRIPTDATA_ARRIVED, () =&gt; &#123;&#125;)</span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="actionscript">      &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.$message.error(<span class="string">'浏览器不支持视频预览功能！'</span>)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    destroyVideo() &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">if</span> (<span class="keyword">this</span>.player) &#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.pause()</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.unload()</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.detachMediaElement()</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player.destroy()</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.player = <span class="literal">null</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    <span class="comment">// 监听离开或者进入视频区域隐藏或者展示控制栏</span></span></span><br><span class="line">    handleControls(flag) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.hideControl = flag === <span class="string">'leave'</span></span></span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">    <span class="comment">// 通过 video 的父容器全屏来达到 video 全屏的效果</span></span></span><br><span class="line">    handleFullScreen() &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">const</span> dom = <span class="keyword">this</span>.$refs.videoContainer</span></span><br><span class="line">      if (dom.requestFullscreen) &#123;</span><br><span class="line">        dom.requestFullscreen()</span><br><span class="line"><span class="actionscript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dom.mozRequestFullScreen) &#123;</span></span><br><span class="line">        dom.mozRequestFullScreen()</span><br><span class="line"><span class="actionscript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dom.webkitRequestFullScreen) &#123;</span></span><br><span class="line">        dom.webkitRequestFullScreen()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    handleExitFullScreen() &#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="built_in">document</span>.exitFullscreen) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.exitFullscreen()</span></span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.mozCancelFullScreen) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.mozCancelFullScreen()</span></span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.webkitCancelFullScreen) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.webkitCancelFullScreen()</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    checkFullScreen() &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">const</span> isFull =</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.fullscreenElement ||</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.mozFullScreenElement ||</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.webkitFullscreenElement</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> !!isFull</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"scss"</span> <span class="attr">scoped</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.video-container</span> &#123;</span></span><br><span class="line">  flex: 1;</span><br><span class="line">  position: relative;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.video</span> &#123;</span></span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span></span><br><span class="line">    border-radius: 8px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.video-bottom-control</span> &#123;</span></span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 30px;</span><br><span class="line">    left: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-tag">rgba</span>(43, 51, 63, 0<span class="selector-class">.7</span>);</span></span><br><span class="line">    display: flex;</span><br><span class="line">    align-items: center;</span><br><span class="line">    justify-content: flex-end;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.icon</span> &#123;</span></span><br><span class="line">      font-size: 16px;</span><br><span class="line"><span class="css">      <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line">      margin-right: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="comment">/* 控制栏隐藏动画 */</span></span></span><br><span class="line"><span class="css"><span class="selector-class">.fade-enter-active</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 0<span class="selector-class">.1s</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-class">.fade-leave-active</span> &#123;</span></span><br><span class="line">  transition: all 1s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-class">.fade-enter</span>,</span></span><br><span class="line"><span class="css"><span class="selector-class">.fade-leave-to</span> &#123;</span></span><br><span class="line">  visibility: hidden;</span><br><span class="line">  opacity: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$primary-background-color: #2b333f !default;</span><br><span class="line">$primary-background-transparency: 0.7 !default;</span><br><span class="line">$secondary-background-color: lighten($primary-background-color, 33%) !default;</span><br><span class="line">$secondary-background-transparency: 0.5 !default;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-class">.loading-spinner</span> &#123;</span></span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 50%;</span><br><span class="line">  margin: -25px 0 0 -25px;</span><br><span class="line"><span class="css">  <span class="selector-tag">opacity</span>: 0<span class="selector-class">.85</span>;</span></span><br><span class="line">  text-align: left;</span><br><span class="line">  border: 6px solid</span><br><span class="line">    rgba($primary-background-color, $primary-background-transparency);</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  background-clip: padding-box;</span><br><span class="line">  width: 50px;</span><br><span class="line">  height: 50px;</span><br><span class="line">  border-radius: 25px;</span><br><span class="line">  visibility: hidden;</span><br><span class="line"><span class="css">  <span class="selector-tag">animation</span>: <span class="selector-tag">spinner-show</span> 0<span class="selector-tag">s</span> <span class="selector-tag">linear</span> 0<span class="selector-class">.3s</span> <span class="selector-tag">forwards</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-class">.loading-spinner</span><span class="selector-pseudo">:before</span>,</span></span><br><span class="line"><span class="css"><span class="selector-class">.loading-spinner</span><span class="selector-pseudo">:after</span> &#123;</span></span><br><span class="line">  content: '';</span><br><span class="line">  position: absolute;</span><br><span class="line">  margin: -6px;</span><br><span class="line">  box-sizing: inherit;</span><br><span class="line">  width: inherit;</span><br><span class="line">  height: inherit;</span><br><span class="line">  border-radius: inherit;</span><br><span class="line">  // Keep 100% opacity so they don't show through each other</span><br><span class="line">  opacity: 1;</span><br><span class="line">  border: inherit;</span><br><span class="line">  border-color: transparent;</span><br><span class="line">  border-top-color: white;</span><br><span class="line"><span class="css">  <span class="selector-tag">animation</span>: <span class="selector-tag">spinner-spin</span> 1<span class="selector-class">.1s</span> <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.6</span>, 0<span class="selector-class">.2</span>, 0, 0<span class="selector-class">.8</span>) <span class="selector-tag">infinite</span>,</span></span><br><span class="line"><span class="css">    <span class="selector-tag">spinner-fade</span> 1<span class="selector-class">.1s</span> <span class="selector-tag">linear</span> <span class="selector-tag">infinite</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="keyword">@keyframes</span> spinner-show &#123;</span></span><br><span class="line">  to &#123;</span><br><span class="line">    visibility: visible;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="keyword">@keyframes</span> spinner-spin &#123;</span></span><br><span class="line">  100% &#123;</span><br><span class="line">    transform: rotate(360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="keyword">@keyframes</span> spinner-fade &#123;</span></span><br><span class="line">  0% &#123;</span><br><span class="line">    border-top-color: $secondary-background-color;</span><br><span class="line">  &#125;</span><br><span class="line">  20% &#123;</span><br><span class="line">    border-top-color: $secondary-background-color;</span><br><span class="line">  &#125;</span><br><span class="line">  35% &#123;</span><br><span class="line">    border-top-color: white;</span><br><span class="line">  &#125;</span><br><span class="line">  60% &#123;</span><br><span class="line">    border-top-color: $secondary-background-color;</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    border-top-color: $secondary-background-color;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>目前不是所有浏览器切换全屏方法都返回 promise（IE 和 Safair 都不支持）。若在不监听 window.onresize 事件的情况下，需要在切换全屏操作后做一些处理时，需要注意这一点。 <a href="https://caniuse.com/?search=requestFullscreen%3A%20Returns%20a%20Promise" target="_blank" rel="noopener">Can I use</a></p>
+</blockquote>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="../tags/Web/">Web</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = 'https://haohaio.github.io/front-end/flv-video.html';
+        this.page.identifier = 'front-end/flv-video.html';
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, disqus_shortname = 'haohaio', s = d.createElement('script');
+        s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
+<script src="../js/busuanzi.pure.mini.js"></script>
+
+            </div><!-- end #main-->
+        </div><!-- end #body -->
+        <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about" title="关于本站">
+                关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <!-- <a href="/help" title="help">急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp -->
+            <a href="/links" title="友情链接">友情链接</a>
+            <!-- <a href="/app" title="App下载">App下载</a> -->
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0
+                国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br>
+            ©2018 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://haohaio.github.io/" target="_blank">haohaio</a>
+        </p>
+        
+<!-- Tencent Analytics -->
+<script type="text/javascript" src="//tajs.qq.com/stats?sId=66143495" charset="UTF-8"></script>
+
+
+    </div>
+</footer>
+<script src="../js/InsightSearch.js"></script>
+<script src="../js/SimpleCore.js"></script>
+    </div>
+    <div class="fixed-btn">
+        <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+    </div>
+    <script>
+        $(function() {
+            SimpleCore.init({
+                buildingTime: '12/08/2018',
+                current: $('.post-tags').length > 0 ? 'post' : 'archive',
+                wxQRCode: '/images/wx-qrcode.png',
+                donateImg: '/images/donate-qr.png',
+            });
+        });
+    </script>
+</body>
+
+</html>
